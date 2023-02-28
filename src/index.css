@@ -1,0 +1,14 @@
+:where(*) {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+}
+
+:where(*:not(input):focus) {
+  outline: 2px solid black !important;
+}
+
+:where(a) {
+  text-decoration: none;
+}
