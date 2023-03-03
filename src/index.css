@@ -5,7 +5,7 @@
   color: inherit;
 }
 
-:where(*:not(input):focus) {
+*:focus {
   outline: 2px solid black !important;
 }
 

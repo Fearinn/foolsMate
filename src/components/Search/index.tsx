@@ -23,6 +23,7 @@ function Search() {
         focusBorderColor="black"
         color={"black"}
         _placeholder={{ opacity: 1, color: "black" }}
+        border={"none"}
         width={"auto"}
         size={"sm"}
         variant="filled"
