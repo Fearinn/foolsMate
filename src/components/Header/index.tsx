@@ -9,6 +9,7 @@ export function Header() {
         <h1>
           <Link to="/">Wolvesville Wiki</Link>
         </h1>
+        <Link to="items/avatarItems">Items</Link>
       </nav>
       <Search />
     </StyledHeader>
