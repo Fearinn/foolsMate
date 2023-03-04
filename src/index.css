@@ -1,3 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+:root, body, #root {
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto", sans-serif !important;
+  min-width: 360px;
+}
+
+#root > main {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
 :where(*) {
   box-sizing: border-box;
   margin: 0;
