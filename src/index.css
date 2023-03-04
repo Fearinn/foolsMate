@@ -12,3 +12,7 @@
 :where(a) {
   text-decoration: none;
 }
+
+:where(ul) {
+  list-style: none;
+}
