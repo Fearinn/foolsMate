@@ -1,4 +1,4 @@
-type IItem = {
+type IAvatarItem = {
   id: string;
   rarity: "COMMON" | "RARE" | "EPIC" | "LEGENDARY";
   costInGold: number;
@@ -7,4 +7,4 @@ type IItem = {
   gender: "FEMALE" | "MALE"
 };
 
-export default IItem;
+export default IAvatarItem;
