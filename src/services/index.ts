@@ -7,7 +7,7 @@ const instance = axios.create({
 });
 
 async function getAvatarItems() {
-  const response = await instance.get<IResponseData<IAvatarItem>>(`items/avatarItems`);
+  const response = await instance.get<IResponseData<IAvatarItem>>(`items/avatarItems?limit=30`);
   console.log(response.data)
   return response.data;
 }
