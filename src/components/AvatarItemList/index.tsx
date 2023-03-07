@@ -12,6 +12,7 @@ import IAvatarItem, {
 import IResponseData from "../../types/ResponseData";
 import { useEffect, useState } from "react";
 import { colors } from "../../assets/cssVariables";
+import numberToList from "../../utils/numberToList";
 
 function AvatarItemsList() {
   const [limit, setLimit] = useState(100);
@@ -28,14 +29,6 @@ function AvatarItemsList() {
   }
 
   const [filters, setFilters] = useState<Partial<IAvatarItem>>({});
-
-  function pageOptions() {
-    const numberList: number[] = [];
-    for (let i = 1; i <= (numberOfPages || 0); i++) {
-      numberList.push(i);
-    }
-    return numberList;
-  }
 
   const { data, isLoading, error, refetch } = useQuery<
     IResponseData<IAvatarItem>,
@@ -138,7 +131,7 @@ function AvatarItemsList() {
             setPage(Number(event.target.value) || 1);
           }}
         >
-          {pageOptions().map((number) => {
+          {numberToList(numberOfPages).map((number) => {
             return (
               <option key={number} value={number}>
                 {number}
