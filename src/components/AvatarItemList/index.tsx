@@ -6,8 +6,8 @@ import { Button, Input, Select, Spinner } from "@chakra-ui/react";
 import { AxiosError } from "axios";
 import IAvatarItem, {
   IAvatarItemGender,
-  IAvatarItemKind,
-  IAvatarRarity,
+  IAvatarItemType,
+  IAvatarItemRarity,
 } from "../../types/AvatarItem";
 import IResponseData from "../../types/ResponseData";
 import { useEffect, useState } from "react";
@@ -27,12 +27,7 @@ function AvatarItemsList() {
     return gender as IAvatarItemGender;
   }
 
-  const [filters, setFilters] = useState<Partial<IAvatarItem>>({
-    gender: handleGender(gender),
-    rarity: (rarity as IAvatarRarity) || undefined,
-    type: (type as IAvatarItemKind) || undefined,
-    event: event || undefined,
-  });
+  const [filters, setFilters] = useState<Partial<IAvatarItem>>({});
 
   function pageOptions() {
     const numberList: number[] = [];
@@ -166,8 +161,8 @@ function AvatarItemsList() {
           onClick={() => {
             setFilters({
               gender: handleGender(gender),
-              rarity: (rarity as IAvatarRarity) || undefined,
-              type: (type as IAvatarItemKind) || undefined,
+              rarity: (rarity as IAvatarItemRarity) || undefined,
+              type: (type as IAvatarItemType) || undefined,
               event: event || undefined,
             });
           }}

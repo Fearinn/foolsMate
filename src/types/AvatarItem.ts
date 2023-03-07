@@ -1,17 +1,17 @@
 type IAvatarItem = {
   id: string;
-  rarity: IAvatarRarity;
+  rarity: IAvatarItemRarity;
   costInGold?: number;
   costInRoses?: number;
   imageUrl: "string";
-  type: IAvatarItemKind;
+  type: IAvatarItemType;
   gender?: IAvatarItemGender;
   event?: string;
 };
 
-type IAvatarRarity = "COMMON" | "RARE" | "EPIC" | "LEGENDARY";
+type IAvatarItemRarity = "COMMON" | "RARE" | "EPIC" | "LEGENDARY";
 
-type IAvatarItemKind =
+type IAvatarItemType =
   | "HAIR"
   | "FRONT"
   | "SHIRT"
@@ -24,6 +24,6 @@ type IAvatarItemKind =
 
 type IAvatarItemGender = "FEMALE" | "MALE" | ""
 
-export type { IAvatarItemKind, IAvatarItemGender, IAvatarRarity};
+export type { IAvatarItemType, IAvatarItemGender, IAvatarItemRarity};
 
 export default IAvatarItem;
