@@ -4,6 +4,9 @@ import IResponseData from "../types/ResponseData";
 
 const instance = axios.create({
   baseURL: "http://localhost:3000/",
+  headers: {
+    Accept: "application/json"
+  }
 });
 
 async function getAvatarItems(
