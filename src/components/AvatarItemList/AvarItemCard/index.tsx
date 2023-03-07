@@ -7,10 +7,10 @@ function AvatarItemCard(props: IAvatarItem) {
       <img src={props.imageUrl} alt="" role="presentation" />
       <div className="text">
         <p className="cost">
-          Cost in gold: <span>{props.costInGold || "?"}</span>
+          Cost: <span>{props.costInGold || props.costInRoses || "?"}</span>
         </p>
         <p className="gender">
-          Gender: <span>{props.gender || "NEUTRAL"}</span>
+          Gender: <span>{props.gender || "BOTH"}</span>
         </p>
         <p className="type">
           Type: <span>{props.type || "?"}</span>
@@ -18,6 +18,7 @@ function AvatarItemCard(props: IAvatarItem) {
         <p className="rarity">
           Rarity: <span>{props.rarity || "?"}</span>
         </p>
+        <p className="event">Event: <span>{props.event?.replaceAll("_", " ") || "NONE"}</span></p>
       </div>
     </StyledAvatarItemCard>
   );
