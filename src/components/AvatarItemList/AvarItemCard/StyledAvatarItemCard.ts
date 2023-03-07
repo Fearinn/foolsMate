@@ -48,11 +48,12 @@ const StyledAvatarItemCard = styled.div<IAvatarItem>`
   }
 
   span {
+    text-transform: uppercase;
     font-weight: bold;
   }
 
   .cost > span {
-    color: ${colors.costInGold};
+    color: ${(props: IAvatarItem) => props.costInGold ? colors.costInGold : colors.costInRoses};
   }
 
   .gender > span {
