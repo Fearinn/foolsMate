@@ -13,6 +13,7 @@ import IResponseData from "../../types/ResponseData";
 import { useEffect, useState } from "react";
 import { colors } from "../../assets/cssVariables";
 import numberToList from "../../utils/numberToList";
+import handleGender from "../../utils/handleGender";
 
 function AvatarItemsList() {
   const [limit, setLimit] = useState(100);
@@ -21,12 +22,6 @@ function AvatarItemsList() {
   const [rarity, setRarity] = useState<string>();
   const [type, setType] = useState<string>();
   const [event, setEvent] = useState<string>();
-
-  function handleGender(gender: string | undefined) {
-    if (gender === "BOTH") return "";
-    if (gender === "") return undefined;
-    return gender as IAvatarItemGender;
-  }
 
   const [filters, setFilters] = useState<Partial<IAvatarItem>>({});
 
