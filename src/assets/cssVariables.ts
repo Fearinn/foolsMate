@@ -3,6 +3,7 @@ export const colors = {
     mainFont: "#000",
     secondaryFont: "#FFF",
     costInGold: "#FF884B",
+    costInRoses: "#DC3535",
     maleGender: "#2D46B9",
     femaleGender: "#F037A5",
     neutralGender: "#21AA93",
