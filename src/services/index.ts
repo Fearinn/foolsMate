@@ -3,7 +3,7 @@ import IAvatarItem from "../types/AvatarItem";
 import IResponseData from "../types/ResponseData";
 
 const instance = axios.create({
-  baseURL: "http://localhost:3000/",
+  baseURL: "https://wolvesvillewiki.cyclic.app/",
   headers: {
     Accept: "application/json"
   }
