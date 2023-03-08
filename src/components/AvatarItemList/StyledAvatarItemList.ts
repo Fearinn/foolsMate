@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colors } from "../../assets/cssVariables";
 
 const StyledAvatarItemList = styled.div`
   display: flex;
@@ -10,6 +11,21 @@ const StyledAvatarItemList = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 0.5rem;
+  }
+
+  .stats {
+    display: flex;
+    gap: 1rem;
+    
+    p {
+      border: 2px solid ${colors.mainBrand};
+      border-radius: 8px;
+      padding: 0.5rem;
+    }
+
+    span {
+      font-weight: bold;
+    }
   }
 
   ul {
