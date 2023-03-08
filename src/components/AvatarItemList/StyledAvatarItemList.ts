@@ -18,7 +18,8 @@ const StyledAvatarItemList = styled.div`
     gap: 1rem;
     
     p {
-      border: 2px solid ${colors.mainBrand};
+      background-color: ${colors.mainBackGround};
+      border: 2px solid ${colors.tertiaryBackground};
       border-radius: 8px;
       padding: 0.5rem;
     }
@@ -33,7 +34,7 @@ const StyledAvatarItemList = styled.div`
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     align-items: stretch;
     gap: 0.5rem;
-    background-color: #efefef;
+    background-color: ${colors.secondaryBackGround};
     font-size: 1.125rem;
     padding: 1rem;
     width: 100%;

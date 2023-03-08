@@ -24,7 +24,7 @@ const StyledAvatarItemCard = styled.div<IAvatarItem>`
   gap: 0.5rem;
   justify-content: space-around;
   background-color: ${colors.secondaryFont};
-  border: 3px solid #979797;
+  border: 3px solid ${colors.tertiaryBackground};
   border-radius: 8px;
   cursor: pointer;
   height: 100%;
@@ -33,7 +33,7 @@ const StyledAvatarItemCard = styled.div<IAvatarItem>`
   width: 100%;
 
   img {
-    background-color: #e0e0e0;
+    background-color: ${colors.secondaryBackGround};
     padding: 1rem;
   }
 
