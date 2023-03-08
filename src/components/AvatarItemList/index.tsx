@@ -159,13 +159,13 @@ function AvatarItemsList() {
         </Button>
       </div>
       <ul>
-        {data.items.map((item) => {
+        {data.items.length ? data.items.map((item) => {
           return (
             <li key={item.id}>
               <AvatarItemCard {...item} />
             </li>
           );
-        })}
+        }) : <p role="alert">No item was found with the selected filters!</p>}
       </ul>
     </StyledAvatarItemList>
   );
