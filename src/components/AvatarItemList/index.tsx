@@ -16,7 +16,7 @@ import numberToList from "../../utils/numberToList";
 import handleGender from "../../utils/handleGender";
 
 function AvatarItemsList() {
-  const [limit, setLimit] = useState(100);
+  const [itemsPerPage, setItemsPerPage] = useState(50);
   const [page, setPage] = useState(1);
   const [gender, setGender] = useState<string>();
   const [rarity, setRarity] = useState<string>();
@@ -28,10 +28,14 @@ function AvatarItemsList() {
   const { data, isLoading, error, refetch } = useQuery<
     IResponseData<IAvatarItem>,
     AxiosError
-  >(["getAvatarItems", filters], () => getAvatarItems(limit, page, filters), {
-    staleTime: 1000 * 60 * 30,
-    keepPreviousData: true,
-  });
+  >(
+    ["getAvatarItems", filters],
+    () => getAvatarItems(itemsPerPage, page, filters),
+    {
+      staleTime: 1000 * 60 * 30,
+      keepPreviousData: true,
+    }
+  );
 
   const [numberOfPages, setNumberOfPages] = useState(data?.numberOfPages);
 
@@ -40,8 +44,8 @@ function AvatarItemsList() {
   }, [filters]);
 
   useEffect(() => {
-    setNumberOfPages(Math.ceil(Number(data?.totalCount) / limit) || 1);
-  }, [limit]);
+    setNumberOfPages(Math.ceil(Number(data?.totalCount) / itemsPerPage) || 1);
+  }, [itemsPerPage]);
 
   if (isLoading)
     return (
@@ -68,10 +72,11 @@ function AvatarItemsList() {
           width="auto"
           variant="filled"
           onChange={(event) => {
-            setLimit(Number(event.target.value) || 100);
+            setItemsPerPage(Number(event.target.value) || 50);
           }}
         >
-          <option value={100}>100 (default)</option>
+          <option value={100}>50 (default)</option>
+          <option value={100}>100</option>
           <option value={500}>500</option>
           <option value={1000}>1000</option>
         </Select>
@@ -159,18 +164,28 @@ function AvatarItemsList() {
         </Button>
       </div>
       <div className="stats">
-        <p>Results: <span>{data.count}</span></p>
-        <p>Current page: <span>{data.currentPage}</span></p>
-        <p>Total of items: <span>{data.totalCount}</span></p>
+        <p>
+          Results: <span>{data.count}</span>
+        </p>
+        <p>
+          Current page: <span>{data.currentPage}</span>
+        </p>
+        <p>
+          Total of items: <span>{data.totalCount}</span>
+        </p>
       </div>
       <ul>
-        {data.items.length ? data.items.map((item) => {
-          return (
-            <li key={item.id}>
-              <AvatarItemCard {...item} />
-            </li>
-          );
-        }) : <p role="alert">No item was found with the selected filters!</p>}
+        {data.items.length ? (
+          data.items.map((item) => {
+            return (
+              <li key={item.id}>
+                <AvatarItemCard {...item} />
+              </li>
+            );
+          })
+        ) : (
+          <p role="alert">No item was found with the selected filters!</p>
+        )}
       </ul>
     </StyledAvatarItemList>
   );
