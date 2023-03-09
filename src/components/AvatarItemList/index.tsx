@@ -37,7 +37,7 @@ function AvatarItemsList() {
     }
   );
 
-  const [numberOfPages, setNumberOfPages] = useState(data?.numberOfPages);
+  const [numberOfPages, setNumberOfPages] = useState(0);
 
   useEffect(() => {
     if (!isLoading) refetch();
@@ -45,7 +45,7 @@ function AvatarItemsList() {
 
   useEffect(() => {
     setNumberOfPages(Math.ceil(Number(data?.totalCount) / itemsPerPage) || 1);
-  }, [itemsPerPage]);
+  }, [data, itemsPerPage]);
 
   if (isLoading)
     return (
@@ -131,7 +131,7 @@ function AvatarItemsList() {
             setPage(Number(event.target.value) || 1);
           }}
         >
-          {numberToList(numberOfPages).map((number) => {
+          {numberToList(numberOfPages || data.numberOfPages).map((number) => {
             return (
               <option key={number} value={number}>
                 {number}
