@@ -70,7 +70,6 @@ function AvatarItemsList() {
         className="filters"
         onSubmit={(e) => {
           e.preventDefault();
-          console.log("submit")
           setFilters({
             gender: handleGender(gender),
             rarity: (rarity as IAvatarItemRarity) || undefined,
