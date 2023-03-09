@@ -13,7 +13,7 @@ function Footer() {
       </p>
       <p>
         This website follows all{" "}
-        <a target="_blank">Wolvesville Terms of Service</a> . All data is
+        <a href="https://api-docs.wolvesville.com/#/tos" target="_blank">Wolvesville Terms of Service</a> . All data is
         fetched ondemand from the{" "}
         <a href="https://api-docs.wolvesville.com/" target="_blank">
           official Wolvesville API
