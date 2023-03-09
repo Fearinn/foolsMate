@@ -81,6 +81,22 @@ function AvatarItemsList() {
           <option value={1000}>1000</option>
         </Select>
         <Select
+          placeholder="Page"
+          width="auto"
+          variant="filled"
+          onChange={(event) => {
+            setPage(Number(event.target.value) || 1);
+          }}
+        >
+          {numberToList(numberOfPages || data.numberOfPages).map((number) => {
+            return (
+              <option key={number} value={number}>
+                {number}
+              </option>
+            );
+          })}
+        </Select>
+        <Select
           placeholder="Gender"
           width="auto"
           variant="filled"
@@ -122,22 +138,6 @@ function AvatarItemsList() {
           <option value={"GRAVESTONE"}>Gravestone</option>
           <option value={"BACK"}>Back</option>
           <option value={"MASK"}>Mask</option>
-        </Select>
-        <Select
-          placeholder="Page"
-          width="auto"
-          variant="filled"
-          onChange={(event) => {
-            setPage(Number(event.target.value) || 1);
-          }}
-        >
-          {numberToList(numberOfPages || data.numberOfPages).map((number) => {
-            return (
-              <option key={number} value={number}>
-                {number}
-              </option>
-            );
-          })}
         </Select>
         <Input
           width="auto"
