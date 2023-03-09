@@ -66,7 +66,19 @@ function AvatarItemsList() {
 
   return (
     <StyledAvatarItemList>
-      <div className="filters">
+      <form
+        className="filters"
+        onSubmit={(e) => {
+          e.preventDefault();
+          console.log("submit")
+          setFilters({
+            gender: handleGender(gender),
+            rarity: (rarity as IAvatarItemRarity) || undefined,
+            type: (type as IAvatarItemType) || undefined,
+            event: event || undefined,
+          });
+        }}
+      >
         <Select
           placeholder="Items Per Page"
           width="auto"
@@ -148,21 +160,14 @@ function AvatarItemsList() {
           onBlur={(event) => setEvent(event.target.value)}
         />
         <Button
+          type="submit"
           backgroundColor={colors.mainBrand}
           _hover={{ background: colors.mainBrand, opacity: 0.8 }}
           color={colors.secondaryFont}
-          onClick={() => {
-            setFilters({
-              gender: handleGender(gender),
-              rarity: (rarity as IAvatarItemRarity) || undefined,
-              type: (type as IAvatarItemType) || undefined,
-              event: event || undefined,
-            });
-          }}
         >
           Filter
         </Button>
-      </div>
+      </form>
       <div className="stats">
         <p>
           Results in this page: <span>{data.count}</span>
