@@ -3,6 +3,7 @@
 :root, body, #root {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   font-family: "Roboto", sans-serif !important;
   min-width: 360px;
   min-height: 100dvh;
