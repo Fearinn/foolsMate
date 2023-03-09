@@ -157,7 +157,7 @@ function AvatarItemsList() {
           type="text"
           variant="filled"
           placeholder="Event"
-          onBlur={(event) => setEvent(event.target.value)}
+          onChange={(event) => setEvent(event.target.value)}
         />
         <Button
           type="submit"
