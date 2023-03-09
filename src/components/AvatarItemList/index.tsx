@@ -165,13 +165,13 @@ function AvatarItemsList() {
       </div>
       <div className="stats">
         <p>
-          Results: <span>{data.count}</span>
+          Results in this page: <span>{data.count}</span>
         </p>
         <p>
           Current page: <span>{data.currentPage}</span>
         </p>
         <p>
-          Total of items: <span>{data.totalCount}</span>
+          Total of results: <span>{data.totalCount}</span>
         </p>
       </div>
       <ul>
