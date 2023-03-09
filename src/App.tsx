@@ -1,4 +1,3 @@
-import { QueryClient } from "react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import AvatarItemsList from "./components/AvatarItemList";
