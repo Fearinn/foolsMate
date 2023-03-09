@@ -48,6 +48,7 @@ const StyledAvatarItemCard = styled.div<IAvatarItem>`
   }
 
   span {
+    -webkit-text-stroke: 0.075ch ${colors.mainFont};
     text-transform: uppercase;
     font-weight: bold;
   }
