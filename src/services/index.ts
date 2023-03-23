@@ -5,22 +5,20 @@ import IResponseData from "../types/ResponseData";
 const instance = axios.create({
   baseURL: "https://wolvesvillewiki.cyclic.app/",
   headers: {
-    Accept: "application/json"
-  }
+    Accept: "application/json",
+  },
 });
 
 async function getAvatarItems(
-  limit: number,
-  page: number,
-  params: Partial<IAvatarItem>
+  params: Partial<{ page: number; limit: number } & IAvatarItem>
 ) {
   const response = await instance.get<IResponseData<IAvatarItem>>(
     `items/avatarItems`,
     {
       params: {
-        limit,
-        page,
-        ...params
+        page: params.page || 1,
+        limit: params.limit || 25, 
+        ...params,
       },
     }
   );
