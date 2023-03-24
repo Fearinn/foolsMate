@@ -1,4 +1,4 @@
-import StyledFooter from "./StyledFooter";
+import {StyledFooter} from "./StyledFooter";
 
 function Footer() {
   return (
@@ -13,8 +13,10 @@ function Footer() {
       </p>
       <p>
         This website follows all{" "}
-        <a href="https://api-docs.wolvesville.com/#/tos" target="_blank">Wolvesville Terms of Service</a> . All data is
-        fetched ondemand from the{" "}
+        <a href="https://api-docs.wolvesville.com/#/tos" target="_blank">
+          Wolvesville Terms of Service
+        </a>{" "}
+        . All data is fetched ondemand from the{" "}
         <a href="https://api-docs.wolvesville.com/" target="_blank">
           official Wolvesville API
         </a>
@@ -25,4 +27,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export { Footer };

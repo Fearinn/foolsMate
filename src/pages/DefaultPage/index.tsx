@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import Footer from "../../components/Footer";
+import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 
 function DefaultPage() {
@@ -7,9 +7,9 @@ function DefaultPage() {
     <>
       <Header />
       <Outlet />
-      <Footer/>
+      <Footer />
     </>
   );
 }
 
-export default DefaultPage;
+export { DefaultPage };

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../../../assets/cssVariables";
-import IAvatarItem from "../../../types/AvatarItem";
+import { IAvatarItem } from "../../../types/AvatarItem";
 
 function handleGender(props: IAvatarItem) {
   const gender = props.gender;
@@ -17,7 +17,7 @@ function handleRarity(props: IAvatarItem) {
   return colors.commonRarity;
 }
 
-const StyledAvatarItemCard = styled.div<IAvatarItem>`
+export const StyledAvatarItemCard = styled.div<IAvatarItem>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,7 +54,8 @@ const StyledAvatarItemCard = styled.div<IAvatarItem>`
   }
 
   .cost > span {
-    color: ${(props: IAvatarItem) => props.costInGold ? colors.costInGold : colors.costInRoses};
+    color: ${(props: IAvatarItem) =>
+      props.costInGold ? colors.costInGold : colors.costInRoses};
   }
 
   .gender > span {
@@ -62,12 +63,10 @@ const StyledAvatarItemCard = styled.div<IAvatarItem>`
   }
 
   .type > span {
-    color: ${colors.itemType}
+    color: ${colors.itemType};
   }
 
   .rarity > span {
     color: ${(props: IAvatarItem) => handleRarity(props)};
   }
 `;
-
-export default StyledAvatarItemCard;

@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
-import Search from "../Search";
-import StyledHeader from "./StyledHeader";
+import { StyledHeader } from "./StyledHeader";
 
-export function Header() {
+function Header() {
   return (
     <StyledHeader>
       <nav>
@@ -14,3 +13,5 @@ export function Header() {
     </StyledHeader>
   );
 }
+
+export { Header };

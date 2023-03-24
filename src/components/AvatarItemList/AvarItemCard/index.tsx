@@ -1,6 +1,6 @@
 import { memo } from "react";
-import IAvatarItem from "../../../types/AvatarItem";
-import StyledAvatarItemCard from "./StyledAvatarItemCard";
+import {IAvatarItem} from "../../../types/AvatarItem";
+import {StyledAvatarItemCard} from "./StyledAvatarItemCard";
 
 function AvatarItemCard(props: IAvatarItem) {
   function cost() {

@@ -1,6 +1,6 @@
 import axios from "axios";
-import IAvatarItem from "../types/AvatarItem";
-import IResponseData from "../types/ResponseData";
+import { IAvatarItem } from "../types/AvatarItem";
+import { IResponseData } from "../types/ResponseData";
 
 const instance = axios.create({
   baseURL: "https://wolvesvillewiki.cyclic.app/",
@@ -17,7 +17,7 @@ async function getAvatarItems(
     {
       params: {
         page: params.page || 1,
-        limit: params.limit || 25, 
+        limit: params.limit || 25,
         ...params,
       },
     }

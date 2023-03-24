@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../assets/cssVariables";
 
-const StyledAvatarItemList = styled.div`
+export const StyledAvatarItemList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -10,7 +10,7 @@ const StyledAvatarItemList = styled.div`
   .stats {
     display: flex;
     gap: 1rem;
-    
+
     p {
       background-color: ${colors.mainBackGround};
       border: 2px solid ${colors.tertiaryBackground};
@@ -38,5 +38,3 @@ const StyledAvatarItemList = styled.div`
     }
   }
 `;
-
-export default StyledAvatarItemList;

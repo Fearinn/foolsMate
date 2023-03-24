@@ -1,19 +1,20 @@
 import { useQuery } from "react-query";
 import { getAvatarItems } from "../../services";
-import {AvatarItemCard} from "./AvarItemCard";
-import StyledAvatarItemList from "./StyledAvatarItemList";
+import { AvatarItemCard } from "./AvarItemCard";
+import { StyledAvatarItemList } from "./StyledAvatarItemList";
 import { Spinner } from "@chakra-ui/react";
 import { AxiosError } from "axios";
-import IAvatarItem, {
+import {
+  IAvatarItem,
   IAvatarItemRarity,
   IAvatarItemType,
 } from "../../types/AvatarItem";
-import IResponseData from "../../types/ResponseData";
+import { IResponseData } from "../../types/ResponseData";
 import { useEffect, useState } from "react";
 import { Filters } from "../Filters/Filters";
 import { IFilters } from "../../types/Filters";
-import numberToList from "../../utils/numberToList";
-import handleGender from "../../utils/handleGender";
+import { numberToList } from "../../utils/numberToList";
+import { handleGender } from "../../utils/handleGender";
 
 function AvatarItemsList() {
   const [itemsPerPage, setItemsPerPage] = useState("25");
@@ -226,4 +227,4 @@ function AvatarItemsList() {
   );
 }
 
-export default AvatarItemsList;
+export { AvatarItemsList };

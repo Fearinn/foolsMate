@@ -1,4 +1,4 @@
-type IAvatarItem = {
+export type IAvatarItem = {
   id: string;
   rarity: IAvatarItemRarity;
   costInGold?: number;
@@ -9,9 +9,9 @@ type IAvatarItem = {
   event?: string;
 };
 
-type IAvatarItemRarity = "COMMON" | "RARE" | "EPIC" | "LEGENDARY";
+export type IAvatarItemRarity = "COMMON" | "RARE" | "EPIC" | "LEGENDARY";
 
-type IAvatarItemType =
+export type IAvatarItemType =
   | "HAIR"
   | "FRONT"
   | "SHIRT"
@@ -22,8 +22,4 @@ type IAvatarItemType =
   | "GRAVESTONE"
   | "MOUTH";
 
-type IAvatarItemGender = "FEMALE" | "MALE" | ""
-
-export type { IAvatarItemType, IAvatarItemGender, IAvatarItemRarity};
-
-export default IAvatarItem;
+export type IAvatarItemGender = "FEMALE" | "MALE" | "";
