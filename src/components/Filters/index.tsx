@@ -3,7 +3,7 @@ import { colors } from "../../assets/cssVariables";
 import { IFilters } from "../../types/Filters";
 import { StyledFilters } from "./StyledFilters";
 
-function Filters<T>({ selects, textInputs, handleSubmit }: IFilters<T>) {
+function Filters({ selects, textInputs, handleSubmit }: IFilters) {
   return (
     <StyledFilters
       onSubmit={(e) => {

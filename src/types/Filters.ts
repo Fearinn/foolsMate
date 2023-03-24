@@ -1,4 +1,4 @@
-export type IFilters<T> = {
+export type IFilters = {
   handleSubmit: () => void;
   selects?: IFilterSelect[];
   textInputs?: IFilterTextInput[];

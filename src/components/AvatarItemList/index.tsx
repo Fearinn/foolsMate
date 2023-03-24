@@ -73,7 +73,7 @@ function AvatarItemsList() {
 
   const [numberOfPages, setNumberOfPages] = useState(0);
 
-  const filterSet: IFilters<IAvatarItem> = {
+  const filterSet: IFilters = {
     handleSubmit,
     selects: [
       {
