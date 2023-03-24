@@ -11,7 +11,7 @@ import {
 } from "../../types/AvatarItem";
 import { IResponseData } from "../../types/ResponseData";
 import { useEffect, useState } from "react";
-import { Filters } from "../Filters/Filters";
+import { Filters } from "../Filters";
 import { IFilters } from "../../types/Filters";
 import { numberToList } from "../../utils/numberToList";
 import { handleGender } from "../../utils/handleGender";
