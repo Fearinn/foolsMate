@@ -1,6 +1,6 @@
 import { useQuery } from "react-query";
 import { getAvatarItems } from "../../services";
-import AvatarItemCard from "./AvarItemCard";
+import {AvatarItemCard} from "./AvarItemCard";
 import StyledAvatarItemList from "./StyledAvatarItemList";
 import { Spinner } from "@chakra-ui/react";
 import { AxiosError } from "axios";

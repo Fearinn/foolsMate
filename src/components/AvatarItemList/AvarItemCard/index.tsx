@@ -1,11 +1,12 @@
+import { memo } from "react";
 import IAvatarItem from "../../../types/AvatarItem";
 import StyledAvatarItemCard from "./StyledAvatarItemCard";
 
 function AvatarItemCard(props: IAvatarItem) {
   function cost() {
-    if (props.costInGold) return `${props.costInGold} gold`
-    if (props.costInRoses) return `${props.costInRoses} roses`
-    return "?"
+    if (props.costInGold) return `${props.costInGold} gold`;
+    if (props.costInRoses) return `${props.costInRoses} roses`;
+    return "?";
   }
   return (
     <StyledAvatarItemCard {...props}>
@@ -31,4 +32,6 @@ function AvatarItemCard(props: IAvatarItem) {
   );
 }
 
-export default AvatarItemCard;
+const memoizedExport = memo(AvatarItemCard);
+
+export { memoizedExport as AvatarItemCard };
