@@ -1,20 +1,20 @@
-import { useQuery } from "react-query";
-import { getAvatarItems } from "../../services";
-import { AvatarItemCard } from "./AvarItemCard";
-import { StyledAvatarItemList } from "./StyledAvatarItemList";
 import { Spinner } from "@chakra-ui/react";
 import { AxiosError } from "axios";
+import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
+import { getAvatarItems } from "../../services";
 import {
   IAvatarItem,
   IAvatarItemRarity,
   IAvatarItemType,
 } from "../../types/AvatarItem";
-import { IResponseData } from "../../types/ResponseData";
-import { useEffect, useState } from "react";
-import { Filters } from "../Filters";
 import { IFilters } from "../../types/Filters";
-import { numberToList } from "../../utils/numberToList";
+import { IResponseData } from "../../types/ResponseData";
 import { handleGender } from "../../utils/handleGender";
+import { numberToList } from "../../utils/numberToList";
+import { Filters } from "../Filters";
+import { AvatarItemCard } from "./AvarItemCard";
+import { StyledAvatarItemList } from "./StyledAvatarItemList";
 
 function AvatarItemsList() {
   const [itemsPerPage, setItemsPerPage] = useState("25");
@@ -157,7 +157,44 @@ function AvatarItemsList() {
         name: "type",
         handler: typeHandler,
         placeholder: "type",
-        options: [],
+        options: [
+          {
+            name: "mouth",
+            value: "MOUTH",
+          },
+          {
+            name: "hair",
+            value: "HAIR",
+          },
+          {
+            name: "front",
+            value: "FRONT",
+          },
+          {
+            name: "shirt",
+            value: "SHIRT",
+          },
+          {
+            name: "hat",
+            value: "HAT",
+          },
+          {
+            name: "back",
+            value: "BACK",
+          },
+          {
+            name: "mask",
+            value: "MASK",
+          },
+          {
+            name: "gravestone",
+            value: "GRAVESTONE",
+          },
+          {
+            name: "glasses",
+            value: "GLASSES",
+          },
+        ],
       },
     ],
     textInputs: [
