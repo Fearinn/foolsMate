@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { AvatarItemsList } from "./components/AvatarItemList";
+import { AvatarItemsList } from "./components";
 import { DefaultPage } from "./pages/DefaultPage";
 import { Items } from "./pages/Items";
 
