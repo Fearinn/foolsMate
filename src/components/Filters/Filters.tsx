@@ -1,11 +1,11 @@
 import { Select, Input, Button } from "@chakra-ui/react";
 import { colors } from "../../assets/cssVariables";
 import { IFilters } from "../../types/Filters";
+import { StyledFilters } from "./StyledFilters";
 
 export function Filters<T>({ selects, textInputs, handleSubmit }: IFilters<T>) {
   return (
-    <form
-      className="filters"
+    <StyledFilters
       onSubmit={(e) => {
         e.preventDefault();
         handleSubmit();
@@ -61,6 +61,6 @@ export function Filters<T>({ selects, textInputs, handleSubmit }: IFilters<T>) {
       >
         Filter
       </Button>
-    </form>
+    </StyledFilters>
   );
 }

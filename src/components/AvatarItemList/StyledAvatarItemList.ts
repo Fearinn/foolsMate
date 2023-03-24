@@ -7,12 +7,6 @@ const StyledAvatarItemList = styled.div`
   gap: 1rem;
   width: 100%;
 
-  .filters {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 0.5rem;
-  }
-
   .stats {
     display: flex;
     gap: 1rem;
