@@ -63,7 +63,7 @@ function AvatarItemsList() {
     Partial<{ page: number; limit: number } & IAvatarItem>
   >({});
 
-  const { data, isLoading, error, refetch } = useQuery<
+  const { data, isLoading, error } = useQuery<
     IResponseData<IAvatarItem>,
     AxiosError
   >(["getAvatarItems", filters], () => getAvatarItems(filters), {
@@ -205,10 +205,6 @@ function AvatarItemsList() {
       },
     ],
   };
-
-  useEffect(() => {
-    if (!isLoading) refetch();
-  }, [filters]);
 
   useEffect(() => {
     setNumberOfPages(
