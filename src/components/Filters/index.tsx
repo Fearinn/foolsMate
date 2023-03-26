@@ -18,6 +18,7 @@ function Filters({ selects, textInputs, handleSubmit }: IFilters) {
             placeholder={select.placeholder}
             width="auto"
             variant="filled"
+            _focusVisible={{border: "none"}}
             onChange={(event) => {
               let defaultValue: number | string = "";
               select.options.forEach((option) => {
@@ -48,6 +49,7 @@ function Filters({ selects, textInputs, handleSubmit }: IFilters) {
               variant="filled"
               key={index}
               placeholder={input.placeholder}
+              _focusVisible={{border: "none"}}
               onChange={(event) => input.handler(event.target.value)}
             />
           );
