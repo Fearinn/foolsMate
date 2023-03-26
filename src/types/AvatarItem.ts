@@ -1,6 +1,8 @@
+import { IRarity } from "./Rarity";
+
 export type IAvatarItem = {
   id: string;
-  rarity: IAvatarItemRarity;
+  rarity: IRarity;
   costInGold?: number;
   costInRoses?: number;
   imageUrl: "string";
@@ -8,8 +10,6 @@ export type IAvatarItem = {
   gender?: IAvatarItemGender;
   event?: string;
 };
-
-export type IAvatarItemRarity = "COMMON" | "RARE" | "EPIC" | "LEGENDARY";
 
 export type IAvatarItemType =
   | "HAIR"
