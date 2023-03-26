@@ -1,16 +1,10 @@
 import { Spinner } from "@chakra-ui/react";
-import { AxiosError } from "axios";
 import { useEffect, useState } from "react";
-import { useQuery } from "react-query";
-import { getAvatarItems } from "../../services";
-import {
-  IAvatarItem,
-  IAvatarItemRarity,
-  IAvatarItemType,
-} from "../../types/AvatarItem";
+import { IAvatarItem, IAvatarItemType } from "../../types/AvatarItem";
 import { IFilters } from "../../types/Filters";
-import { IResponseData } from "../../types/ResponseData";
+import { IRarity } from "../../types/Rarity";
 import { handleGender } from "../../utils/handleGender";
+import { useAvatarItems } from "../../utils/hooks/useAvatarItems";
 import { numberToList } from "../../utils/numberToList";
 import { Filters } from "../Filters";
 import { AvatarItemCard } from "./AvarItemCard";
@@ -29,7 +23,7 @@ function AvatarItemsList() {
       page: Number(page),
       limit: Number(itemsPerPage),
       gender: handleGender(gender),
-      rarity: (rarity as IAvatarItemRarity) || undefined,
+      rarity: (rarity as IRarity) || undefined,
       type: (type as IAvatarItemType) || undefined,
       event: event || undefined,
     });
@@ -63,13 +57,7 @@ function AvatarItemsList() {
     Partial<{ page: number; limit: number } & IAvatarItem>
   >({});
 
-  const { data, isLoading, error } = useQuery<
-    IResponseData<IAvatarItem>,
-    AxiosError
-  >(["getAvatarItems", filters], () => getAvatarItems(filters), {
-    staleTime: 1000 * 60 * 30,
-    keepPreviousData: true,
-  });
+  const { data, isLoading, error } = useAvatarItems(filters);
 
   const [numberOfPages, setNumberOfPages] = useState(0);
 
