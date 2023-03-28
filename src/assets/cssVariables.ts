@@ -1,5 +1,5 @@
 export const colors = {
-    mainBrand: "#400D51",
+    mainBrand: "#FE55B9",
     mainFont: "#000",
     secondaryFont: "#FFF",
     mainBackGround: "FFF",
