@@ -59,7 +59,7 @@ function Filters({ selects, textInputs, handleSubmit }: IFilters) {
         type="submit"
         backgroundColor={colors.mainBrand}
         _hover={{ background: colors.mainBrand, opacity: 0.8 }}
-        color={colors.secondaryFont}
+        color={colors.mainFont}
       >
         Filter
       </Button>
