@@ -2,7 +2,7 @@ export const colors = {
     mainBrand: "#FE55B9",
     mainFont: "#000",
     secondaryFont: "#FFF",
-    mainBackGround: "FFF",
+    mainBackGround: "#FFF",
     secondaryBackGround: "#efefef",
     tertiaryBackground: "#979797", 
     costInGold: "#FF884B",
