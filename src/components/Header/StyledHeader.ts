@@ -16,6 +16,7 @@ const StyledHeader = styled.header`
     border-radius: 4px;
     font-size: 1.5rem;
     padding: 0 0.5rem;
+    transition: 0.3s all linear;
   }
 
   img {
@@ -28,6 +29,16 @@ const StyledHeader = styled.header`
     gap: 1rem;
     padding: 0 0.5rem;
     font-size: 1.25rem;
+  }
+
+  a {
+    border-radius: 4px;
+    padding: 0 0.5rem;
+    transition: 0.25s all linear;
+  }
+
+  a:hover {
+    background-color: ${colors.mainBackGround};
   }
 `;
 export { StyledHeader };
