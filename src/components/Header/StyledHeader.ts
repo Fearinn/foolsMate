@@ -6,14 +6,13 @@ const StyledHeader = styled.header`
   align-items: center;
   gap: 2rem;
   background-color: ${colors.mainBrand};
-  color: ${colors.secondaryFont};
+  color: ${colors.mainFont};
   font-weight: bold;
   padding: 1rem;
 
   h2 {
     display: flex;
     gap: 0.5rem;
-    color: ${colors.secondaryFont};
     border-radius: 4px;
     font-size: 1.5rem;
     padding: 0 0.5rem;

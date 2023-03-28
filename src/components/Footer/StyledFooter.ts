@@ -6,7 +6,7 @@ const StyledFooter = styled.footer`
   flex-direction: column;
   gap: 0.5rem;
   background-color: ${colors.mainBrand};
-  color: ${colors.secondaryFont};
+  color: ${colors.mainFont};
   padding: 1rem;
   width: 100%;
 
