@@ -1,4 +1,3 @@
-import { Spinner } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { IAvatarItem, IAvatarItemType } from "../../types/AvatarItem";
 import { IFilters } from "../../types/Filters";
@@ -6,7 +5,9 @@ import { IRarity } from "../../types/Rarity";
 import { handleGender } from "../../utils/handleGender";
 import { useAvatarItems } from "../../utils/hooks/useAvatarItems";
 import { numberToList } from "../../utils/numberToList";
+import { ErrorMessage } from "../ErrorMessage";
 import { Filters } from "../Filters";
+import { Loader } from "../Loader";
 import { AvatarItemCard } from "./AvarItemCard";
 import { StyledAvatarItemList } from "./StyledAvatarItemList";
 
@@ -203,18 +204,12 @@ function AvatarItemsList() {
   if (isLoading)
     return (
       <>
-        <Spinner size={"xl"} marginBottom={"1rem"} />
-        <p>Data is being fetched...</p>
+        <Loader />
       </>
     );
 
   if (!data || error) {
-    return (
-      <p role="alert">
-        Sorry, an unexpected error has ocurred! Try again later. [Error:
-        {error?.message || "unknown error"}]
-      </p>
-    );
+    return <ErrorMessage />;
   }
 
   return (
