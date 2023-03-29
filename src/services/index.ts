@@ -1,9 +1,10 @@
 import axios from "axios";
 import { IAvatarItem } from "../types/AvatarItem";
 import { IResponseData } from "../types/ResponseData";
+import { IRewardType, ISeason } from "../types/BattlePassSeason";
 
 const instance = axios.create({
-  baseURL: "https://wolvesvillewiki.cyclic.app/",
+  baseURL: "https://wolvesvillewiki.cyclic.app/" /* "http://localhost:3000" */,
   headers: {
     Accept: "application/json",
   },
@@ -25,4 +26,13 @@ async function getAvatarItems(
   return response.data;
 }
 
-export { getAvatarItems };
+async function getBattlePassSeason(rewardsTypes: IRewardType[]) {
+  const response = await instance.post<ISeason>(
+    "battlePass/seasonByRewarsType",
+    { types: rewardsTypes }
+  );
+
+  return response.data;
+}
+
+export { getAvatarItems, getBattlePassSeason };
