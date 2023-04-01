@@ -5,7 +5,7 @@ import { IRewardType, ISeason } from "../../types/BattlePassSeason";
 
 export function useBattlePassSeason(rewardsTypes: IRewardType[]) {
   const response = useQuery<ISeason, AxiosError>(
-    ["getAvatarItems"],
+    ["getBattlePassSeason"],
     () => getBattlePassSeason(rewardsTypes),
     {
       staleTime: 1000 * 60 * 30,
