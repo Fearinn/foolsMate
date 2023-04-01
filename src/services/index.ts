@@ -2,15 +2,16 @@ import axios from "axios";
 import { IAvatarItem } from "../types/AvatarItem";
 import { IResponseData } from "../types/ResponseData";
 import { IRewardType, ISeason } from "../types/BattlePassSeason";
+import { IBackground } from "../types/Background";
 
 const instance = axios.create({
-  baseURL: "https://wolvesvillewiki.cyclic.app/" /* "http://localhost:3000" */,
+  baseURL: /* "https://wolvesvillewiki.cyclic.app/" */ "http://localhost:3000",
   headers: {
     Accept: "application/json",
   },
 });
 
-async function getAvatarItems(
+export async function getAvatarItems(
   params: Partial<{ page: number; limit: number } & IAvatarItem>
 ) {
   const response = await instance.get<IResponseData<IAvatarItem>>(
@@ -26,13 +27,22 @@ async function getAvatarItems(
   return response.data;
 }
 
-async function getBattlePassSeason(rewardsTypes: IRewardType[]) {
+export async function getBattlePassSeason(rewardsTypes: IRewardType[]) {
   const response = await instance.post<ISeason>(
-    "battlePass/seasonByRewarsType",
+    "battlePass/seasonByRewardsType",
     { types: rewardsTypes }
   );
 
   return response.data;
 }
 
-export { getAvatarItems, getBattlePassSeason };
+export async function getBackgrounds(id: string) {
+  const response = await instance.post<IBackground[]>(
+    "items/backgroundsByIds",
+    {
+      ids: [id],
+    }
+  );
+
+  return response.data[0];
+}
