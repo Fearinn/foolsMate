@@ -39,6 +39,18 @@ function BattlePass({
 
   if (!background || error) return <ErrorMessage />;
 
+  const formattedStart = new Date(startTime).toLocaleDateString();
+
+  const millisecondsOnDay = 24 * 60 * 60 * 1000;
+
+  const endTime = new Date(
+    new Date(startTime).getTime() + millisecondsOnDay * durationInDays
+  );
+
+  const timeLeft = Math.round(
+    (endTime.getTime() - new Date().getTime()) / millisecondsOnDay
+  );
+
   return (
     <StyledBattlePass>
       <div className="bg-info-container">
@@ -53,10 +65,13 @@ function BattlePass({
             height={100}
           />
           <time>
-            Start: <span>{new Date(startTime).toLocaleString()}</span>
+            Start: <span>{formattedStart}</span>
           </time>
           <p>
             Duration: <span>{durationInDays} days</span>
+          </p>
+          <p>
+            Time left: <span>{timeLeft} days</span>
           </p>
           <p>
             Gold price: <span>{goldPrice} </span>
