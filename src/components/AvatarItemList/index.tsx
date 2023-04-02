@@ -12,7 +12,7 @@ import { AvatarItemCard } from "./AvarItemCard";
 import { StyledAvatarItemList } from "./StyledAvatarItemList";
 
 function AvatarItemsList() {
-  const [itemsPerPage, setItemsPerPage] = useState("25");
+  const [itemsPerPage, setItemsPerPage] = useState("100");
   const [page, setPage] = useState("1");
   const [gender, setGender] = useState<string>();
   const [rarity, setRarity] = useState<string>();
@@ -82,21 +82,18 @@ function AvatarItemsList() {
         placeholder: "items per page",
         options: [
           {
-            name: "25",
-            value: 25,
-            default: true,
-          },
-          {
-            name: "50",
-            value: 50,
-          },
-          {
             name: "100",
             value: 100,
+            default: true,
           },
           {
             name: "200",
             value: 200,
+          },
+          { name: "500", value: 500 },
+          {
+            name: "1000",
+            value: 1000,
           },
         ],
       },
