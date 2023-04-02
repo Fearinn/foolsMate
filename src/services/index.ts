@@ -27,6 +27,16 @@ export async function getAvatarItems(
   return response.data;
 }
 
+export async function getAvatarItemsByIds(ids: string[]) {
+  const response = await instance.post<IAvatarItem[]>(
+    `items/avatarItemsByIds`,
+    {
+      ids,
+    }
+  );
+  return response.data;
+}
+
 export async function getBattlePassSeason(rewardsTypes: IRewardType[]) {
   const response = await instance.post<ISeason>(
     "battlePass/seasonByRewardsType",
