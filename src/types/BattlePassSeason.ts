@@ -11,12 +11,13 @@ export type ISeason = {
   seasonBackgroundId: string;
 };
 
-type IReward = {
+export type IReward = {
   type: IRewardType;
   amount: number;
   free: boolean;
   avatarItemIdMale?: string;
   avatarItemIdFemale?: string;
+  avatarItemId?: string;
 };
 
 export type IRewardType =
