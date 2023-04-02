@@ -18,8 +18,8 @@ export async function getAvatarItems(
     `items/avatarItems`,
     {
       params: {
-        page: params.page || 1,
-        limit: params.limit || 25,
+        page: params.page,
+        limit: params.limit,
         ...params,
       },
     }
