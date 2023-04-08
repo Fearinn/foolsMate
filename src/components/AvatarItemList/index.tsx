@@ -231,7 +231,9 @@ function AvatarItemsList() {
             );
           })
         ) : (
-          <p role="alert">No item was found with the selected filters!</p>
+          <ErrorMessage>
+            No item was found with the selected filters!
+          </ErrorMessage>
         )}
       </ul>
     </StyledAvatarItemList>
