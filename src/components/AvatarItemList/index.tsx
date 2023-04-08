@@ -18,6 +18,7 @@ function AvatarItemsList() {
   const [rarity, setRarity] = useState<string>();
   const [type, setType] = useState<string>();
   const [event, setEvent] = useState<string>();
+  const [numberOfPages, setNumberOfPages] = useState(1);
 
   function handleSubmit() {
     setFilters({
@@ -59,8 +60,6 @@ function AvatarItemsList() {
   >({});
 
   const { data, isLoading, error } = useAvatarItems(filters);
-
-  const [numberOfPages, setNumberOfPages] = useState(0);
 
   const filterSet: IFilters = {
     handleSubmit,
@@ -193,9 +192,13 @@ function AvatarItemsList() {
   };
 
   useEffect(() => {
-    setNumberOfPages(
-      Math.ceil(Number(data?.totalCount) / Number(itemsPerPage)) || 1
-    );
+    const totalCount = Number(data?.totalCount);
+    const pageCount = Number(itemsPerPage);
+    if (totalCount && pageCount) {
+      setNumberOfPages(Math.ceil(totalCount / pageCount));
+    } else {
+      setNumberOfPages(1);
+    }
   }, [data, itemsPerPage]);
 
   if (isLoading)
