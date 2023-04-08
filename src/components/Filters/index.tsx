@@ -12,32 +12,32 @@ function Filters({ selects, textInputs, handleSubmit }: IFilters) {
       }}
     >
       {selects &&
-        selects.map((select, index) => (
-          <Select
-            key={index}
-            placeholder={select.placeholder}
-            width="auto"
-            variant="filled"
-            _focusVisible={{border: "none"}}
-            onChange={(event) => {
-              let defaultValue: number | string = "";
-              select.options.forEach((option) => {
-                if (option.default) {
-                  defaultValue = option.value;
-                }
-              });
-              select.handler(event.target.value || defaultValue);
-            }}
-          >
-            {select.options.map((option) => {
-              return (
-                <option key={option.value} value={option.value}>{`${
-                  option.name
-                }${option.default ? " (default)" : ""}`}</option>
-              );
-            })}
-          </Select>
-        ))}
+        selects.map((select, index) => {
+          const defaultOption = select.options.find(
+            (option) => !!option.default
+          );
+          return (
+            <Select
+              defaultValue={defaultOption?.value}
+              key={index}
+              placeholder={select.placeholder}
+              width="auto"
+              variant="filled"
+              _focusVisible={{ border: "none" }}
+              onChange={(event) => {
+                select.handler(event.target.value);
+              }}
+            >
+              {select.options.map((option) => {
+                return (
+                  <option key={option.value} value={option.value}>
+                    {option.name}
+                  </option>
+                );
+              })}
+            </Select>
+          );
+        })}
 
       {textInputs &&
         textInputs.map((input, index) => {
@@ -49,7 +49,7 @@ function Filters({ selects, textInputs, handleSubmit }: IFilters) {
               variant="filled"
               key={index}
               placeholder={input.placeholder}
-              _focusVisible={{border: "none"}}
+              _focusVisible={{ border: "none" }}
               onChange={(event) => input.handler(event.target.value)}
             />
           );
