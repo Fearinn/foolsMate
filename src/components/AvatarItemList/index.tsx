@@ -201,12 +201,7 @@ function AvatarItemsList() {
     }
   }, [data, itemsPerPage]);
 
-  if (isLoading)
-    return (
-      <>
-        <Loader />
-      </>
-    );
+  if (isLoading) return <Loader />;
 
   if (!data || error) {
     return <ErrorMessage />;
