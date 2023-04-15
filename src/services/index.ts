@@ -5,7 +5,7 @@ import { IRewardType, ISeason } from "../types/BattlePassSeason";
 import { IBackground } from "../types/Background";
 
 const instance = axios.create({
-  baseURL: "https://wolvesvillewiki.cyclic.app/",
+  baseURL: "https://wolvesvillewiki.cyclic.app/" /* "http://localhost:3000" */,
   headers: {
     Accept: "application/json",
   },
@@ -24,35 +24,40 @@ export async function getAvatarItems(
       },
     }
   );
+
   return response.data;
 }
 
-export async function getAvatarItemsByIds(ids: string[]) {
-  const response = await instance.post<IAvatarItem[]>(
-    `items/avatarItemsByIds`,
+export async function getAvatarItemsByIds(ids: string[], limit = 25) {
+  const response = await instance.get<IResponseData<IAvatarItem>>(
+    `items/avatarItems/ids`,
     {
-      ids,
+      params: {
+        ids: ids.join(":"),
+        limit,
+      },
     }
   );
   return response.data;
 }
 
 export async function getBattlePassSeason(rewardsTypes: IRewardType[]) {
-  const response = await instance.post<ISeason>(
-    "battlePass/seasonByRewardsType",
-    { types: rewardsTypes }
-  );
+  const response = await instance.get<ISeason>("battlePass/season/rewards", {
+    params: { rewardsTypes: rewardsTypes.join(":") },
+  });
 
   return response.data;
 }
 
 export async function getBackgrounds(id: string) {
-  const response = await instance.post<IBackground[]>(
-    "items/backgroundsByIds",
+  const response = await instance.get<IResponseData<IBackground>>(
+    "items/backgrounds/ids",
     {
-      ids: [id],
+      params: {
+        ids: id,
+      },
     }
   );
 
-  return response.data[0];
+  return response.data.items[0];
 }

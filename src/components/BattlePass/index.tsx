@@ -112,7 +112,7 @@ function BattlePass({
           <>
             <h4 className="rewards-title">Some of the rewards: </h4>
             <ul>
-              {rewardsData.slice(0, 25).map((reward, index) => {
+              {rewardsData.items.map((reward, index) => {
                 return (
                   <li key={index}>
                     <RewardCard imageUrl={reward.imageUrl} />
