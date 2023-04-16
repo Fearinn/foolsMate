@@ -5,7 +5,7 @@ export type IAvatarItem = {
   rarity: IRarity;
   costInGold?: number;
   costInRoses?: number;
-  imageUrl: "string";
+  imageUrl: string;
   type: IAvatarItemType;
   gender?: IAvatarItemGender;
   event?: string;
