@@ -19,6 +19,9 @@ function AvatarItemsList() {
   const [type, setType] = useState<string>();
   const [event, setEvent] = useState<string>();
   const [numberOfPages, setNumberOfPages] = useState(1);
+  const [filters, setFilters] = useState<
+    Partial<{ page: number; limit: number } & IAvatarItem>
+  >({ limit: 100, page: 1 });
 
   function handleSubmit() {
     setFilters({
@@ -54,10 +57,6 @@ function AvatarItemsList() {
   function eventHandler(value: string) {
     setEvent(value);
   }
-
-  const [filters, setFilters] = useState<
-    Partial<{ page: number; limit: number } & IAvatarItem>
-  >({});
 
   const { data, isLoading, error } = useAvatarItems(filters);
 
