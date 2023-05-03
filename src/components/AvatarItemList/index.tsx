@@ -14,10 +14,10 @@ import { StyledAvatarItemList } from "./StyledAvatarItemList";
 function AvatarItemsList() {
   const [itemsPerPage, setItemsPerPage] = useState("100");
   const [page, setPage] = useState("1");
-  const [gender, setGender] = useState<string>();
-  const [rarity, setRarity] = useState<string>();
-  const [type, setType] = useState<string>();
-  const [event, setEvent] = useState<string>();
+  const [gender, setGender] = useState("");
+  const [rarity, setRarity] = useState("");
+  const [type, setType] = useState("");
+  const [event, setEvent] = useState("");
   const [numberOfPages, setNumberOfPages] = useState(1);
   const [filters, setFilters] = useState<
     Partial<{ page: number; limit: number } & IAvatarItem>
@@ -178,6 +178,8 @@ function AvatarItemsList() {
             name: "glasses",
             value: "GLASSES",
           },
+          { name: "eyes", value: "EYES" },
+          { name: "badge", value: "BADGE" },
         ],
       },
     ],
@@ -240,3 +242,4 @@ function AvatarItemsList() {
 }
 
 export { AvatarItemsList };
+

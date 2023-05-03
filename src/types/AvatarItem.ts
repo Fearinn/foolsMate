@@ -20,6 +20,8 @@ export type IAvatarItemType =
   | "BACK"
   | "MASK"
   | "GRAVESTONE"
-  | "MOUTH";
+  | "MOUTH"
+  | "EYES"
+  | "BADGE";
 
 export type IAvatarItemGender = "FEMALE" | "MALE" | "";
