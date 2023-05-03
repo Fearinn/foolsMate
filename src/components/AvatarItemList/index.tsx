@@ -34,30 +34,6 @@ function AvatarItemsList() {
     });
   }
 
-  function pageHandler(value: string) {
-    setPage(value);
-  }
-
-  function itemsPerPageHandler(value: string) {
-    setItemsPerPage(value);
-  }
-
-  function genderHandler(value: string) {
-    setGender(value);
-  }
-
-  function rarityHandler(value: string) {
-    setRarity(value);
-  }
-
-  function typeHandler(value: string) {
-    setType(value);
-  }
-
-  function eventHandler(value: string) {
-    setEvent(value);
-  }
-
   const { data, isLoading, error } = useAvatarItems(filters);
 
   const filterSet: IFilters = {
@@ -65,7 +41,7 @@ function AvatarItemsList() {
     selects: [
       {
         name: "page",
-        handler: pageHandler,
+        handler: (value: string) => setPage(value),
         placeholder: "page",
         options: numberToList(numberOfPages).map((number) => {
           return {
@@ -76,7 +52,7 @@ function AvatarItemsList() {
       },
       {
         name: "itemsPerPage",
-        handler: itemsPerPageHandler,
+        handler: (value: string) => setItemsPerPage(value),
         placeholder: "items per page",
         options: [
           {
@@ -97,7 +73,7 @@ function AvatarItemsList() {
       },
       {
         name: "gender",
-        handler: genderHandler,
+        handler: (value: string) => setGender(value),
         placeholder: "gender",
         options: [
           {
@@ -116,7 +92,7 @@ function AvatarItemsList() {
       },
       {
         name: "rarity",
-        handler: rarityHandler,
+        handler: (value: string) => setRarity(value),
         placeholder: "rarity",
         options: [
           {
@@ -139,7 +115,7 @@ function AvatarItemsList() {
       },
       {
         name: "type",
-        handler: typeHandler,
+        handler: (value: string) => setType(value),
         placeholder: "type",
         options: [
           {
@@ -186,7 +162,7 @@ function AvatarItemsList() {
     textInputs: [
       {
         name: "event",
-        handler: eventHandler,
+        handler: (value: string) => setEvent(value),
         placeholder: "event",
       },
     ],
@@ -242,4 +218,3 @@ function AvatarItemsList() {
 }
 
 export { AvatarItemsList };
-
