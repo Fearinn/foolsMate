@@ -1,11 +1,5 @@
-import { Outlet } from "react-router";
-
 function Items() {
-  return (
-    <main>
-      <Outlet />
-    </main>
-  );
+  return <main></main>;
 }
 
-export { Items };
+export default Items;

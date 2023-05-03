@@ -1,12 +1,12 @@
 {
-  "name": "wolvesvillewiki",
+  "name": "wolvesville-next",
+  "version": "0.1.0",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.17",
@@ -14,31 +14,23 @@
     "@chakra-ui/system": "^2.5.1",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@types/node": "^18.15.7",
-    "@types/react-router": "^5.1.20",
-    "@types/react-router-dom": "^5.3.3",
-    "@types/styled-components": "^5.1.26",
-    "axios": "^1.3.4",
-    "framer-motion": "^10.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-is": "^18.2.0",
-    "react-query": "^3.39.3",
-    "react-router": "^6.8.1",
-    "react-router-dom": "^6.8.1",
-    "styled-components": "^5.3.6",
-    "wolvesvillewiki": "link:"
-  },
-  "devDependencies": {
     "@total-typescript/ts-reset": "^0.3.7",
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
+    "@types/node": "18.16.3",
+    "@types/react": "18.2.1",
+    "@types/react-dom": "18.2.2",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
-    "@vitejs/plugin-react": "^3.1.0",
+    "axios": "^1.4.0",
     "eslint": "^8.36.0",
     "eslint-plugin-react": "^7.32.2",
-    "typescript": "^4.9.5",
-    "vite": "^4.1.4"
+    "next": "13.3.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-query": "^3.39.3",
+    "styled-components": "^5.3.10",
+    "typescript": "4.9.4"
+  },
+  "devDependencies": {
+    "@types/styled-components": "^5.1.26"
   }
 }
