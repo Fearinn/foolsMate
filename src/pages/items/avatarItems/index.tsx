@@ -1,14 +1,14 @@
+import { Filters } from "@/components";
+import { AvatarItemCard } from "@/components/AvarItemCard";
+import { ErrorMessage } from "@/components/ErrorMessage";
+import { Loader } from "@/components/Loader";
+import { IAvatarItem, IAvatarItemType } from "@/types/AvatarItem";
+import { IFilters } from "@/types/Filters";
+import { IRarity } from "@/types/Rarity";
+import { handleGender } from "@/utils/handleGender";
+import { useAvatarItems } from "@/utils/hooks/useAvatarItems";
+import { numberToList } from "@/utils/numberToList";
 import { useEffect, useState } from "react";
-import { IAvatarItem, IAvatarItemType } from "../../types/AvatarItem";
-import { IFilters } from "../../types/Filters";
-import { IRarity } from "../../types/Rarity";
-import { handleGender } from "../../utils/handleGender";
-import { useAvatarItems } from "../../utils/hooks/useAvatarItems";
-import { numberToList } from "../../utils/numberToList";
-import { ErrorMessage } from "../ErrorMessage";
-import { Filters } from "../Filters";
-import { Loader } from "../Loader";
-import { AvatarItemCard } from "./AvarItemCard";
 import { StyledAvatarItemList } from "./StyledAvatarItemList";
 
 function AvatarItemsList() {
@@ -185,36 +185,38 @@ function AvatarItemsList() {
   }
 
   return (
-    <StyledAvatarItemList>
-      <Filters {...filterSet} />
-      <div className="stats">
-        <p>
-          Results in this page: <span>{data.count}</span>
-        </p>
-        <p>
-          Current page: <span>{data.currentPage}</span>
-        </p>
-        <p>
-          Total of results: <span>{data.totalCount}</span>
-        </p>
-      </div>
-      <ul>
-        {data.items.length ? (
-          data.items.map((item) => {
-            return (
-              <li key={item.id}>
-                <AvatarItemCard {...item} />
-              </li>
-            );
-          })
-        ) : (
-          <ErrorMessage>
-            No item was found with the selected filters!
-          </ErrorMessage>
-        )}
-      </ul>
-    </StyledAvatarItemList>
+    <main>
+      <StyledAvatarItemList>
+        <Filters {...filterSet} />
+        <div className="stats">
+          <p>
+            Results in this page: <span>{data.count}</span>
+          </p>
+          <p>
+            Current page: <span>{data.currentPage}</span>
+          </p>
+          <p>
+            Total of results: <span>{data.totalCount}</span>
+          </p>
+        </div>
+        <ul>
+          {data.items.length ? (
+            data.items.map((item) => {
+              return (
+                <li key={item.id}>
+                  <AvatarItemCard {...item} />
+                </li>
+              );
+            })
+          ) : (
+            <ErrorMessage>
+              No item was found with the selected filters!
+            </ErrorMessage>
+          )}
+        </ul>
+      </StyledAvatarItemList>
+    </main>
   );
 }
 
-export { AvatarItemsList };
+export default AvatarItemsList;

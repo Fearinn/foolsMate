@@ -1,5 +1,5 @@
 import { memo } from "react";
-import {IAvatarItem} from "../../../types/AvatarItem";
+import {IAvatarItem} from "../../types/AvatarItem";
 import {StyledAvatarItemCard} from "./StyledAvatarItemCard";
 
 function AvatarItemCard(props: IAvatarItem) {
