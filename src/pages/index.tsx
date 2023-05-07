@@ -48,7 +48,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Wolvesville Wiki</title>s
+        <title>Wolvesville Wiki</title>
       </Head>
       <StyledHome>
         <MainTitle title="Welcome to Wolvesville Wiki!" />
