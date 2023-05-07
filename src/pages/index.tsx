@@ -9,7 +9,7 @@ import Head from "next/head";
 import { dehydrate, QueryClient } from "react-query";
 import { StyledHome } from "./StyledHome";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery(
