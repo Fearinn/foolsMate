@@ -1,6 +1,7 @@
+import Image from "next/image";
 import { memo } from "react";
-import {IAvatarItem} from "../../types/AvatarItem";
-import {StyledAvatarItemCard} from "./StyledAvatarItemCard";
+import { IAvatarItem } from "../../types/AvatarItem";
+import { StyledAvatarItemCard } from "./StyledAvatarItemCard";
 
 function AvatarItemCard(props: IAvatarItem) {
   function cost() {
@@ -10,7 +11,13 @@ function AvatarItemCard(props: IAvatarItem) {
   }
   return (
     <StyledAvatarItemCard {...props}>
-      <img src={props.imageUrl} alt="" role="presentation" />
+      <Image
+        src={props.imageUrl}
+        alt=""
+        role="presentation"
+        width={100}
+        height={100}
+      />
       <div className="text">
         <p className="cost">
           Cost: <span>{cost()}</span>
@@ -35,3 +42,4 @@ function AvatarItemCard(props: IAvatarItem) {
 const memoizedExport = memo(AvatarItemCard);
 
 export { memoizedExport as AvatarItemCard };
+

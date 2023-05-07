@@ -1,6 +1,7 @@
-import { ISeason } from "../../types/BattlePassSeason";
-import { useAvatarItemsByIds } from "../../utils/hooks/useAvatarItemsByIds";
-import { useBackground } from "../../utils/hooks/useBackground";
+import { ISeason } from "@/types/BattlePassSeason";
+import { useAvatarItemsByIds } from "@/utils/hooks/useAvatarItemsByIds";
+import { useBackground } from "@/utils/hooks/useBackground";
+import Image from "next/image";
 import { ErrorMessage } from "../ErrorMessage";
 import { Loader } from "../Loader";
 import { RewardCard } from "../RewardCard";
@@ -56,7 +57,7 @@ function BattlePass({
       <div className="bg-info-container">
         <div className="info">
           <h3 className="battlepass-title">Battle Pass - Season {number}</h3>
-          <img
+          <Image
             className="icon"
             src={iconUrl}
             alt=""
@@ -87,7 +88,7 @@ function BattlePass({
           </p>
         </div>
         <div className="bgs">
-          <img
+          <Image
             className="bg"
             src={background.imageDayWide.url}
             alt=""
@@ -96,7 +97,7 @@ function BattlePass({
             height={background.imageDayWide.height}
             style={{ backgroundColor: `${background.backgroundColorDay}` }}
           />
-          <img
+          <Image
             className="bg"
             src={background.imageNightWide.url}
             alt=""
@@ -130,3 +131,4 @@ function BattlePass({
 }
 
 export { BattlePass };
+
