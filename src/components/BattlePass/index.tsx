@@ -96,6 +96,7 @@ function BattlePass({
             width={background.imageDayWide.width}
             height={background.imageDayWide.height}
             style={{ backgroundColor: `${background.backgroundColorDay}` }}
+            priority
           />
           <Image
             className="bg"
@@ -105,6 +106,7 @@ function BattlePass({
             width={background.imageNightWide.width}
             height={background.imageNightWide.height}
             style={{ backgroundColor: `${background.backgroundColorNight}` }}
+            priority
           />
         </div>
       </div>
@@ -131,4 +133,3 @@ function BattlePass({
 }
 
 export { BattlePass };
-
