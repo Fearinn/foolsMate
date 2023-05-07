@@ -2,10 +2,11 @@ import {
   AvatarItemCard,
   AvatarItemsFilters,
   ErrorMessage,
-  Loader,
+  Loader
 } from "@/components";
 import { useStore } from "@/store/filters";
 import { useAvatarItems } from "@/utils/hooks/useAvatarItems";
+import Head from "next/head";
 import { useEffect, useState } from "react";
 import { StyledAvatarItemList } from "./StyledAvatarItemList";
 
@@ -42,37 +43,42 @@ function AvatarItems() {
   }
 
   return (
-    <main>
-      <StyledAvatarItemList>
-        <AvatarItemsFilters numberOfPages={numberOfPages} />
-        <div className="stats">
-          <p>
-            Results in this page: <span>{data.count}</span>
-          </p>
-          <p>
-            Current page: <span>{data.currentPage}</span>
-          </p>
-          <p>
-            Total of results: <span>{data.totalCount}</span>
-          </p>
-        </div>
-        <ul>
-          {data.items.length ? (
-            data.items.map((item) => {
-              return (
-                <li key={item.id}>
-                  <AvatarItemCard {...item} />
-                </li>
-              );
-            })
-          ) : (
-            <ErrorMessage>
-              No item was found with the selected filters!
-            </ErrorMessage>
-          )}
-        </ul>
-      </StyledAvatarItemList>
-    </main>
+    <>
+      <Head>
+        <title>Wolvesville Wiki - Avatar Items</title>
+      </Head>
+      <main>
+        <StyledAvatarItemList>
+          <AvatarItemsFilters numberOfPages={numberOfPages} />
+          <div className="stats">
+            <p>
+              Results in this page: <span>{data.count}</span>
+            </p>
+            <p>
+              Current page: <span>{data.currentPage}</span>
+            </p>
+            <p>
+              Total of results: <span>{data.totalCount}</span>
+            </p>
+          </div>
+          <ul>
+            {data.items.length ? (
+              data.items.map((item) => {
+                return (
+                  <li key={item.id}>
+                    <AvatarItemCard {...item} />
+                  </li>
+                );
+              })
+            ) : (
+              <ErrorMessage>
+                No item was found with the selected filters!
+              </ErrorMessage>
+            )}
+          </ul>
+        </StyledAvatarItemList>
+      </main>
+    </>
   );
 }
 
