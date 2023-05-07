@@ -12,4 +12,4 @@ function Layout({ children }: { children: ReactNode }) {
   );
 }
 
-export default Layout;
+export { Layout };

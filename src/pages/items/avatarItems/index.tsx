@@ -1,7 +1,9 @@
-import { Filters } from "@/components";
-import { AvatarItemCard } from "@/components/AvarItemCard";
-import { ErrorMessage } from "@/components/ErrorMessage";
-import { Loader } from "@/components/Loader";
+import {
+  AvatarItemCard,
+  AvatarItemsFilters,
+  ErrorMessage,
+  Loader,
+} from "@/components";
 import { useStore } from "@/store/filters";
 import { useAvatarItems } from "@/utils/hooks/useAvatarItems";
 import { useEffect, useState } from "react";
@@ -42,7 +44,7 @@ function AvatarItems() {
   return (
     <main>
       <StyledAvatarItemList>
-        <Filters numberOfPages={numberOfPages} />
+        <AvatarItemsFilters numberOfPages={numberOfPages} />
         <div className="stats">
           <p>
             Results in this page: <span>{data.count}</span>

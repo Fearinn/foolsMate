@@ -1,15 +1,15 @@
 import { useStore } from "@/store/filters";
 import { IAvatarItemType } from "@/types/AvatarItem";
-import { IFilters } from "@/types/Filters";
+import { IFilterSet } from "@/types/Filters";
 import { IRarity } from "@/types/Rarity";
 import { handleGender } from "@/utils/handleGender";
 import { numberToList } from "@/utils/numberToList";
 import { Button, Input, Select } from "@chakra-ui/react";
 import { useState } from "react";
 import { colors } from "../../assets/cssVariables";
-import { StyledFilters } from "./StyledFilters";
+import { StyledAvatarItemFilters } from "./StyledAvatarItemFilters";
 
-function Filters({ numberOfPages }: { numberOfPages: number }) {
+function AvatarItemsFilters({ numberOfPages }: { numberOfPages: number }) {
   const [gender, setGender] = useState("");
   const [rarity, setRarity] = useState("");
   const [type, setType] = useState("");
@@ -29,7 +29,7 @@ function Filters({ numberOfPages }: { numberOfPages: number }) {
     });
   }
 
-  const filterSet: IFilters = {
+  const filterSet: IFilterSet = {
     handleSubmit,
     selects: [
       {
@@ -37,120 +37,44 @@ function Filters({ numberOfPages }: { numberOfPages: number }) {
         handler: (value: string) =>
           setFilters({ ...filters, page: Number(value) || 1 }),
         placeholder: "page",
-        options: numberToList(numberOfPages).map((number) => {
-          return {
-            name: number.toString(),
-            value: number,
-          };
-        }),
+        options: numberToList(numberOfPages).map((number) => number.toString()),
       },
       {
         name: "itemsPerPage",
         handler: (value: string) =>
           setFilters({ ...filters, limit: Number(value) || 100 }),
         placeholder: "items per page",
-        options: [
-          {
-            name: "100",
-            value: 100,
-            default: true,
-          },
-          {
-            name: "200",
-            value: 200,
-          },
-          { name: "500", value: 500 },
-          {
-            name: "1000",
-            value: 1000,
-          },
-        ],
+        options: ["100", "200", "500", "1000"],
+        default: "100",
       },
       {
         name: "gender",
         handler: (value: string) => setGender(value),
         placeholder: "gender",
-        options: [
-          {
-            name: "both",
-            value: "BOTH",
-          },
-          {
-            name: "male",
-            value: "MALE",
-          },
-          {
-            name: "female",
-            value: "FEMALE",
-          },
-        ],
+        options: ["BOTH", "MALE", "FEMALE"],
       },
       {
         name: "rarity",
         handler: (value: string) => setRarity(value),
         placeholder: "rarity",
-        options: [
-          {
-            name: "common",
-            value: "COMMON",
-          },
-          {
-            name: "rare",
-            value: "RARE",
-          },
-          {
-            name: "epic",
-            value: "EPIC",
-          },
-          {
-            name: "legendary",
-            value: "LEGENDARY",
-          },
-        ],
+        options: ["COMMON", "RARE", "EPIC", "LEGENDARY"],
       },
       {
         name: "type",
         handler: (value: string) => setType(value),
         placeholder: "type",
         options: [
-          {
-            name: "mouth",
-            value: "MOUTH",
-          },
-          {
-            name: "hair",
-            value: "HAIR",
-          },
-          {
-            name: "front",
-            value: "FRONT",
-          },
-          {
-            name: "shirt",
-            value: "SHIRT",
-          },
-          {
-            name: "hat",
-            value: "HAT",
-          },
-          {
-            name: "back",
-            value: "BACK",
-          },
-          {
-            name: "mask",
-            value: "MASK",
-          },
-          {
-            name: "gravestone",
-            value: "GRAVESTONE",
-          },
-          {
-            name: "glasses",
-            value: "GLASSES",
-          },
-          { name: "eyes", value: "EYES" },
-          { name: "badge", value: "BADGE" },
+          "MOUTH",
+          "HAIR",
+          "FRONT",
+          "SHIRT",
+          "HAT",
+          "BACK",
+          "MASK",
+          "GRAVESTONE",
+          "GLASSES",
+          "EYES",
+          "BADGE",
         ],
       },
     ],
@@ -164,7 +88,7 @@ function Filters({ numberOfPages }: { numberOfPages: number }) {
   };
 
   return (
-    <StyledFilters
+    <StyledAvatarItemFilters
       onSubmit={(e) => {
         e.preventDefault();
         handleSubmit();
@@ -172,12 +96,9 @@ function Filters({ numberOfPages }: { numberOfPages: number }) {
     >
       {filterSet.selects &&
         filterSet.selects.map((select, index) => {
-          const defaultOption = select.options.find(
-            (option) => !!option.default
-          );
           return (
             <Select
-              defaultValue={defaultOption?.value}
+              defaultValue={select.default}
               key={index}
               placeholder={select.placeholder}
               width="auto"
@@ -189,8 +110,8 @@ function Filters({ numberOfPages }: { numberOfPages: number }) {
             >
               {select.options.map((option) => {
                 return (
-                  <option key={option.value} value={option.value}>
-                    {option.name}
+                  <option key={option} value={option}>
+                    {option}
                   </option>
                 );
               })}
@@ -222,8 +143,8 @@ function Filters({ numberOfPages }: { numberOfPages: number }) {
       >
         Filter
       </Button>
-    </StyledFilters>
+    </StyledAvatarItemFilters>
   );
 }
 
-export { Filters };
+export { AvatarItemsFilters };
