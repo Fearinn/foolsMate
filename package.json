@@ -14,6 +14,7 @@
     "@chakra-ui/system": "^2.5.1",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@tanstack/react-query": "^4.29.5",
     "@total-typescript/ts-reset": "^0.3.7",
     "@types/node": "18.16.3",
     "@types/react": "18.2.1",
@@ -26,7 +27,6 @@
     "next": "13.3.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-query": "^3.39.3",
     "styled-components": "^5.3.10",
     "typescript": "4.9.4",
     "zustand": "^4.3.8"

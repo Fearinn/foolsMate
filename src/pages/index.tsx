@@ -5,8 +5,8 @@ import { MainTitle } from "@/components/MainTitle";
 import { getBattlePassSeason } from "@/services";
 import { useBattlePassSeason } from "@/utils/hooks/useBattlePassSeason";
 import { Heading } from "@chakra-ui/react";
+import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Head from "next/head";
-import { dehydrate, QueryClient } from "react-query";
 import { StyledHome } from "./StyledHome";
 
 export async function getServerSideProps() {
