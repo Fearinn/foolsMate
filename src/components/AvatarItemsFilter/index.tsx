@@ -1,8 +1,7 @@
 import { useStore } from "@/store/filters";
-import { IAvatarItemType } from "@/types/AvatarItem";
+import { IAvatarItemGender, IAvatarItemType } from "@/types/AvatarItem";
 import { IFilterSet } from "@/types/FilterSet";
 import { IRarity } from "@/types/Rarity";
-import { handleGender } from "@/utils/handleGender";
 import { numberToList } from "@/utils/numberToList";
 import { Button, Input, Select } from "@chakra-ui/react";
 import { useState } from "react";
@@ -22,7 +21,7 @@ function AvatarItemsFilters({ numberOfPages }: { numberOfPages: number }) {
   function handleSubmit() {
     setFilters({
       ...filters,
-      gender: handleGender(gender),
+      gender: gender as IAvatarItemGender,
       rarity: (rarity as IRarity) || undefined,
       type: (type as IAvatarItemType) || undefined,
       event: event || undefined,
@@ -51,7 +50,7 @@ function AvatarItemsFilters({ numberOfPages }: { numberOfPages: number }) {
         name: "gender",
         handler: (value: string) => setGender(value),
         placeholder: "gender",
-        options: ["BOTH", "MALE", "FEMALE"],
+        options: ["NEUTRAL", "MALE", "FEMALE"],
       },
       {
         name: "rarity",

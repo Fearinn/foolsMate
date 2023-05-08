@@ -23,7 +23,7 @@ function AvatarItemCard(props: IAvatarItem) {
           Cost: <span>{cost()}</span>
         </p>
         <p className="gender">
-          Gender: <span>{props.gender || "BOTH"}</span>
+          Gender: <span>{props.gender}</span>
         </p>
         <p className="type">
           Type: <span>{props.type || "?"}</span>
@@ -42,4 +42,3 @@ function AvatarItemCard(props: IAvatarItem) {
 const memoizedExport = memo(AvatarItemCard);
 
 export { memoizedExport as AvatarItemCard };
-
