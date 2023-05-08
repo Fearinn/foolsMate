@@ -2,7 +2,11 @@ import { BattlePass } from "@/components/BattlePass";
 import { ErrorMessage } from "@/components/ErrorMessage";
 import { Loader } from "@/components/Loader";
 import { MainTitle } from "@/components/MainTitle";
-import { getBattlePassSeason } from "@/services";
+import {
+  getAvatarItemsByIds,
+  getBackgrounds,
+  getBattlePassSeason,
+} from "@/services";
 import { useBattlePassSeason } from "@/utils/hooks/useBattlePassSeason";
 import { Heading } from "@chakra-ui/react";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
@@ -10,14 +14,33 @@ import Head from "next/head";
 import { StyledHome } from "./StyledHome";
 
 export async function getServerSideProps() {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: 1000 * 60 * 30,
+      },
+    },
+  });
 
-  await queryClient.prefetchQuery(
+  const { rewards, seasonBackgroundId } = await queryClient.fetchQuery(
     ["getBattlePassSeason"],
-    () => getBattlePassSeason(["AVATAR_ITEM"]),
-    {
-      staleTime: 1000 * 60 * 30,
-    }
+    () => getBattlePassSeason(["AVATAR_ITEM"])
+  );
+
+  const ids: string[] = [];
+
+  rewards.forEach((reward) => {
+    if (reward.avatarItemId) ids.push(reward.avatarItemId);
+    if (reward.avatarItemIdFemale) ids.push(reward.avatarItemIdFemale);
+    if (reward.avatarItemIdMale) ids.push(reward.avatarItemIdMale);
+  });
+
+  await queryClient.prefetchQuery(["getBackgrounds"], () =>
+    getBackgrounds(seasonBackgroundId)
+  );
+
+  await queryClient.prefetchQuery(["getAvatarItemsByIds", ids], () =>
+    getAvatarItemsByIds(ids)
   );
 
   return {
