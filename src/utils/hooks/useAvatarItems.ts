@@ -1,11 +1,12 @@
-import { Paginated } from "@/types/utils/Paginated";
-import { useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
+import { useQuery } from "react-query";
 import { getAvatarItems } from "../../services";
 import { IAvatarItem } from "../../types/AvatarItem";
 import { IResponseData } from "../../types/ResponseData";
 
-export function useAvatarItems(filters: Paginated<IAvatarItem>) {
+export function useAvatarItems(
+  filters: Partial<{ page: number; limit: number } & IAvatarItem>
+) {
   const response = useQuery<IResponseData<IAvatarItem>, AxiosError>(
     ["getAvatarItems", filters],
     () => getAvatarItems(filters),

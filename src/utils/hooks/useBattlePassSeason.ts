@@ -1,5 +1,5 @@
-import { useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
+import { useQuery } from "react-query";
 import { getBattlePassSeason } from "../../services";
 import { IRewardType, ISeason } from "../../types/BattlePassSeason";
 

@@ -1,24 +1,22 @@
-import Image from "next/image";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { StyledHeader } from "./StyledHeader";
 
 function Header() {
   return (
     <StyledHeader>
-      <Link href="/">
+      <Link to="/">
         <h2>
-          <Image
-            alt=""
-            src="/favicon.svg"
+          <img
+            src="/paw-3-svgrepo-com.svg"
             role="presentation"
             width="24"
             height="24"
-          ></Image>
+          ></img>
           Wolvesville Wiki
         </h2>
       </Link>
       <nav>
-        <Link href="/items/avatarItems">Avatar Items</Link>
+        <Link to="items/avatarItems">Items</Link>
       </nav>
     </StyledHeader>
   );

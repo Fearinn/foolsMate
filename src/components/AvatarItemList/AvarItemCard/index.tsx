@@ -1,7 +1,6 @@
-import Image from "next/image";
 import { memo } from "react";
-import { IAvatarItem } from "../../types/AvatarItem";
-import { StyledAvatarItemCard } from "./StyledAvatarItemCard";
+import {IAvatarItem} from "../../../types/AvatarItem";
+import {StyledAvatarItemCard} from "./StyledAvatarItemCard";
 
 function AvatarItemCard(props: IAvatarItem) {
   function cost() {
@@ -11,19 +10,13 @@ function AvatarItemCard(props: IAvatarItem) {
   }
   return (
     <StyledAvatarItemCard {...props}>
-      <Image
-        src={props.imageUrl}
-        alt=""
-        role="presentation"
-        width={100}
-        height={50}
-      />
+      <img src={props.imageUrl} alt="" role="presentation" />
       <div className="text">
         <p className="cost">
           Cost: <span>{cost()}</span>
         </p>
         <p className="gender">
-          Gender: <span>{props.gender}</span>
+          Gender: <span>{props.gender || "BOTH"}</span>
         </p>
         <p className="type">
           Type: <span>{props.type || "?"}</span>
