@@ -5,7 +5,7 @@ import { IRewardType, ISeason } from "../types/BattlePassSeason";
 import { IBackground } from "../types/Background";
 
 const instance = axios.create({
-  baseURL: /* "https://wolvesvillewiki.cyclic.app/"  */ "http://localhost:3000",
+  baseURL: "https://wolvesvillewiki.cyclic.app/"  /* "http://localhost:3000" */,
   headers: {
     Accept: "application/json",
   },
