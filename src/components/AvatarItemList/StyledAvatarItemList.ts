@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../assets/cssVariables";
+import { colors } from "../../assets/cssVariables";
 
 export const StyledAvatarItemList = styled.div`
   display: flex;
