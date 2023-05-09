@@ -9,7 +9,7 @@ function RewardCard({ imageUrl }: { imageUrl: string }) {
         alt=""
         role="presentation"
         width={100}
-        height={100}
+        height={50}
       />
     </StyledRewardCard>
   );

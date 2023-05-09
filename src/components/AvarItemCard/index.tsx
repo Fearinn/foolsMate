@@ -16,7 +16,7 @@ function AvatarItemCard(props: IAvatarItem) {
         alt=""
         role="presentation"
         width={100}
-        height={100}
+        height={50}
       />
       <div className="text">
         <p className="cost">
