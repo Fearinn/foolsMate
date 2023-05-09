@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
-:root, body, #root {
+:root,
+body,
+#root {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -9,7 +11,7 @@
   min-height: 100dvh;
 }
 
-#root > main {
+#__next > main {
   display: flex;
   flex-direction: column;
   align-items: center;

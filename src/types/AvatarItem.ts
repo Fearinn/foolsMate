@@ -24,4 +24,4 @@ export type IAvatarItemType =
   | "EYES"
   | "BADGE";
 
-export type IAvatarItemGender = "FEMALE" | "MALE" | "";
+export type IAvatarItemGender = "FEMALE" | "MALE" | "NEUTRAL";
