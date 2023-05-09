@@ -11,7 +11,7 @@ import { useBattlePassSeason } from "@/utils/hooks/useBattlePassSeason";
 import { Heading } from "@chakra-ui/react";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Head from "next/head";
-import { StyledHome } from "./StyledHome";
+import { StyledHome } from "../styles/StyledHome";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient({
