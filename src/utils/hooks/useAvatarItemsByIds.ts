@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { getAvatarItemsByIds } from "../../services";
-import { IAvatarItem } from "../../types/AvatarItem";
+import { IAvatarItem } from "../../components/avatarItem/types/AvatarItem";
 import { IResponseData } from "../../types/ResponseData";
 
 export function useAvatarItemsByIds(ids: string[]) {

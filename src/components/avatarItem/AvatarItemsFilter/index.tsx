@@ -1,11 +1,11 @@
 import { useStore } from "@/store/filters";
-import { IAvatarItemGender, IAvatarItemType } from "@/types/AvatarItem";
+import { IAvatarItemGender, IAvatarItemType } from "@/components/avatarItem/types/AvatarItem";
 import { IFilterSet } from "@/types/FilterSet";
 import { IRarity } from "@/types/Rarity";
 import { numberToList } from "@/utils/numberToList";
 import { Button, Input, Select } from "@chakra-ui/react";
 import { useState } from "react";
-import { colors } from "../../assets/cssVariables";
+import { colors } from "../../../assets/cssVariables";
 import { StyledAvatarItemFilters } from "./StyledAvatarItemFilters";
 
 function AvatarItemsFilters({ numberOfPages }: { numberOfPages: number }) {

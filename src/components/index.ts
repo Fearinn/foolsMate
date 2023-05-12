@@ -1,5 +1,5 @@
-export { AvatarItemCard } from "./AvarItemCard";
-export { AvatarItemsFilters } from "./AvatarItemsFilter";
+export { AvatarItemCard } from "./avatarItem/AvarItemCard";
+export { AvatarItemsFilters } from "./avatarItem/AvatarItemsFilter";
 export { ErrorMessage } from "./ErrorMessage";
 export { Footer } from "./Footer";
 export { Header } from "./Header";

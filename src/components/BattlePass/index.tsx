@@ -1,4 +1,4 @@
-import { ISeason } from "@/types/BattlePassSeason";
+import { ISeason } from "@/components/BattlePass/types/BattlePassSeason";
 import { useAvatarItemsByIds } from "@/utils/hooks/useAvatarItemsByIds";
 import { useBackground } from "@/utils/hooks/useBackground";
 import Image from "next/image";

@@ -1,11 +1,14 @@
+import { IAvatarItem } from "@/components/avatarItem/types/AvatarItem";
+import { IBackground } from "@/components/BattlePass/types/Background";
+import {
+  IRewardType,
+  ISeason
+} from "@/components/BattlePass/types/BattlePassSeason";
+import { IResponseData } from "@/types/ResponseData";
 import axios from "axios";
-import { IAvatarItem } from "../types/AvatarItem";
-import { IResponseData } from "../types/ResponseData";
-import { IRewardType, ISeason } from "../types/BattlePassSeason";
-import { IBackground } from "../types/Background";
 
 const instance = axios.create({
-  baseURL: "https://wolvesvillewiki.cyclic.app/"  /* "http://localhost:3000" */,
+  baseURL: "https://wolvesvillewiki.cyclic.app/" /* "http://localhost:3000" */,
   headers: {
     Accept: "application/json",
   },

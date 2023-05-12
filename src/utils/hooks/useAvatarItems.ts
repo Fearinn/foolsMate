@@ -2,7 +2,7 @@ import { Paginated } from "@/types/utils/Paginated";
 import { useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { getAvatarItems } from "../../services";
-import { IAvatarItem } from "../../types/AvatarItem";
+import { IAvatarItem } from "../../components/avatarItem/types/AvatarItem";
 import { IResponseData } from "../../types/ResponseData";
 
 export function useAvatarItems(filters: Paginated<IAvatarItem>) {

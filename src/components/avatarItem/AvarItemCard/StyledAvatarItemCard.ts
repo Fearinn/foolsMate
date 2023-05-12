@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { colors } from "../../assets/cssVariables";
-import { IAvatarItem } from "../../types/AvatarItem";
+import { colors } from "../../../assets/cssVariables";
+import { IAvatarItem } from "../types/AvatarItem";
 
 function handleGender(props: IAvatarItem) {
   const gender = props.gender;
