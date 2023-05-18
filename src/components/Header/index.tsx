@@ -19,6 +19,7 @@ function Header() {
       </Link>
       <nav>
         <Link href="/items/avatarItems">Avatar Items</Link>
+        <Link href="/items/roleIcons">Role Icons</Link>
       </nav>
     </StyledHeader>
   );
