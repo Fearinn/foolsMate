@@ -7,7 +7,7 @@ type AvatarItemsFilters = {
   updateFilters: (newFilters: Paginated<IAvatarItem>) => void;
 };
 
-export const useStore = create<AvatarItemsFilters>()((set) => ({
+export const useAvatarItemStore = create<AvatarItemsFilters>()((set) => ({
   filters: { page: 1, limit: 100 },
   updateFilters: (newFilters: Paginated<IAvatarItem>) =>
     set(() => ({ filters: newFilters })),

@@ -1,4 +1,4 @@
-import { useStore } from "@/store/filters";
+import { useAvatarItemStore } from "@/store/avatarItem";
 import { IAvatarItemGender, IAvatarItemType } from "@/components/avatarItem/types/AvatarItem";
 import { IFilterSet } from "@/types/FilterSet";
 import { IRarity } from "@/types/Rarity";
@@ -13,7 +13,7 @@ function AvatarItemsFilters({ numberOfPages }: { numberOfPages: number }) {
   const [rarity, setRarity] = useState("");
   const [type, setType] = useState("");
   const [event, setEvent] = useState("");
-  const [filters, setFilters] = useStore((state) => [
+  const [filters, setFilters] = useAvatarItemStore((state) => [
     state.filters,
     state.updateFilters,
   ]);
