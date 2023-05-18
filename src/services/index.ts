@@ -4,19 +4,19 @@ import {
   IRewardType,
   ISeason
 } from "@/components/BattlePass/types/BattlePassSeason";
+import { IRoleIcon } from "@/components/roleIcon/types/RoleIcon";
 import { IResponseData } from "@/types/ResponseData";
+import { Paginated } from "@/types/utils/Paginated";
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "https://wolvesvillewiki.cyclic.app/" /* "http://localhost:3000" */,
+  baseURL: "https://wolvesvillewiki.cyclic.app/"/*  "http://localhost:3000" */,
   headers: {
     Accept: "application/json",
   },
 });
 
-export async function getAvatarItems(
-  params: Partial<{ page: number; limit: number } & IAvatarItem>
-) {
+export async function getAvatarItems(params: Paginated<IAvatarItem>) {
   const response = await instance.get<IResponseData<IAvatarItem>>(
     `items/avatarItems`,
     {
@@ -63,4 +63,13 @@ export async function getBackgrounds(id: string) {
   );
 
   return response.data.items[0];
+}
+
+export async function getRoleIcons(filters: Paginated<IRoleIcon>) {
+  const response = await instance.get<IResponseData<IRoleIcon>>(
+    "items/roleIcons",
+    { params: filters }
+  );
+
+  return response.data;
 }
