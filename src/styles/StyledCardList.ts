@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../assets/cssVariables";
 
-export const StyledAvatarItemList = styled.div`
+export const StyledCardList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;

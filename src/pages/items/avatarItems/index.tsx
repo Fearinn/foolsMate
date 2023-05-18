@@ -5,12 +5,12 @@ import {
   Loader,
 } from "@/components";
 import { getAvatarItems } from "@/services";
-import { useStore } from "@/store/filters";
+import { useAvatarItemStore } from "@/store/avatarItem";
 import { useAvatarItems } from "@/utils/hooks/useAvatarItems";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import { StyledAvatarItemList } from "../../../styles/StyledAvatarItemList";
+import { StyledCardList } from "../../../styles/StyledCardList";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -33,9 +33,9 @@ export async function getServerSideProps() {
 }
 
 function AvatarItems() {
-  const filters = useStore((state) => state.filters);
+  const filters = useAvatarItemStore((state) => state.filters);
   const [numberOfPages, setNumberOfPages] = useState(1);
-  const itemsPerPage = useStore((state) => state.filters.limit);
+  const itemsPerPage = useAvatarItemStore((state) => state.filters.limit);
 
   const { data, isLoading, error } = useAvatarItems(filters);
 
@@ -70,7 +70,7 @@ function AvatarItems() {
         <title>Wolvesville Wiki - Avatar Items</title>
       </Head>
       <main>
-        <StyledAvatarItemList>
+        <StyledCardList>
           <AvatarItemsFilters numberOfPages={numberOfPages} />
           <div className="stats">
             <p>
@@ -98,7 +98,7 @@ function AvatarItems() {
               </ErrorMessage>
             )}
           </ul>
-        </StyledAvatarItemList>
+        </StyledCardList>
       </main>
     </>
   );
