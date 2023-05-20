@@ -1,0 +1,15 @@
+.stats {
+  display: flex;
+  gap: 1rem;
+
+  p {
+    background-color: var(--backgroundMain);
+    border: 2px solid var(--backgroundTertiary);
+    border-radius: 8px;
+    padding: 0.5rem;
+  }
+
+  span {
+    font-weight: bold;
+  }
+}
