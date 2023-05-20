@@ -7,11 +7,11 @@ import {
   getBackgrounds,
   getBattlePassSeason,
 } from "@/services";
+import styles from "@/styles/Home.module.scss";
 import { useBattlePassSeason } from "@/utils/hooks/useBattlePassSeason";
 import { Heading } from "@chakra-ui/react";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Head from "next/head";
-import { StyledHome } from "../styles/StyledHome";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient({
@@ -53,18 +53,19 @@ export async function getServerSideProps() {
 export default function Home() {
   const { data, isLoading, error } = useBattlePassSeason(["AVATAR_ITEM"]);
 
-  if (isLoading)
-    return (
-      <StyledHome>
-        <Loader />
-      </StyledHome>
-    );
+  function handleQuery() {
+    if (isLoading) return <Loader />;
 
-  if (!data || error) {
+    if (!data || error) {
+      return <ErrorMessage />;
+    }
+
     return (
-      <StyledHome>
-        <ErrorMessage />
-      </StyledHome>
+      <>
+        <MainTitle title="Welcome to Wolvesville Wiki!" />
+        <Heading size="md">{"What's new in Wolvesville?"}</Heading>
+        <BattlePass {...data}></BattlePass>
+      </>
     );
   }
 
@@ -73,11 +74,8 @@ export default function Home() {
       <Head>
         <title>Wolvesville Wiki</title>
       </Head>
-      <StyledHome>
-        <MainTitle title="Welcome to Wolvesville Wiki!" />
-        <Heading size="md">{"What's new in Wolvesville?"}</Heading>
-        <BattlePass {...data}></BattlePass>
-      </StyledHome>
+      <main className={styles.home}>{handleQuery()}</main>
+      <main className={styles.home}></main>
     </>
   );
 }

@@ -3,11 +3,11 @@ import { RoleIconCard } from "@/components/roleIcon/RoleIconCard";
 import { RoleIconFilter } from "@/components/roleIcon/RoleIconFilter";
 import { getRoleIcons } from "@/services";
 import { useRoleIconStore } from "@/store/roleIcon";
-import { StyledCardList } from "@/styles/StyledCardList";
 import { useRoleIcons } from "@/utils/hooks/useRoleIcons";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Head from "next/head";
 import { useEffect, useState } from "react";
+import styles from "@/styles/CardList.module.scss";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -48,37 +48,31 @@ function RoleIcons() {
     }
   }, [data, limit]);
 
-  if (isLoading)
-    return (
-      <main>
-        <Loader />
-      </main>
-    );
+  function handleQuery() {
+    if (isLoading) return <Loader />;
 
-  if (!data || error)
+    if (!data || error) return <ErrorMessage />;
+
     return (
-      <main>
-        <ErrorMessage />
-      </main>
+      <div className={styles["card-list"]}>
+        <RoleIconFilter numberOfPages={numberOfPages} />
+        <ul>
+          {data.items.map((icon) => (
+            <li key={icon.id}>
+              <RoleIconCard {...icon} />
+            </li>
+          ))}
+        </ul>
+      </div>
     );
+  }
 
   return (
     <>
       <Head>
         <title>Wolvesville Wiki - Role Icons</title>
       </Head>
-      <main>
-        <StyledCardList>
-          <RoleIconFilter numberOfPages={numberOfPages} />
-          <ul>
-            {data.items.map((icon) => (
-              <li key={icon.id}>
-                <RoleIconCard {...icon} />
-              </li>
-            ))}
-          </ul>
-        </StyledCardList>
-      </main>
+      <main>{handleQuery()}</main>
     </>
   );
 }

@@ -1,5 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
+:root {
+  --brandMain: #fe55b9;
+  --fontMain: #000000;
+  --fontSecondary: #ffffff;
+  --backgroundMain: #ffffff;
+  --backgroundSecondary: #efefef;
+  --backgroundTertiary: #979797;
+  --costInGold: #ff884b;
+  --costInRoses: #dc3535;
+  --genderMale: #2d46b9;
+  --genderFemale: #f037a5;
+  --genderNetural: #21aa93;
+  --rarityCommon: #6a492b;
+  --rarityRare: #a13333;
+  --rarityEpic: #a31acb;
+  --rarityLegendary: #e27802;
+  --itemType: #4a772f;
+}
+
 :root,
 body,
 #root {
