@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { StyledHeader } from "./StyledHeader";
+import styles from "./Header.module.scss";
 
 function Header() {
   return (
-    <StyledHeader>
+    <header className={styles.header}>
       <Link href="/">
         <h2>
           <Image
@@ -21,7 +21,7 @@ function Header() {
         <Link href="/items/avatarItems">Avatar Items</Link>
         <Link href="/items/roleIcons">Role Icons</Link>
       </nav>
-    </StyledHeader>
+    </header>
   );
 }
 

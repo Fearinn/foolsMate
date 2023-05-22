@@ -1,7 +1,8 @@
+import classNames from "classnames";
 import Image from "next/image";
 import { memo } from "react";
 import { IAvatarItem } from "../types/AvatarItem";
-import { StyledAvatarItemCard } from "./StyledAvatarItemCard";
+import styles from "./AvatarItemCard.module.scss";
 
 function AvatarItemCard(props: IAvatarItem) {
   function cost() {
@@ -9,8 +10,9 @@ function AvatarItemCard(props: IAvatarItem) {
     if (props.costInRoses) return `${props.costInRoses} roses`;
     return "?";
   }
+
   return (
-    <StyledAvatarItemCard {...props}>
+    <div className={styles["avatar-item-card"]}>
       <Image
         src={props.imageUrl}
         alt=""
@@ -18,24 +20,33 @@ function AvatarItemCard(props: IAvatarItem) {
         width={100}
         height={50}
       />
-      <div className="text">
-        <p className="cost">
-          Cost: <span>{cost()}</span>
+      <div className={styles.text}>
+        <p className={styles.cost}>
+          Cost:{" "}
+          <span
+            className={classNames({
+              [styles.gold]: props.costInGold,
+              [styles.roses]: props.costInRoses,
+            })}
+          >
+            {cost()}
+          </span>
         </p>
-        <p className="gender">
-          Gender: <span>{props.gender}</span>
+        <p className={styles.gender}>
+          Gender: <span className={styles[props.gender]}>{props.gender}</span>
         </p>
-        <p className="type">
+        <p className={styles.type}>
           Type: <span>{props.type || "?"}</span>
         </p>
-        <p className="rarity">
-          Rarity: <span>{props.rarity || "?"}</span>
+        <p className={styles.rarity}>
+          Rarity:{" "}
+          <span className={styles[props.rarity]}>{props.rarity || "?"}</span>
         </p>
-        <p className="event">
+        <p className={styles.event}>
           Event: <span>{props.event?.replaceAll("_", " ") || "NONE"}</span>
         </p>
       </div>
-    </StyledAvatarItemCard>
+    </div>
   );
 }
 

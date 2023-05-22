@@ -1,8 +1,8 @@
-import {StyledFooter} from "./StyledFooter";
+import styles from "./Footer.module.scss";
 
 function Footer() {
   return (
-    <StyledFooter>
+    <footer className={styles.footer}>
       <p>
         This is an unofficial website, which is not developed or endorsed by{" "}
         <a href="https://www.wolvesville.com/" target="_blank">
@@ -23,7 +23,7 @@ function Footer() {
         .
       </p>
       <p>Developed by Matheus Gomes (Fearinn).</p>
-    </StyledFooter>
+    </footer>
   );
 }
 

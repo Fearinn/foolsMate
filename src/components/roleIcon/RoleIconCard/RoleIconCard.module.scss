@@ -1,0 +1,53 @@
+.role-icon-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: space-around;
+  background-color: var(--backgroundMain);
+  border: 3px solid var(--backgroundTertiary);
+  border-radius: 8px;
+  height: 100%;
+  padding: 0.5rem;
+  text-transform: capitalize;
+  width: 100%;
+
+  .image {
+    background-color: var(--backgroundSecondary);
+    padding: 1rem;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    p {
+      width: 100%;
+    }
+
+    span {
+      -webkit-text-stroke: 0.075ch var(--fontMain);
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+
+  .rarity {
+    .COMMON {
+      color: var(--rarityCommon);
+    }
+
+    .RARE {
+      color: var(--rarityRare);
+    }
+
+    .EPIC {
+      color: var(--rarityEpic);
+    }
+
+    .LEGENDARY {
+      color: var(--rarityLegendary);
+    }
+  }
+}

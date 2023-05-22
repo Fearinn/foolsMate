@@ -1,16 +1,13 @@
-import styled from "styled-components";
-import { colors } from "../../assets/cssVariables";
-
-export const StyledBattlePass = styled.div`
+.battle-pass {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  background-color: ${colors.secondaryBackGround};
+  background-color: var(--backgroundSecondary);
   gap: 0.5rem;
   padding: 1rem;
   width: 100%;
 
-  .battlepass-title {
+  .battle-pass-title {
     font-size: 1.125rem;
     font-weight: bold;
   }
@@ -19,7 +16,7 @@ export const StyledBattlePass = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    background-color: ${colors.mainBackGround};
+    background-color: var(--backgroundMain);
     border-radius: 8px;
     font-size: 1.125rem;
     padding: 0.5rem;
@@ -87,4 +84,4 @@ export const StyledBattlePass = styled.div`
       width: 100%;
     }
   }
-`;
+}

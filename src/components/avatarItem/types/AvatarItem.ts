@@ -7,7 +7,7 @@ export type IAvatarItem = {
   costInRoses?: number;
   imageUrl: string;
   type: IAvatarItemType;
-  gender?: IAvatarItemGender;
+  gender: IAvatarItemGender;
   event?: string;
 };
 

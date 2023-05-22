@@ -5,7 +5,7 @@ import Image from "next/image";
 import { ErrorMessage } from "../ErrorMessage";
 import { Loader } from "../Loader";
 import { RewardCard } from "../RewardCard";
-import { StyledBattlePass } from "./StyledBattlePass";
+import styles from "./BattlePass.module.scss";
 
 function BattlePass({
   startTime,
@@ -53,12 +53,14 @@ function BattlePass({
   );
 
   return (
-    <StyledBattlePass>
-      <div className="bg-info-container">
-        <div className="info">
-          <h3 className="battlepass-title">Battle Pass - Season {number}</h3>
+    <div className={styles["battle-pass"]}>
+      <div className={styles["bg-info-container"]}>
+        <div className={styles.info}>
+          <h3 className={styles["battle-pass-title"]}>
+            Battle Pass - Season {number}
+          </h3>
           <Image
-            className="icon"
+            className={styles.icon}
             src={iconUrl}
             alt=""
             role="presentation"
@@ -87,9 +89,9 @@ function BattlePass({
             xp per reward: <span>{xpPerReward} </span>
           </p>
         </div>
-        <div className="bgs">
+        <div className={styles.bgs}>
           <Image
-            className="bg"
+            className={styles.bg}
             src={background.imageDayWide.url}
             alt=""
             role="presentation"
@@ -99,7 +101,7 @@ function BattlePass({
             priority
           />
           <Image
-            className="bg"
+            className={styles.bg}
             src={background.imageNightWide.url}
             alt=""
             role="presentation"
@@ -110,10 +112,10 @@ function BattlePass({
           />
         </div>
       </div>
-      <div className="rewards">
+      <div className={styles.rewards}>
         {rewardsData ? (
           <>
-            <h4 className="rewards-title">Some of the rewards: </h4>
+            <h4 className={styles["rewards-title"]}>Some of the rewards: </h4>
             <ul>
               {rewardsData.items.map((reward, index) => {
                 return (
@@ -128,7 +130,7 @@ function BattlePass({
           rewardsLoading && <Loader />
         )}
       </div>
-    </StyledBattlePass>
+    </div>
   );
 }
 

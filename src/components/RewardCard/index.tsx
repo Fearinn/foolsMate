@@ -1,19 +1,19 @@
 import Image from "next/image";
-import { StyledRewardCard } from "./StyledRewardCard";
+import styles from "./RewardCard.module.scss";
 
 function RewardCard({ imageUrl }: { imageUrl: string }) {
   return (
-    <StyledRewardCard>
+    <div className={styles["reward-card"]}>
       <Image
+        className={styles.image}
         src={imageUrl}
         alt=""
         role="presentation"
         width={100}
         height={50}
       />
-    </StyledRewardCard>
+    </div>
   );
 }
 
 export { RewardCard };
-

@@ -1,12 +1,9 @@
-import styled from "styled-components";
-import { colors } from "../../assets/cssVariables";
-
-const StyledHeader = styled.header`
+.header {
   display: flex;
   align-items: center;
   gap: 2rem;
-  background-color: ${colors.mainBrand};
-  color: ${colors.mainFont};
+  background-color: var(--brandMain);
+  color: var(--fontMain);
   font-weight: bold;
   padding: 1rem;
 
@@ -38,7 +35,6 @@ const StyledHeader = styled.header`
   }
 
   a:hover {
-    background-color: ${colors.mainBackGround};
+    background-color: var(--backgroundMain);
   }
-`;
-export { StyledHeader };
+}

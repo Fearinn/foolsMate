@@ -1,0 +1,18 @@
+.reward-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: space-around;
+  background-color: var(--backgroundMain);
+  border: 3px solid var(--backgroundTertiary);
+  border-radius: 8px;
+  height: 100%;
+  padding: 0.5rem;
+  width: 100%;
+
+  .image {
+    background-color: var(--backgroundSecondary);
+    padding: 0.5rem;
+  }
+}

@@ -1,27 +1,30 @@
 import Image from "next/image";
 import { IRoleIcon } from "../types/RoleIcon";
-import { StyledRoleIconCard } from "./StyledRoleIconCard";
+import styles from "./RoleIconCard.module.scss";
 
 function RoleIconCard({ image, roleId, event, rarity }: IRoleIcon) {
   return (
-    <StyledRoleIconCard>
+    <div className={styles["role-icon-card"]}>
       <Image
+        className={styles.image}
         alt=""
         role="presentation"
         src={image.url}
         width={image.width}
         height={image.height}
       ></Image>
-      <p className="rarity">
-        Rarity: <span>{rarity}</span>
-      </p>
-      <p>
-        Role: <span>{roleId.toString()}</span>
-      </p>
-      <p>
-        Event: <span>{event?.toString() || "NONE"}</span>
-      </p>
-    </StyledRoleIconCard>
+      <div className={styles.text}>
+        <p className={styles.rarity}>
+          Rarity: <span className={styles[rarity]}>{rarity}</span>
+        </p>
+        <p>
+          Role: <span>{roleId.toString()}</span>
+        </p>
+        <p>
+          Event: <span>{event?.toString() || "NONE"}</span>
+        </p>
+      </div>
+    </div>
   );
 }
 

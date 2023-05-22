@@ -1,12 +1,15 @@
+import {
+  IAvatarItemGender,
+  IAvatarItemType
+} from "@/components/avatarItem/types/AvatarItem";
 import { useAvatarItemStore } from "@/store/avatarItem";
-import { IAvatarItemGender, IAvatarItemType } from "@/components/avatarItem/types/AvatarItem";
 import { IFilterSet } from "@/types/FilterSet";
 import { IRarity } from "@/types/Rarity";
 import { numberToList } from "@/utils/numberToList";
 import { Button, Input, Select } from "@chakra-ui/react";
 import { useState } from "react";
 import { colors } from "../../../assets/cssVariables";
-import { StyledAvatarItemFilters } from "./StyledAvatarItemFilters";
+import styles from "./AvatarItemFilters.module.scss";
 
 function AvatarItemsFilters({ numberOfPages }: { numberOfPages: number }) {
   const [gender, setGender] = useState("");
@@ -87,9 +90,10 @@ function AvatarItemsFilters({ numberOfPages }: { numberOfPages: number }) {
   };
 
   return (
-    <StyledAvatarItemFilters
-      onSubmit={(e) => {
-        e.preventDefault();
+    <form
+      className={styles["avatar-item-filters"]}
+      onSubmit={(event) => {
+        event.preventDefault();
         handleSubmit();
       }}
     >
@@ -142,8 +146,9 @@ function AvatarItemsFilters({ numberOfPages }: { numberOfPages: number }) {
       >
         Filter
       </Button>
-    </StyledAvatarItemFilters>
+    </form>
   );
 }
 
 export { AvatarItemsFilters };
+

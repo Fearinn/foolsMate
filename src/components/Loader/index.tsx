@@ -1,12 +1,12 @@
 import { Spinner } from "@chakra-ui/react";
-import { StyledLoader } from "./StyledLoader";
+import styles from "./Loader.module.scss";
 
 function Loader() {
   return (
-    <StyledLoader>
+    <div className={styles.loader}>
       <Spinner size={"xl"} marginBottom={"1rem"} />
       <p>Data is being fetched...</p>
-    </StyledLoader>
+    </div>
   );
 }
 
