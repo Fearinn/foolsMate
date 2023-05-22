@@ -75,7 +75,6 @@ export default function Home() {
         <title>Wolvesville Wiki</title>
       </Head>
       <main className={styles.home}>{handleQuery()}</main>
-      <main className={styles.home}></main>
     </>
   );
 }
