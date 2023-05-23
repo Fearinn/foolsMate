@@ -1,7 +1,4 @@
-import { BattlePass } from "@/components/BattlePass";
-import { ErrorMessage } from "@/components/ErrorMessage";
-import { Loader } from "@/components/Loader";
-import { MainTitle } from "@/components/MainTitle";
+import { BattlePass, ErrorMessage, Loader, MainTitle } from "@/components";
 import {
   getAvatarItemsByIds,
   getBackgrounds,
