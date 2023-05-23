@@ -25,7 +25,7 @@
     "classnames": "^2.3.2",
     "eslint": "^8.36.0",
     "eslint-plugin-react": "^7.32.2",
-    "next": "13.3.4",
+    "next": "13.4.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sass": "^1.62.1",
@@ -33,6 +33,6 @@
     "zustand": "^4.3.8"
   },
   "devDependencies": {
-    "eslint-config-next": "13.4.1"
+    "eslint-config-next": "13.4.3"
   }
 }
