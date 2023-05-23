@@ -2,7 +2,8 @@ import {
   ErrorMessage,
   Loader,
   RoleIconCard,
-  RoleIconFilters
+  RoleIconFilters,
+  Stats,
 } from "@/components";
 import { getRoleIcons } from "@/services";
 import { useRoleIconStore } from "@/store/roleIcon";
@@ -59,6 +60,7 @@ function RoleIcons() {
     return (
       <div className={styles["card-list"]}>
         <RoleIconFilters numberOfPages={numberOfPages} />
+        <Stats {...data} />
         <ul>
           {data.items.map((icon) => (
             <li key={icon.id}>
