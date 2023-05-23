@@ -6,7 +6,7 @@ import { Button, Input, Select } from "@chakra-ui/react";
 import { useState } from "react";
 import styles from "./RoleIconFilters.module.scss";
 
-function RoleIconFilter({ numberOfPages }: { numberOfPages: number }) {
+function RoleIconFilters({ numberOfPages }: { numberOfPages: number }) {
   const [roleId, setRoleId] = useState("");
   const [event, setEvent] = useState("");
   const [filters, setFilters] = useRoleIconStore((state) => [
@@ -113,4 +113,5 @@ function RoleIconFilter({ numberOfPages }: { numberOfPages: number }) {
   );
 }
 
-export { RoleIconFilter };
+export { RoleIconFilters };
+

@@ -1,13 +1,16 @@
-import { ErrorMessage, Loader } from "@/components";
-import { RoleIconCard } from "@/components/roleIcon/RoleIconCard";
-import { RoleIconFilter } from "@/components/roleIcon/RoleIconFilter";
+import {
+  ErrorMessage,
+  Loader,
+  RoleIconCard,
+  RoleIconFilters
+} from "@/components";
 import { getRoleIcons } from "@/services";
 import { useRoleIconStore } from "@/store/roleIcon";
+import styles from "@/styles/CardList.module.scss";
 import { useRoleIcons } from "@/utils/hooks/useRoleIcons";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import styles from "@/styles/CardList.module.scss";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -55,7 +58,7 @@ function RoleIcons() {
 
     return (
       <div className={styles["card-list"]}>
-        <RoleIconFilter numberOfPages={numberOfPages} />
+        <RoleIconFilters numberOfPages={numberOfPages} />
         <ul>
           {data.items.map((icon) => (
             <li key={icon.id}>
