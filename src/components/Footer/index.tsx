@@ -12,11 +12,11 @@ function Footer() {
         respective owners.
       </p>
       <p>
-        This website follows all{" "}
+        This website follows the{" "}
         <a href="https://api-docs.wolvesville.com/#/tos" target="_blank">
           Wolvesville Terms of Service
-        </a>{" "}
-        . All data is fetched ondemand from the{" "}
+        </a>
+        . Players{"'"} data is fetched on demand from the{" "}
         <a href="https://api-docs.wolvesville.com/" target="_blank">
           official Wolvesville API
         </a>
