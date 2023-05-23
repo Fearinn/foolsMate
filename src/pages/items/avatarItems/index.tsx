@@ -3,8 +3,8 @@ import {
   AvatarItemsFilters,
   ErrorMessage,
   Loader,
+  Stats
 } from "@/components";
-import { Stats } from "@/components/Stats";
 import { getAvatarItems } from "@/services";
 import { useAvatarItemStore } from "@/store/avatarItem";
 import { useAvatarItems } from "@/utils/hooks/useAvatarItems";

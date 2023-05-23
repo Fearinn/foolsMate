@@ -10,4 +10,5 @@ export { MainTitle } from "./MainTitle";
 export { RewardCard } from "./RewardCard";
 export { RoleIconCard } from "./roleIcon/RoleIconCard";
 export { RoleIconFilters } from "./roleIcon/RoleIconFilters";
+export { Stats } from "./Stats";
 
