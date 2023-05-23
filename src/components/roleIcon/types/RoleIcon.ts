@@ -1,8 +1,8 @@
-import { IRarity } from "@/types/Rarity";
+import { Rarity } from "@/types/Rarity";
 
-export type IRoleIcon = {
+export type RoleIcon = {
   id: string;
-  rarity: IRarity;
+  rarity: Rarity;
   image: {
     url: string;
     width: number;

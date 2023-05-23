@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { getBattlePassSeason } from "../../services";
-import { IRewardType, ISeason } from "../../components/BattlePass/types/BattlePassSeason";
+import { RewardType, Season } from "../../components/BattlePass/types/BattlePassSeason";
 
-export function useBattlePassSeason(rewardsTypes: IRewardType[]) {
-  const response = useQuery<ISeason, AxiosError>(
+export function useBattlePassSeason(rewardsTypes: RewardType[]) {
+  const response = useQuery<Season, AxiosError>(
     ["getBattlePassSeason"],
     () => getBattlePassSeason(rewardsTypes),
     {

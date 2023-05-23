@@ -1,4 +1,4 @@
-import { ISeason } from "@/components/BattlePass/types/BattlePassSeason";
+import { Season } from "@/components/BattlePass/types/BattlePassSeason";
 import { useAvatarItemsByIds } from "@/utils/hooks/useAvatarItemsByIds";
 import { useBackground } from "@/utils/hooks/useBackground";
 import Image from "next/image";
@@ -18,7 +18,7 @@ function BattlePass({
   goldPricePerReward,
   gemPricePerReward,
   xpPerReward,
-}: ISeason) {
+}: Season) {
   const {
     data: background,
     isLoading,

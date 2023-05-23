@@ -1,4 +1,4 @@
-export type ISeason = {
+export type Season = {
   startTime: string;
   number: number;
   durationInDays: number;
@@ -6,13 +6,13 @@ export type ISeason = {
   goldPricePerReward: number;
   gemPricePerReward: number;
   xpPerReward: number;
-  rewards: IReward[];
+  rewards: Reward[];
   iconUrl: string;
   seasonBackgroundId: string;
 };
 
-export type IReward = {
-  type: IRewardType;
+export type Reward = {
+  type: RewardType;
   amount: number;
   free: boolean;
   avatarItemIdMale?: string;
@@ -20,7 +20,7 @@ export type IReward = {
   avatarItemId?: string;
 };
 
-export type IRewardType =
+export type RewardType =
   | "AVATAR_ITEM"
   | "ROLE_ICON"
   | "ROSE_PACKAGE"

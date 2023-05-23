@@ -1,6 +1,6 @@
 import { colors } from "@/assets/cssVariables";
 import { useRoleIconStore } from "@/store/roleIcon";
-import { IFilterSet } from "@/types/FilterSet";
+import { FilterSet } from "@/types/FilterSet";
 import { numberToList } from "@/utils/numberToList";
 import { Button, Input, Select } from "@chakra-ui/react";
 import { useState } from "react";
@@ -14,7 +14,7 @@ function RoleIconFilter({ numberOfPages }: { numberOfPages: number }) {
     state.updateFilters,
   ]);
 
-  const filterSet: IFilterSet = {
+  const filterSet: FilterSet = {
     handleSubmit: () => {
       setFilters({
         ...filters,

@@ -1,11 +1,11 @@
-import { IResponseData } from "@/types/ResponseData";
+import { ResponseData } from "@/types/ResponseData";
 import styles from "./Stats.module.scss";
 
 function Stats({
   count,
   currentPage,
   totalCount,
-}: Omit<IResponseData<unknown>, "items">) {
+}: Omit<ResponseData<unknown>, "items">) {
   return (
     <div className={styles.stats}>
       <p>

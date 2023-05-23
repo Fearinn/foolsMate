@@ -1,10 +1,10 @@
 import {
-  IAvatarItemGender,
-  IAvatarItemType
+  AvatarItemGender,
+  AvatarItemType
 } from "@/components/avatarItem/types/AvatarItem";
 import { useAvatarItemStore } from "@/store/avatarItem";
-import { IFilterSet } from "@/types/FilterSet";
-import { IRarity } from "@/types/Rarity";
+import { FilterSet } from "@/types/FilterSet";
+import { Rarity } from "@/types/Rarity";
 import { numberToList } from "@/utils/numberToList";
 import { Button, Input, Select } from "@chakra-ui/react";
 import { useState } from "react";
@@ -24,14 +24,14 @@ function AvatarItemsFilters({ numberOfPages }: { numberOfPages: number }) {
   function handleSubmit() {
     setFilters({
       ...filters,
-      gender: gender as IAvatarItemGender,
-      rarity: (rarity as IRarity) || undefined,
-      type: (type as IAvatarItemType) || undefined,
+      gender: gender as AvatarItemGender,
+      rarity: (rarity as Rarity) || undefined,
+      type: (type as AvatarItemType) || undefined,
       event: event || undefined,
     });
   }
 
-  const filterSet: IFilterSet = {
+  const filterSet: FilterSet = {
     handleSubmit,
     selects: [
       {

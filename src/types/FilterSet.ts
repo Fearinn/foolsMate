@@ -1,10 +1,10 @@
-export type IFilterSet = {
+export type FilterSet = {
   handleSubmit: () => void;
-  selects?: IFilterSelect[];
-  textInputs?: IFilterTextInput[];
+  selects?: FilterSelect[];
+  textInputs?: FilterTextInput[];
 };
 
-type IFilterSelect = {
+type FilterSelect = {
   name: string;
   placeholder: string;
   handler: (value: string) => void;
@@ -12,7 +12,7 @@ type IFilterSelect = {
   default?: string;
 };
 
-type IFilterTextInput = {
+type FilterTextInput = {
   name: string;
   placeholder: string;
   handler: (value: string) => void;

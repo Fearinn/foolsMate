@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { getAvatarItemsByIds } from "../../services";
-import { IAvatarItem } from "../../components/avatarItem/types/AvatarItem";
-import { IResponseData } from "../../types/ResponseData";
+import { AvatarItem } from "../../components/avatarItem/types/AvatarItem";
+import { ResponseData } from "../../types/ResponseData";
 
 export function useAvatarItemsByIds(ids: string[]) {
-  const response = useQuery<IResponseData<IAvatarItem>, AxiosError>(
+  const response = useQuery<ResponseData<AvatarItem>, AxiosError>(
     ["getAvatarItemsByIds", ids],
     () => getAvatarItemsByIds(ids),
     {

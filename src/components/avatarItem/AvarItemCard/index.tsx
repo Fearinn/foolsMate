@@ -1,10 +1,10 @@
 import classNames from "classnames";
 import Image from "next/image";
 import { memo } from "react";
-import { IAvatarItem } from "../types/AvatarItem";
+import { AvatarItem } from "../types/AvatarItem";
 import styles from "./AvatarItemCard.module.scss";
 
-function AvatarItemCard(props: IAvatarItem) {
+function AvatarItemCard(props: AvatarItem) {
   function cost() {
     if (props.costInGold) return `${props.costInGold} gold`;
     if (props.costInRoses) return `${props.costInRoses} roses`;

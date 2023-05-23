@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { IRoleIcon } from "../types/RoleIcon";
+import { RoleIcon } from "../types/RoleIcon";
 import styles from "./RoleIconCard.module.scss";
 
-function RoleIconCard({ image, roleId, event, rarity }: IRoleIcon) {
+function RoleIconCard({ image, roleId, event, rarity }: RoleIcon) {
   return (
     <div className={styles["role-icon-card"]}>
       <Image

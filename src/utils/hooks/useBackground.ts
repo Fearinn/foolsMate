@@ -1,10 +1,10 @@
-import { IBackground } from "@/components/BattlePass/types/Background";
+import { Background } from "@/components/BattlePass/types/Background";
 import { useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { getBackgrounds } from "../../services";
 
 export function useBackground(id: string) {
-  const response = useQuery<IBackground, AxiosError>(
+  const response = useQuery<Background, AxiosError>(
     ["getBackgrounds"],
     () => getBackgrounds(id),
     {

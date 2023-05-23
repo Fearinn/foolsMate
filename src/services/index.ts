@@ -1,11 +1,11 @@
-import { IAvatarItem } from "@/components/avatarItem/types/AvatarItem";
-import { IBackground } from "@/components/BattlePass/types/Background";
+import { AvatarItem } from "@/components/avatarItem/types/AvatarItem";
+import { Background } from "@/components/BattlePass/types/Background";
 import {
-  IRewardType,
-  ISeason
+  RewardType,
+  Season
 } from "@/components/BattlePass/types/BattlePassSeason";
-import { IRoleIcon } from "@/components/roleIcon/types/RoleIcon";
-import { IResponseData } from "@/types/ResponseData";
+import { RoleIcon } from "@/components/roleIcon/types/RoleIcon";
+import { ResponseData } from "@/types/ResponseData";
 import { Paginated } from "@/types/utils/Paginated";
 import axios from "axios";
 
@@ -16,8 +16,8 @@ const instance = axios.create({
   },
 });
 
-export async function getAvatarItems(params: Paginated<IAvatarItem>) {
-  const response = await instance.get<IResponseData<IAvatarItem>>(
+export async function getAvatarItems(params: Paginated<AvatarItem>) {
+  const response = await instance.get<ResponseData<AvatarItem>>(
     `items/avatarItems`,
     {
       params: {
@@ -32,7 +32,7 @@ export async function getAvatarItems(params: Paginated<IAvatarItem>) {
 }
 
 export async function getAvatarItemsByIds(ids: string[], limit = 25) {
-  const response = await instance.get<IResponseData<IAvatarItem>>(
+  const response = await instance.get<ResponseData<AvatarItem>>(
     `items/avatarItems/ids`,
     {
       params: {
@@ -44,8 +44,8 @@ export async function getAvatarItemsByIds(ids: string[], limit = 25) {
   return response.data;
 }
 
-export async function getBattlePassSeason(rewardsTypes: IRewardType[]) {
-  const response = await instance.get<ISeason>("battlePass/season/rewards", {
+export async function getBattlePassSeason(rewardsTypes: RewardType[]) {
+  const response = await instance.get<Season>("battlePass/season/rewards", {
     params: { rewardsTypes: rewardsTypes.join(":") },
   });
 
@@ -53,7 +53,7 @@ export async function getBattlePassSeason(rewardsTypes: IRewardType[]) {
 }
 
 export async function getBackgrounds(id: string) {
-  const response = await instance.get<IResponseData<IBackground>>(
+  const response = await instance.get<ResponseData<Background>>(
     "items/backgrounds/ids",
     {
       params: {
@@ -65,8 +65,8 @@ export async function getBackgrounds(id: string) {
   return response.data.items[0];
 }
 
-export async function getRoleIcons(filters: Paginated<IRoleIcon>) {
-  const response = await instance.get<IResponseData<IRoleIcon>>(
+export async function getRoleIcons(filters: Paginated<RoleIcon>) {
+  const response = await instance.get<ResponseData<RoleIcon>>(
     "items/roleIcons",
     { params: filters }
   );

@@ -1,12 +1,12 @@
 import { Paginated } from "@/types/utils/Paginated";
 import { useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
-import { IResponseData } from "../../types/ResponseData";
-import { IRoleIcon } from "@/components/roleIcon/types/RoleIcon";
+import { ResponseData } from "../../types/ResponseData";
+import { RoleIcon } from "@/components/roleIcon/types/RoleIcon";
 import { getRoleIcons } from "@/services";
 
-export function useRoleIcons(filters: Paginated<IRoleIcon>) {
-  const response = useQuery<IResponseData<IRoleIcon>, AxiosError>(
+export function useRoleIcons(filters: Paginated<RoleIcon>) {
+  const response = useQuery<ResponseData<RoleIcon>, AxiosError>(
     ["getRoleIcons", filters],
     () => getRoleIcons(filters),
     {

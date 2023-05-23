@@ -1,20 +1,20 @@
-import { IRarity } from "@/types/Rarity";
+import { Rarity } from "@/types/Rarity";
 
-export type IBackground = {
+export type Background = {
   id: string;
-  rarity: IRarity;
-  imageDay: IBackgroundImage;
-  imageDayWide: IBackgroundImage;
-  imageNight: IBackgroundImage;
-  imageNightWide: IBackgroundImage;
-  imageDaySmall: IBackgroundImage;
-  imageNightSmall: IBackgroundImage;
+  rarity: Rarity;
+  imageDay: BackgroundImage;
+  imageDayWide: BackgroundImage;
+  imageNight: BackgroundImage;
+  imageNightWide: BackgroundImage;
+  imageDaySmall: BackgroundImage;
+  imageNightSmall: BackgroundImage;
   backgroundColorDay: string;
   backgroundColorNight: string;
   event?: string;
 };
 
-type IBackgroundImage = {
+type BackgroundImage = {
   url: string;
   width: number;
   height: number;

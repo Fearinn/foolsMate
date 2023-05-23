@@ -2,11 +2,11 @@ import { Paginated } from "@/types/utils/Paginated";
 import { useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { getAvatarItems } from "../../services";
-import { IAvatarItem } from "../../components/avatarItem/types/AvatarItem";
-import { IResponseData } from "../../types/ResponseData";
+import { AvatarItem } from "../../components/avatarItem/types/AvatarItem";
+import { ResponseData } from "../../types/ResponseData";
 
-export function useAvatarItems(filters: Paginated<IAvatarItem>) {
-  const response = useQuery<IResponseData<IAvatarItem>, AxiosError>(
+export function useAvatarItems(filters: Paginated<AvatarItem>) {
+  const response = useQuery<ResponseData<AvatarItem>, AxiosError>(
     ["getAvatarItems", filters],
     () => getAvatarItems(filters),
     {

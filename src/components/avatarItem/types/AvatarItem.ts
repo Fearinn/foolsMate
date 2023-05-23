@@ -1,17 +1,17 @@
-import { IRarity } from "../../../types/Rarity";
+import { Rarity } from "../../../types/Rarity";
 
-export type IAvatarItem = {
+export type AvatarItem = {
   id: string;
-  rarity: IRarity;
+  rarity: Rarity;
   costInGold?: number;
   costInRoses?: number;
   imageUrl: string;
-  type: IAvatarItemType;
-  gender: IAvatarItemGender;
+  type: AvatarItemType;
+  gender: AvatarItemGender;
   event?: string;
 };
 
-export type IAvatarItemType =
+export type AvatarItemType =
   | "HAIR"
   | "FRONT"
   | "SHIRT"
@@ -24,4 +24,4 @@ export type IAvatarItemType =
   | "EYES"
   | "BADGE";
 
-export type IAvatarItemGender = "FEMALE" | "MALE" | "NEUTRAL";
+export type AvatarItemGender = "FEMALE" | "MALE" | "NEUTRAL";
