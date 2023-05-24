@@ -18,10 +18,10 @@ function RoleIconCard({ image, roleId, event, rarity }: RoleIcon) {
           Rarity: <span className={styles[rarity]}>{rarity}</span>
         </p>
         <p>
-          Role: <span>{roleId.toString()}</span>
+          Role: <span>{roleId.toString().replaceAll("-", " ")}</span>
         </p>
         <p>
-          Event: <span>{event?.toString() || "NONE"}</span>
+          Event: <span>{event?.toString().replaceAll("_", " ") || "NONE"}</span>
         </p>
       </div>
     </div>
