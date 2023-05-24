@@ -3,7 +3,7 @@ import {
   AvatarItemsFilters,
   ErrorMessage,
   Loader,
-  Stats
+  Stats,
 } from "@/components";
 import { getAvatarItems } from "@/services";
 import { useAvatarItemStore } from "@/store/avatarItem";
@@ -61,11 +61,11 @@ function AvatarItems() {
       <div className={styles["card-list"]}>
         <AvatarItemsFilters numberOfPages={numberOfPages} />
         <Stats {...data} />
-        <ul>
+        <ul className={styles.list}>
           {data.items.length ? (
             data.items.map((item) => {
               return (
-                <li key={item.id}>
+                <li key={item.id} className={styles.item}>
                   <AvatarItemCard {...item} />
                 </li>
               );

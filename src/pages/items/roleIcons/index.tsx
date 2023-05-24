@@ -3,7 +3,7 @@ import {
   Loader,
   RoleIconCard,
   RoleIconFilters,
-  Stats
+  Stats,
 } from "@/components";
 import { getRoleIcons } from "@/services";
 import { useRoleIconStore } from "@/store/roleIcon";
@@ -61,9 +61,9 @@ function RoleIcons() {
       <div className={styles["card-list"]}>
         <RoleIconFilters numberOfPages={numberOfPages} />
         <Stats {...data} />
-        <ul>
+        <ul className={styles.list}>
           {data.items.map((icon) => (
-            <li key={icon.id}>
+            <li key={icon.id} className={styles.item}>
               <RoleIconCard {...icon} />
             </li>
           ))}
