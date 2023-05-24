@@ -3,15 +3,15 @@ import {
   Loader,
   RoleIconCard,
   RoleIconFilters,
-  Stats,
+  Stats
 } from "@/components";
 import { getRoleIcons } from "@/services";
 import { useRoleIconStore } from "@/store/roleIcon";
-import styles from "@/styles/CardList.module.scss";
 import { useRoleIcons } from "@/utils/hooks/useRoleIcons";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Head from "next/head";
 import { useEffect, useState } from "react";
+import styles from "../CardList.module.scss";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
