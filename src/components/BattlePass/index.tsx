@@ -2,6 +2,7 @@ import { Season } from "@/components/BattlePass/types/BattlePassSeason";
 import { useAvatarItemsByIds } from "@/utils/hooks/useAvatarItemsByIds";
 import { useBackground } from "@/utils/hooks/useBackground";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { ErrorMessage } from "../ErrorMessage";
 import { Loader } from "../Loader";
 import { RewardCard } from "../RewardCard";
@@ -25,6 +26,8 @@ function BattlePass({
     error,
   } = useBackground(seasonBackgroundId);
 
+  const [timeLeft, setTimeLeft] = useState(durationInDays);
+
   const ids: string[] = [];
 
   rewards.forEach((reward) => {
@@ -36,21 +39,23 @@ function BattlePass({
   const { data: rewardsData, isLoading: rewardsLoading } =
     useAvatarItemsByIds(ids);
 
-  if (isLoading) return <Loader />;
-
-  if (!background || error) return <ErrorMessage />;
-
   const formattedStart = new Date(startTime).toLocaleDateString();
 
   const millisecondsOnDay = 24 * 60 * 60 * 1000;
 
-  const endTime = new Date(
-    new Date(startTime).getTime() + millisecondsOnDay * durationInDays
-  );
+  useEffect(() => {
+    const endTime = new Date(
+      new Date(startTime).getTime() + millisecondsOnDay * durationInDays
+    );
 
-  const timeLeft = Math.round(
-    (endTime.getTime() - new Date().getTime()) / millisecondsOnDay
-  );
+    setTimeLeft(
+      Math.round((endTime.getTime() - new Date().getTime()) / millisecondsOnDay)
+    );
+  }, [durationInDays, millisecondsOnDay, startTime]);
+
+  if (isLoading) return <Loader />;
+
+  if (!background || error) return <ErrorMessage />;
 
   return (
     <div className={styles["battle-pass"]}>
