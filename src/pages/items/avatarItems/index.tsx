@@ -13,7 +13,7 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import styles from "../CardList.module.scss";
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const queryClient = new QueryClient();
 
   const initialFilter = { page: 1, limit: 100 };
@@ -30,6 +30,7 @@ export async function getServerSideProps() {
     props: {
       dehydratedState: dehydrate(queryClient),
     },
+    revalidate: 60 * 60 * 24,
   };
 }
 

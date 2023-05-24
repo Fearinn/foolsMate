@@ -10,7 +10,7 @@ import { Heading } from "@chakra-ui/react";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Head from "next/head";
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
@@ -44,6 +44,7 @@ export async function getServerSideProps() {
     props: {
       dehydratedState: dehydrate(queryClient),
     },
+    revalidate: 60 * 60 * 24,
   };
 }
 
