@@ -17,7 +17,7 @@ function Header() {
           Wolvesville Wiki
         </h2>
       </Link>
-      <nav>
+      <nav className={styles["main-menu"]}>
         <Link href="/items/avatarItems">Avatar Items</Link>
         <Link href="/items/roleIcons">Role Icons</Link>
       </nav>

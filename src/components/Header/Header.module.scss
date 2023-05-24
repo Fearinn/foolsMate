@@ -10,19 +10,15 @@
   h2 {
     display: flex;
     gap: 0.5rem;
-    border-radius: 4px;
     font-size: 1.5rem;
     padding: 0 0.5rem;
     transition: 0.3s all linear;
   }
 
-  img {
-    aspect-ratio: 1;
-  }
-
-  nav {
+  .main-menu {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 1rem;
     padding: 0 0.5rem;
     font-size: 1.25rem;
@@ -32,9 +28,9 @@
     border-radius: 4px;
     padding: 0 0.5rem;
     transition: 0.25s all linear;
-  }
 
-  a:hover {
-    background-color: var(--backgroundMain);
+    &:hover {
+      background-color: var(--backgroundMain);
+    }
   }
 }
