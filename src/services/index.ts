@@ -7,14 +7,8 @@ import {
 import { RoleIcon } from "@/components/roleIcon/types/RoleIcon";
 import { ResponseData } from "@/types/ResponseData";
 import { Paginated } from "@/types/utils/Paginated";
-import axios from "axios";
+import { instance } from "./config";
 
-const instance = axios.create({
-  baseURL: "https://wolvesvillewiki.cyclic.app/"/*  "http://localhost:3000" */,
-  headers: {
-    Accept: "application/json",
-  },
-});
 
 export async function getAvatarItems(params: Paginated<AvatarItem>) {
   const response = await instance.get<ResponseData<AvatarItem>>(
