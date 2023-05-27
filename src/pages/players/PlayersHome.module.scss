@@ -1,0 +1,12 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: self-start;
+  background-color: var(--backgroundSecondary);
+
+  .form {
+    display: flex;
+    gap: 1rem;
+  }
+}
