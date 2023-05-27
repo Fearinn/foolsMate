@@ -7,10 +7,8 @@ const nextConfig = {
   },
   images: {
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "cdn.wolvesville.com",
-      },
+      { protocol: "https", hostname: "cdn.wolvesville.com" },
+      { protocol: "https", hostname: "cdn-avatars.wolvesville.com" },
     ],
   },
 };
