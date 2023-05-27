@@ -2,13 +2,13 @@ import { AvatarItem } from "@/components/avatarItem/types/AvatarItem";
 import { Background } from "@/components/BattlePass/types/Background";
 import {
   RewardType,
-  Season
+  Season,
 } from "@/components/BattlePass/types/BattlePassSeason";
+import { Player } from "@/components/players/players.types";
 import { RoleIcon } from "@/components/roleIcon/types/RoleIcon";
 import { ResponseData } from "@/types/ResponseData";
 import { Paginated } from "@/types/utils/Paginated";
 import { instance } from "./config";
-
 
 export async function getAvatarItems(params: Paginated<AvatarItem>) {
   const response = await instance.get<ResponseData<AvatarItem>>(
@@ -64,6 +64,14 @@ export async function getRoleIcons(filters: Paginated<RoleIcon>) {
     "items/roleIcons",
     { params: filters }
   );
+
+  return response.data;
+}
+
+export async function getPlayers([username, username2]: string[]) {
+  const response = await instance.get<Player[]>("players/search", {
+    params: { username, username2 },
+  });
 
   return response.data;
 }
