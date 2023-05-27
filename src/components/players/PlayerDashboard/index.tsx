@@ -22,6 +22,7 @@ export function PlayerDashboard(props: Player) {
             src={props.equippedAvatar.url}
             width={props.equippedAvatar.width}
             height={props.equippedAvatar.height}
+            priority
           />
           <p>
             Level: <span>{props.level}</span>
