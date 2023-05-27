@@ -45,6 +45,14 @@ function GameStatsChart(props: GameStats) {
     },
   ];
 
+  const survivedData = [
+    {
+      name: "survived games",
+      yes: props.gamesSurvivedCount,
+      no: props.gamesKilledCount,
+    },
+  ];
+
   const percentageData = [
     {
       name: "win%",
@@ -117,6 +125,18 @@ function GameStatsChart(props: GameStats) {
             <Bar dataKey="solo" fill="orange" />
             <Bar dataKey="voting" fill="purple" />
             <Bar dataKey="total" fill="black" />
+          </BarChart>
+        </ResponsiveContainer>
+
+        <ResponsiveContainer width="50%" height={250}>
+          <BarChart data={survivedData}>
+            <CartesianGrid />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="yes" fill="#116D6E" />
+            <Bar dataKey="no" fill="#CD1818" />
           </BarChart>
         </ResponsiveContainer>
       </div>
