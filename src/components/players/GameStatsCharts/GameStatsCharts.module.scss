@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.charts {
+  display: flex;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
+
+  & > * {
+    flex-grow: 1;
+    background-color: var(--backgroundMain);
+    border-radius: 4px;
+  }
+}
