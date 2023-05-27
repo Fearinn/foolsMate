@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
+:where(*) {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+}
+
 :root {
   --brandMain: #fe55b9;
   --fontMain: #000000;
@@ -19,9 +26,7 @@
   --itemType: #4a772f;
 }
 
-:root,
-body,
-#root {
+:where(:root, body, #root) {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -30,19 +35,12 @@ body,
   min-height: 100dvh;
 }
 
-#__next > main {
+:where(#__next > main) {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0.5rem;
   min-height: 100dvh;
-}
-
-:where(*) {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  color: inherit;
 }
 
 *:focus-visible {
