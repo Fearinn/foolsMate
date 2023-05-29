@@ -37,7 +37,18 @@ export function PlayerDashboard(props: Player) {
             <span>{props.rankedSeasonBestRank || "UNAVAILABLE"}</span>
           </p>
           <p>
-            Best SP in ranked: <span>{props.rankedSeasonMaxSkill}</span>
+            Best SP in ranked:{" "}
+            <span>{props.rankedSeasonMaxSkill || "UNAVAILABLE"}</span>
+          </p>
+          <p>
+            Ranked seasons played:{" "}
+            <span>{props.rankedSeasonPlayedCount || "UNAVAILABLE"}</span>
+          </p>
+          <p>
+            Total minutes played:{" "}
+            <span>
+              {props.gameStats?.totalPlayTimeInMinutes || "UNAVAILABLE"}
+            </span>
           </p>
         </div>
       </div>
