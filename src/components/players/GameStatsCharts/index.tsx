@@ -59,26 +59,26 @@ function GameStatsChart(props: GameStats) {
       village: (
         (props.villageWinCount /
           (props.villageWinCount + props.villageLoseCount)) *
-        100
+          100 || 0
       ).toFixed(2),
       werewolf: (
         (props.werewolfWinCount /
           (props.werewolfWinCount + props.werewolfLoseCount)) *
-        100
+          100 || 0
       ).toFixed(2),
       solo: (
         (props.soloWinCount / (props.soloWinCount + props.soloLoseCount)) *
-        100
+          100 || 0
       ).toFixed(2),
       voting: (
         (props.votingWinCount /
           (props.votingWinCount + props.votingLoseCount)) *
-        100
+          100 || 0
       ).toFixed(2),
       total: (
         (props.totalWinCount /
           (props.totalWinCount + props.totalLoseCount + props.totalTieCount)) *
-        100
+          100 || 0
       ).toFixed(2),
     },
   ];
