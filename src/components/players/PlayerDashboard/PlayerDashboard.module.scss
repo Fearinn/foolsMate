@@ -25,15 +25,16 @@
   }
 
   .details {
-    display: flex;
+    display: grid;
     justify-content: space-around;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 0.5rem;
-    flex-wrap: wrap;
     width: 100%;
 
     p {
       border: 2px solid var(--backgroundTertiary);
       border-radius: 4px;
+      text-align: center;
       padding: 0.5rem;
     }
   }
