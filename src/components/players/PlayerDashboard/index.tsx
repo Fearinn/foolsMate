@@ -1,3 +1,4 @@
+import { ErrorMessage } from "@/components/ErrorMessage";
 import { Heading } from "@chakra-ui/react";
 import Image from "next/image";
 import { GameStatsChart } from "../GameStatsCharts";
@@ -52,7 +53,14 @@ export function PlayerDashboard(props: Player) {
           </p>
         </div>
       </div>
-      {props.gameStats && <GameStatsChart {...props.gameStats} />}
+      {props.gameStats ? (
+        <GameStatsChart {...props.gameStats} />
+      ) : (
+        <ErrorMessage>
+          {props.username}
+          {"'"}s game stats are private or unavailable
+        </ErrorMessage>
+      )}
     </div>
   );
 }
