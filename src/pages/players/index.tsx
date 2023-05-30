@@ -1,15 +1,21 @@
 import { colors } from "@/assets/cssVariables";
 import { ErrorMessage, Loader } from "@/components";
 import { PlayerDashboard } from "@/components/players/PlayerDashboard";
+import { useLocalStorage } from "@/utils/hooks/localStorage";
 import { useSinglePlayer } from "@/utils/hooks/players";
 import { Button, Heading, Input } from "@chakra-ui/react";
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./PlayersHome.module.scss";
 
 export default function PlayerHome() {
+  const [stored, setStored] = useLocalStorage("playerDashboard");
   const [username, setUsername] = useState("");
   const [newUsername, setNewUsername] = useState("");
+
+  useEffect(() => {
+    if (!username) setUsername(stored);
+  }, [username, stored]);
 
   const { data, isLoading, error } = useSinglePlayer(username);
 
@@ -39,6 +45,7 @@ export default function PlayerHome() {
             onSubmit={(event) => {
               event.preventDefault();
               setUsername(newUsername);
+              setStored(newUsername);
             }}
           >
             <Heading size="sm" as="label" htmlFor="username-input">
