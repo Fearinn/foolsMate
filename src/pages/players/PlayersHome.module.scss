@@ -5,8 +5,31 @@
   align-items: self-start;
   background-color: var(--backgroundSecondary);
 
+  .permanent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0 1rem;
+    width: 100%;
+  }
+
   .form {
     display: flex;
-    gap: 1rem;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .container {
+      display: flex;
+      gap: 0.5rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .permanent {
+      justify-content: center;
+    }
   }
 }
