@@ -1,11 +1,12 @@
 import { ErrorMessage } from "@/components/ErrorMessage";
 import { Heading } from "@chakra-ui/react";
 import Image from "next/image";
+import { memo } from "react";
 import { GameStatsChart } from "../GameStatsCharts";
 import { Player } from "../players.types";
 import styles from "./PlayerDashboard.module.scss";
 
-export function PlayerDashboard(props: Player) {
+function PlayerDashboard(props: Player) {
   const accountCreation = props.creationTime
     ? Intl.DateTimeFormat("en", { dateStyle: "medium" }).format(
         new Date(props.creationTime)
@@ -64,3 +65,7 @@ export function PlayerDashboard(props: Player) {
     </div>
   );
 }
+
+const memoizedExport = memo(PlayerDashboard);
+
+export { memoizedExport as PlayerDashboard };
