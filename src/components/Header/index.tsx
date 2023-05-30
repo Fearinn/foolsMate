@@ -18,6 +18,7 @@ function Header() {
         </h2>
       </Link>
       <nav className={styles["main-menu"]}>
+        <Link href="/players">Players</Link>
         <Link href="/items/avatarItems">Avatar Items</Link>
         <Link href="/items/roleIcons">Role Icons</Link>
       </nav>
