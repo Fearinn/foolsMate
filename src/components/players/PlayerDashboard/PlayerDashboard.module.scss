@@ -26,9 +26,10 @@
 
   .details {
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
     gap: 0.5rem;
     flex-wrap: wrap;
+    width: 100%;
 
     p {
       border: 2px solid var(--backgroundTertiary);
