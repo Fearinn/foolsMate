@@ -54,16 +54,17 @@ export default function PlayerHome() {
             <div className={styles.container}>
               <Input
                 id="username-input"
+                minLength={3}
+                onChange={(event) => {
+                  setNewUsername(event.target.value);
+                }}
+                value={newUsername}
                 width="auto"
                 size="md"
                 type="text"
                 variant="filled"
                 placeholder="JohnDoe"
                 _focusVisible={{ border: "none" }}
-                onChange={(event) => {
-                  setNewUsername(event.target.value);
-                }}
-                value={newUsername}
                 bgColor={colors.mainBackGround}
               />
 
