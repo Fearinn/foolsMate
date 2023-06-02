@@ -21,4 +21,4 @@
 
 ## :handshake: How to help?
 
-Feel free to open an issue in GitHub or to reach me directly with any suggestion or feedback. Sharing the deploy is also welcome (remember it's still far from finished thought).
+Feel free to open an issue in GitHub or to reach me directly with any suggestion or feedback. Sharing the deploy is also welcome (remember it's still far from finished though).
