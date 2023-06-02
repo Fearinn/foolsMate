@@ -3,7 +3,7 @@
 | :placard: Vitrine.Dev |     |
 | -------------  | --- |
 | :sparkles: Nome        | **Fool's Mate**
-| :label: Tecnologias | react, typescript, styled-components, axios, react-query
+| :label: Tecnologias | next, react, typescript, recharts, react-query, axios
 | :rocket: URL         | https://fools-mate.vercel.app/
 
 ![preview](https://user-images.githubusercontent.com/105985983/233744090-f519e3dc-0745-41d6-bfc2-23e94b5e5eea.png#vitrinedev)
