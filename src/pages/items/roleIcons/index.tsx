@@ -76,7 +76,7 @@ function RoleIcons() {
   return (
     <>
       <Head>
-        <title>Wolvesville Wiki - Role Icons</title>
+        <title>{"Fool's Mate - Role Icons"}</title>
       </Head>
       <main>{handleQuery()}</main>
     </>

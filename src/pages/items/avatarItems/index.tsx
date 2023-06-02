@@ -84,7 +84,7 @@ function AvatarItems() {
   return (
     <>
       <Head>
-        <title>Wolvesville Wiki - Avatar Items</title>
+        <title>{"Fool's Mate - Avatar Items"}</title>
       </Head>
       <main>{handleQuery()}</main>
     </>

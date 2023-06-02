@@ -33,7 +33,7 @@ export default function PlayerHome() {
   return (
     <>
       <Head>
-        <title>wolvesville Wiki - Players</title>
+        <title>{"Fool's Mate - Players"}</title>
       </Head>
       <main className={styles.home}>
         <div className={styles.permanent}>

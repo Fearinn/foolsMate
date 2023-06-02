@@ -14,7 +14,7 @@ function Header() {
             width="24"
             height="24"
           ></Image>
-          Wolvesville Wiki
+          Fool's Mate
         </h2>
       </Link>
       <nav className={styles["main-menu"]}>

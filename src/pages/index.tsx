@@ -60,7 +60,7 @@ export default function Home() {
 
     return (
       <>
-        <MainTitle title="Welcome to Wolvesville Wiki!" />
+        <MainTitle title="Welcome to Fool's Mate, the Wolvesville Online tracker!" />
         <Heading size="md">{"What's new in Wolvesville?"}</Heading>
         <BattlePass {...data}></BattlePass>
       </>
@@ -70,7 +70,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Wolvesville Wiki</title>
+        <title>{"Fool's Mate: Wolvesville Online Tracker"}</title>
       </Head>
       <main className={styles.home}>{handleQuery()}</main>
     </>
