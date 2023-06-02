@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const instance = axios.create({
-  baseURL: "https://wolvesvillewiki.cyclic.app/" /*  "http://localhost:3000" */,
+  baseURL: "https://foolsmate.cyclic.app/",
   headers: {
     Accept: "application/json",
   },
