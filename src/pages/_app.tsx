@@ -27,6 +27,7 @@ export default function App({ Component, pageProps }: AppProps) {
                   content="width=device-width, initial-scale=1"
                 />
                 <link rel="icon" href="/favicon.svg" />
+                <meta name="description" content="Track Wolvesville battle pass season, items, players stats and more"/>
               </Head>
               <Component {...pageProps} />
             </Layout>
