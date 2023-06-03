@@ -1,4 +1,5 @@
 import { BattlePass, ErrorMessage, Loader, MainTitle } from "@/components";
+import { Reward, Season } from "@/components/BattlePass/types/BattlePassSeason";
 import {
   getAvatarItemsByIds,
   getBackgrounds,
@@ -19,26 +20,35 @@ export async function getStaticProps() {
     },
   });
 
-  const { rewards, seasonBackgroundId } = await queryClient.fetchQuery(
-    ["getBattlePassSeason"],
-    () => getBattlePassSeason(["AVATAR_ITEM"])
-  );
+  let results: Partial<Season> = {};
+
+  try {
+    results = await queryClient.fetchQuery(["getBattlePassSeason"], () =>
+      getBattlePassSeason(["AVATAR_ITEM"])
+    );
+  } catch (error) {
+    console.log(error);
+  }
 
   const ids: string[] = [];
 
-  rewards.forEach((reward) => {
-    if (reward.avatarItemId) ids.push(reward.avatarItemId);
-    if (reward.avatarItemIdFemale) ids.push(reward.avatarItemIdFemale);
-    if (reward.avatarItemIdMale) ids.push(reward.avatarItemIdMale);
-  });
+  if (results.rewards) {
+    results.rewards.forEach((reward) => {
+      if (reward.avatarItemId) ids.push(reward.avatarItemId);
+      if (reward.avatarItemIdFemale) ids.push(reward.avatarItemIdFemale);
+      if (reward.avatarItemIdMale) ids.push(reward.avatarItemIdMale);
+    });
+  }
 
-  await queryClient.prefetchQuery(["getBackgrounds"], () =>
-    getBackgrounds(seasonBackgroundId)
-  );
+  if (results.seasonBackgroundId) {
+    await queryClient.prefetchQuery(["getBackgrounds"], () =>
+      getBackgrounds(results.seasonBackgroundId || "")
+    );
 
-  await queryClient.prefetchQuery(["getAvatarItemsByIds", ids], () =>
-    getAvatarItemsByIds(ids)
-  );
+    await queryClient.prefetchQuery(["getAvatarItemsByIds", ids], () =>
+      getAvatarItemsByIds(ids)
+    );
+  }
 
   return {
     props: {
@@ -58,13 +68,7 @@ export default function Home() {
       return <ErrorMessage />;
     }
 
-    return (
-      <>
-        <MainTitle title="Welcome to Fool's Mate, the Wolvesville Online tracker!" />
-        <Heading size="md">{"What's new in Wolvesville?"}</Heading>
-        <BattlePass {...data}></BattlePass>
-      </>
-    );
+    return <BattlePass {...data}></BattlePass>;
   }
 
   return (
@@ -72,7 +76,12 @@ export default function Home() {
       <Head>
         <title>{"Fool's Mate: Wolvesville Online Tracker"}</title>
       </Head>
-      <main className={styles.home}>{handleQuery()}</main>
+      <main className={styles.home}>
+        {" "}
+        <MainTitle title="Welcome to Fool's Mate, the Wolvesville Online tracker!" />
+        <Heading size="md">{"What's new in Wolvesville?"}</Heading>
+        {handleQuery()}
+      </main>
     </>
   );
 }
