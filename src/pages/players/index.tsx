@@ -3,6 +3,7 @@ import { ErrorMessage, Loader, MainTitle, PlayerDashboard } from "@/components";
 import { useLocalStorage } from "@/utils/hooks/localStorage";
 import { useSinglePlayer } from "@/utils/hooks/players";
 import { Button, Heading, Input } from "@chakra-ui/react";
+import { AxiosError } from "axios";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import styles from "./PlayersHome.module.scss";
@@ -23,8 +24,12 @@ export default function PlayerHome() {
 
     if (isLoading) return <Loader />;
 
-    if (error || !data)
+    if (error instanceof AxiosError && error.response?.status === 404)
       return <ErrorMessage>Player {username} not found </ErrorMessage>;
+
+    if (error|| !data) {
+      return <ErrorMessage />;
+    }
 
     return <PlayerDashboard {...data[0]} />;
   }
@@ -36,7 +41,7 @@ export default function PlayerHome() {
       </Head>
       <main className={styles.home}>
         <div className={styles.permanent}>
-          <MainTitle title="Player Dashboard"/>
+          <MainTitle title="Player Dashboard" />
           <form
             className={styles.form}
             onSubmit={(event) => {
