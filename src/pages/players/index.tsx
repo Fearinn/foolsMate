@@ -1,5 +1,5 @@
 import { colors } from "@/assets/cssVariables";
-import { ErrorMessage, Loader, PlayerDashboard } from "@/components";
+import { ErrorMessage, Loader, MainTitle, PlayerDashboard } from "@/components";
 import { useLocalStorage } from "@/utils/hooks/localStorage";
 import { useSinglePlayer } from "@/utils/hooks/players";
 import { Button, Heading, Input } from "@chakra-ui/react";
@@ -32,13 +32,11 @@ export default function PlayerHome() {
   return (
     <>
       <Head>
-        <title>{"Fool's Mate - Players"}</title>
+        <title>{"Fool's Mate - Player Dashboard"}</title>
       </Head>
       <main className={styles.home}>
         <div className={styles.permanent}>
-          <Heading as="h1" size="lg">
-            Player dashboard
-          </Heading>
+          <MainTitle title="Player Dashboard"/>
           <form
             className={styles.form}
             onSubmit={(event) => {
