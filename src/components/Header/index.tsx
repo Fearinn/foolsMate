@@ -9,10 +9,10 @@ function Header() {
         <h2>
           <Image
             alt=""
-            src="/favicon.svg"
+            src="/joker.svg"
             role="presentation"
-            width="24"
-            height="24"
+            width="42"
+            height="42"
           ></Image>
           {"Fool's Mate"}
         </h2>
