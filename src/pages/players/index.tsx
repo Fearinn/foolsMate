@@ -1,6 +1,5 @@
 import { colors } from "@/assets/cssVariables";
-import { ErrorMessage, Loader } from "@/components";
-import { PlayerDashboard } from "@/components/players/PlayerDashboard";
+import { ErrorMessage, Loader, PlayerDashboard } from "@/components";
 import { useLocalStorage } from "@/utils/hooks/localStorage";
 import { useSinglePlayer } from "@/utils/hooks/players";
 import { Button, Heading, Input } from "@chakra-ui/react";

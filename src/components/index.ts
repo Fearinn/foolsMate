@@ -7,6 +7,8 @@ export { Header } from "./Header";
 export { Layout } from "./Layout";
 export { Loader } from "./Loader";
 export { MainTitle } from "./MainTitle";
+export { GameStatsChart } from "./players/GameStatsCharts";
+export { PlayerDashboard } from "./players/PlayerDashboard";
 export { RewardCard } from "./RewardCard";
 export { RoleIconCard } from "./roleIcon/RoleIconCard";
 export { RoleIconFilters } from "./roleIcon/RoleIconFilters";
