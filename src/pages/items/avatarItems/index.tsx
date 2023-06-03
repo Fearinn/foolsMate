@@ -3,6 +3,7 @@ import {
   AvatarItemsFilters,
   ErrorMessage,
   Loader,
+  MainTitle,
   Stats,
 } from "@/components";
 import { getAvatarItems } from "@/services";
@@ -60,7 +61,10 @@ function AvatarItems() {
 
     return (
       <div className={styles["card-list"]}>
-        <AvatarItemsFilters numberOfPages={numberOfPages} />
+        <div className={styles.container}>
+          <MainTitle title="Avatar Items" />
+          <AvatarItemsFilters numberOfPages={numberOfPages} />
+        </div>
         <Stats {...data} />
         <ul className={styles.list}>
           {data.items.length ? (

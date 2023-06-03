@@ -1,6 +1,7 @@
 import {
   ErrorMessage,
   Loader,
+  MainTitle,
   RoleIconCard,
   RoleIconFilters,
   Stats,
@@ -60,7 +61,10 @@ function RoleIcons() {
 
     return (
       <div className={styles["card-list"]}>
-        <RoleIconFilters numberOfPages={numberOfPages} />
+        <div className={styles.container}>
+          <MainTitle title="Role Icons" />
+          <RoleIconFilters numberOfPages={numberOfPages} />
+        </div>
         <Stats {...data} />
         <ul className={styles.list}>
           {data.items.map((icon) => (

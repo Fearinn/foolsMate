@@ -4,6 +4,17 @@
   gap: 1rem;
   width: 100%;
 
+  .container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+
+    h1 {
+      white-space: nowrap;
+    }
+  }
+
   .list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -16,6 +27,12 @@
 
     .item {
       width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
     }
   }
 }
