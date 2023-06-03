@@ -11,7 +11,9 @@ import { useState } from "react";
 import { Layout } from "../components/Layout";
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [queryClient] = useState(() => new QueryClient());
+  const [queryClient] = useState(
+    () => new QueryClient({ defaultOptions: { queries: { retry: false } } })
+  );
 
   return (
     <>
