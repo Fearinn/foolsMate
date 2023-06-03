@@ -15,7 +15,7 @@ function PlayerDashboard(props: Player) {
 
   return (
     <div className={styles["player-dashboard"]}>
-      <div className={styles.profile}>
+      <section className={styles.profile}>
         <div className={styles.summary}>
           <Heading size="md">{props.username}</Heading>
           <Image
@@ -53,7 +53,7 @@ function PlayerDashboard(props: Player) {
             </span>
           </p>
         </div>
-      </div>
+      </section>
       {props.gameStats ? (
         <GameStatsChart {...props.gameStats} />
       ) : (

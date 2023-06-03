@@ -60,7 +60,7 @@ function RoleIcons() {
     if (!data || error) return <ErrorMessage />;
 
     return (
-      <div className={styles["card-list"]}>
+      <section className={styles["card-list"]}>
         <div className={styles.container}>
           <MainTitle title="Role Icons" />
           <RoleIconFilters numberOfPages={numberOfPages} />
@@ -73,7 +73,7 @@ function RoleIcons() {
             </li>
           ))}
         </ul>
-      </div>
+      </section>
     );
   }
 

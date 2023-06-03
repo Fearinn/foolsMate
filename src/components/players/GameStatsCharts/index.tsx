@@ -84,7 +84,7 @@ function GameStatsChart(props: GameStats) {
   ];
 
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <Heading as="h3" size="md">
         Game stats
       </Heading>
@@ -140,7 +140,7 @@ function GameStatsChart(props: GameStats) {
           </BarChart>
         </ResponsiveContainer>
       </div>
-    </div>
+    </section>
   );
 }
 

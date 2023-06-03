@@ -58,7 +58,7 @@ function BattlePass({
   if (!background || error) return <ErrorMessage />;
 
   return (
-    <div className={styles["battle-pass"]}>
+    <section className={styles["battle-pass"]}>
       <div className={styles["bg-info-container"]}>
         <div className={styles.info}>
           <h3 className={styles["battle-pass-title"]}>
@@ -135,7 +135,7 @@ function BattlePass({
           rewardsLoading && <Loader />
         )}
       </div>
-    </div>
+    </section>
   );
 }
 

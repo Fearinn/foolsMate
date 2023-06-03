@@ -60,7 +60,7 @@ function AvatarItems() {
     }
 
     return (
-      <div className={styles["card-list"]}>
+      <section className={styles["card-list"]}>
         <div className={styles.container}>
           <MainTitle title="Avatar Items" />
           <AvatarItemsFilters numberOfPages={numberOfPages} />
@@ -81,7 +81,7 @@ function AvatarItems() {
             </ErrorMessage>
           )}
         </ul>
-      </div>
+      </section>
     );
   }
 
