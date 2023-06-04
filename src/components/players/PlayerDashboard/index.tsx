@@ -29,6 +29,9 @@ function PlayerDashboard(props: Player) {
           <p>
             Level: <span>{props.level}</span>
           </p>
+          <p>
+            Status: <span>{props.status}</span>
+          </p>
         </div>
         <div className={styles.details}>
           <p>
