@@ -8,7 +8,7 @@ import {
 } from "@/components";
 import { getRoleIcons } from "@/services";
 import { useRoleIconStore } from "@/store/roleIcon";
-import { useRoleIcons } from "@/utils/hooks/useRoleIcons";
+import { useRoleIcons } from "@/utils/hooks/roleIcons";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Head from "next/head";
 import { useEffect, useState } from "react";

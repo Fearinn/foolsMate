@@ -8,7 +8,7 @@ import {
 } from "@/components";
 import { getAvatarItems } from "@/services";
 import { useAvatarItemStore } from "@/store/avatarItem";
-import { useAvatarItems } from "@/utils/hooks/useAvatarItems";
+import { useAvatarItems } from "@/utils/hooks/avatarItems";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Head from "next/head";
 import { useEffect, useState } from "react";

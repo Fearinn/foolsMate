@@ -1,12 +1,12 @@
 import { BattlePass, ErrorMessage, Loader, MainTitle } from "@/components";
-import { Reward, Season } from "@/components/BattlePass/types/BattlePassSeason";
+import { Season } from "@/components/BattlePass/battlePass.types";
 import {
   getAvatarItemsByIds,
   getBackgrounds,
   getBattlePassSeason,
 } from "@/services";
 import styles from "@/styles/Home.module.scss";
-import { useBattlePassSeason } from "@/utils/hooks/useBattlePassSeason";
+import { useBattlePassSeason } from "@/utils/hooks/battlePass";
 import { Heading } from "@chakra-ui/react";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Head from "next/head";

@@ -1,4 +1,4 @@
-import { Background } from "@/components/BattlePass/types/Background";
+import { Background } from "@/components/BattlePass/battlePass.types";
 import { useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { getBackgrounds } from "../../services";

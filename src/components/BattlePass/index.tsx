@@ -1,12 +1,12 @@
-import { Season } from "@/components/BattlePass/types/BattlePassSeason";
-import { useAvatarItemsByIds } from "@/utils/hooks/useAvatarItemsByIds";
-import { useBackground } from "@/utils/hooks/useBackground";
+import { useAvatarItemsByIds } from "@/utils/hooks/avatarItems";
+import { useBackground } from "@/utils/hooks/background";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ErrorMessage } from "../ErrorMessage";
 import { Loader } from "../Loader";
 import { RewardCard } from "../RewardCard";
 import styles from "./BattlePass.module.scss";
+import { Season } from "./battlePass.types";
 
 function BattlePass({
   startTime,

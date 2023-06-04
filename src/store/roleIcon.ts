@@ -1,4 +1,4 @@
-import { RoleIcon } from "@/components/roleIcon/types/RoleIcon";
+import { RoleIcon } from "@/components/roleIcon/roleIcons.types";
 import { Paginated } from "@/types/utils/Paginated";
 import { create } from "zustand";
 

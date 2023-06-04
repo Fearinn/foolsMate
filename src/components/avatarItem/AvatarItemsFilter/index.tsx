@@ -1,7 +1,7 @@
 import {
   AvatarItemGender,
   AvatarItemType
-} from "@/components/avatarItem/types/AvatarItem";
+} from "@/components/avatarItem/avatarItems.types";
 import { useAvatarItemStore } from "@/store/avatarItem";
 import { FilterSet } from "@/types/FilterSet";
 import { Rarity } from "@/types/Rarity";

@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import Image from "next/image";
 import { memo } from "react";
-import { AvatarItem } from "../types/AvatarItem";
+import { AvatarItem } from "../avatarItems.types";
 import styles from "./AvatarItemCard.module.scss";
 
 function AvatarItemCard(props: AvatarItem) {

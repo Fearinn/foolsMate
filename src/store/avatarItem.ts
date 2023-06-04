@@ -1,4 +1,4 @@
-import { AvatarItem } from "@/components/avatarItem/types/AvatarItem";
+import { AvatarItem } from "@/components/avatarItem/avatarItems.types";
 import { Paginated } from "@/types/utils/Paginated";
 import { create } from "zustand";
 

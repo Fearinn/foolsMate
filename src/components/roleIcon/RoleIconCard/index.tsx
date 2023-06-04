@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { RoleIcon } from "../types/RoleIcon";
+import { RoleIcon } from "../roleIcons.types";
 import styles from "./RoleIconCard.module.scss";
 
 function RoleIconCard({ image, roleId, event, rarity }: RoleIcon) {

@@ -1,4 +1,4 @@
-import { Rarity } from "../../../types/Rarity";
+import { Rarity } from "../../types/Rarity";
 
 export type AvatarItem = {
   id: string;

@@ -1,11 +1,11 @@
-import { AvatarItem } from "@/components/avatarItem/types/AvatarItem";
-import { Background } from "@/components/BattlePass/types/Background";
+import { AvatarItem } from "@/components/avatarItem/avatarItems.types";
 import {
   RewardType,
   Season,
-} from "@/components/BattlePass/types/BattlePassSeason";
+  Background,
+} from "@/components/BattlePass/battlePass.types";
 import { Player } from "@/components/players/players.types";
-import { RoleIcon } from "@/components/roleIcon/types/RoleIcon";
+import { RoleIcon } from "@/components/roleIcon/roleIcons.types";
 import { ResponseData } from "@/types/ResponseData";
 import { Paginated } from "@/types/utils/Paginated";
 import { instance } from "./config";

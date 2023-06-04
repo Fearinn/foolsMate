@@ -1,3 +1,5 @@
+import { Rarity } from "@/types/Rarity";
+
 export type Season = {
   startTime: string;
   number: number;
@@ -29,3 +31,23 @@ export type RewardType =
   | "EMOJI"
   | "ROLE_CARD_ABILITY_EXCHANGE_VOUCHER"
   | "LOADING_SCREEN";
+
+export type Background = {
+  id: string;
+  rarity: Rarity;
+  imageDay: BackgroundImage;
+  imageDayWide: BackgroundImage;
+  imageNight: BackgroundImage;
+  imageNightWide: BackgroundImage;
+  imageDaySmall: BackgroundImage;
+  imageNightSmall: BackgroundImage;
+  backgroundColorDay: string;
+  backgroundColorNight: string;
+  event?: string;
+};
+
+type BackgroundImage = {
+  url: string;
+  width: number;
+  height: number;
+};
