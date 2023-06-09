@@ -8,11 +8,11 @@ function RewardCard({ item }: Reward) {
       <div className={styles["reward-card"]}>
         <Image
           className={styles.image}
-          src={item.image.url || ""}
+          src={item.image.url}
           alt=""
           role="presentation"
-          width={item.image.width || 400}
-          height={item.image.height || 400}
+          width={item.image.width}
+          height={item.image.height}
         />
       </div>
     )
