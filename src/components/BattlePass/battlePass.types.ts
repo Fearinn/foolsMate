@@ -1,3 +1,4 @@
+import { Image } from "@/types/Image";
 import { Rarity } from "@/types/Rarity";
 
 export type Season = {
@@ -8,7 +9,6 @@ export type Season = {
   goldPricePerReward: number;
   gemPricePerReward: number;
   xpPerReward: number;
-  rewards: Reward[];
   iconUrl: string;
   seasonBackgroundId: string;
 };
@@ -17,9 +17,10 @@ export type Reward = {
   type: RewardType;
   amount: number;
   free: boolean;
-  avatarItemIdMale?: string;
-  avatarItemIdFemale?: string;
-  avatarItemId?: string;
+  item: {
+    id: string;
+    image: Image;
+  } | null;
 };
 
 export type RewardType =
@@ -35,19 +36,13 @@ export type RewardType =
 export type Background = {
   id: string;
   rarity: Rarity;
-  imageDay: BackgroundImage;
-  imageDayWide: BackgroundImage;
-  imageNight: BackgroundImage;
-  imageNightWide: BackgroundImage;
-  imageDaySmall: BackgroundImage;
-  imageNightSmall: BackgroundImage;
+  imageDay: Image;
+  imageDayWide: Image;
+  imageNight: Image;
+  imageNightWide: Image;
+  imageDaySmall: Image;
+  imageNightSmall: Image;
   backgroundColorDay: string;
   backgroundColorNight: string;
   event?: string;
-};
-
-type BackgroundImage = {
-  url: string;
-  width: number;
-  height: number;
 };
