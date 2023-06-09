@@ -1,5 +1,5 @@
-import { useAvatarItemsByIds } from "@/utils/hooks/avatarItems";
 import { useBackground } from "@/utils/hooks/background";
+import { useRewards } from "@/utils/hooks/battlePass";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ErrorMessage } from "../ErrorMessage";
@@ -12,7 +12,6 @@ function BattlePass({
   startTime,
   durationInDays,
   number,
-  rewards,
   iconUrl,
   seasonBackgroundId,
   goldPrice,
@@ -28,16 +27,7 @@ function BattlePass({
 
   const [timeLeft, setTimeLeft] = useState(durationInDays);
 
-  const ids: string[] = [];
-
-  rewards.forEach((reward) => {
-    if (reward.avatarItemId) ids.push(reward.avatarItemId);
-    if (reward.avatarItemIdFemale) ids.push(reward.avatarItemIdFemale);
-    if (reward.avatarItemIdMale) ids.push(reward.avatarItemIdMale);
-  });
-
-  const { data: rewardsData, isLoading: rewardsLoading } =
-    useAvatarItemsByIds(ids);
+  const { data: rewardsData, isLoading: rewardsLoading } = useRewards();
 
   const formattedStart = new Date(startTime).toLocaleDateString();
 
@@ -122,11 +112,13 @@ function BattlePass({
           <>
             <h4 className={styles["rewards-title"]}>Some of the rewards: </h4>
             <ul>
-              {rewardsData.items.map((reward, index) => {
+              {rewardsData.map((reward, index) => {
                 return (
-                  <li key={index}>
-                    <RewardCard imageUrl={reward.imageUrl} />
-                  </li>
+                  reward.item && (
+                    <li key={index}>
+                      <RewardCard {...reward} />
+                    </li>
+                  )
                 );
               })}
             </ul>
@@ -140,3 +132,4 @@ function BattlePass({
 }
 
 export { BattlePass };
+
