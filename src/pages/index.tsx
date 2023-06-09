@@ -4,6 +4,7 @@ import {
   getAvatarItemsByIds,
   getBackgrounds,
   getBattlePassSeason,
+  getRewards,
 } from "@/services";
 import styles from "@/styles/Home.module.scss";
 import { useBattlePassSeason } from "@/utils/hooks/battlePass";
@@ -30,24 +31,15 @@ export async function getStaticProps() {
     console.log(error);
   }
 
-  const ids: string[] = [];
-
-  if (results.rewards) {
-    results.rewards.forEach((reward) => {
-      if (reward.avatarItemId) ids.push(reward.avatarItemId);
-      if (reward.avatarItemIdFemale) ids.push(reward.avatarItemIdFemale);
-      if (reward.avatarItemIdMale) ids.push(reward.avatarItemIdMale);
-    });
-  }
-
   if (results.seasonBackgroundId) {
     await queryClient.prefetchQuery(["getBackgrounds"], () =>
       getBackgrounds(results.seasonBackgroundId || "")
     );
 
-    await queryClient.prefetchQuery(["getAvatarItemsByIds", ids], () =>
-      getAvatarItemsByIds(ids)
-    );
+    await queryClient.prefetchQuery({
+      queryKey: ["getRewards"],
+      queryFn: getRewards,
+    });
   }
 
   return {
