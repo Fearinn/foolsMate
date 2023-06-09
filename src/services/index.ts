@@ -3,6 +3,7 @@ import {
   RewardType,
   Season,
   Background,
+  Reward,
 } from "@/components/BattlePass/battlePass.types";
 import { Player } from "@/components/players/players.types";
 import { RoleIcon } from "@/components/roleIcon/roleIcons.types";
@@ -39,9 +40,15 @@ export async function getAvatarItemsByIds(ids: string[], limit = 25) {
 }
 
 export async function getBattlePassSeason(rewardsTypes: RewardType[]) {
-  const response = await instance.get<Season>("battlePass/season/rewards", {
+  const response = await instance.get<Season>("battlePass/season", {
     params: { rewardsTypes: rewardsTypes.join(":") },
   });
+
+  return response.data;
+}
+
+export async function getRewards() {
+  const response = await instance.get<Reward[]>("battlePass/rewards");
 
   return response.data;
 }
