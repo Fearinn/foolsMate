@@ -1,6 +1,7 @@
 export { AvatarItemCard } from "./avatarItem/AvarItemCard";
 export { AvatarItemsFilters } from "./avatarItem/AvatarItemsFilter";
 export { BattlePass } from "./BattlePass";
+export { Button } from "./Button";
 export { ErrorMessage } from "./ErrorMessage";
 export { Layout } from "./Layout";
 export { Loader } from "./Loader";

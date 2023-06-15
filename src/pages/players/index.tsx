@@ -1,8 +1,14 @@
 import { colors } from "@/assets/cssVariables";
-import { ErrorMessage, Loader, MainTitle, PlayerDashboard } from "@/components";
+import {
+  Button,
+  ErrorMessage,
+  Loader,
+  MainTitle,
+  PlayerDashboard
+} from "@/components";
 import { useLocalStorage } from "@/utils/hooks/localStorage";
 import { useSinglePlayer } from "@/utils/hooks/players";
-import { Button, Heading, Input } from "@chakra-ui/react";
+import { Heading, Input } from "@chakra-ui/react";
 import { AxiosError } from "axios";
 import Head from "next/head";
 import { useEffect, useState } from "react";
@@ -27,7 +33,7 @@ export default function PlayerHome() {
     if (error instanceof AxiosError && error.response?.status === 404)
       return <ErrorMessage>Player {username} not found </ErrorMessage>;
 
-    if (error|| !data) {
+    if (error || !data) {
       return <ErrorMessage />;
     }
 
@@ -70,14 +76,7 @@ export default function PlayerHome() {
                 bgColor={colors.mainBackGround}
               />
 
-              <Button
-                type="submit"
-                bgColor={colors.mainBrand}
-                _hover={{ background: colors.mainBrand, opacity: 0.8 }}
-                color={colors.mainFont}
-              >
-                Search
-              </Button>
+              <Button type="submit">Search</Button>
             </div>
           </form>
         </div>

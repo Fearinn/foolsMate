@@ -1,8 +1,8 @@
-import { colors } from "@/assets/cssVariables";
+import { Button } from "@/components";
 import { useRoleIconStore } from "@/store/roleIcon";
 import { FilterSet } from "@/types/FilterSet";
 import { numberToList } from "@/utils/numberToList";
-import { Button, Input, Select } from "@chakra-ui/react";
+import { Input, Select } from "@chakra-ui/react";
 import { useState } from "react";
 import styles from "./RoleIconFilters.module.scss";
 
@@ -100,18 +100,9 @@ function RoleIconFilters({ numberOfPages }: { numberOfPages: number }) {
             />
           );
         })}
-
-      <Button
-        type="submit"
-        backgroundColor={colors.mainBrand}
-        _hover={{ background: colors.mainBrand, opacity: 0.8 }}
-        color={colors.mainFont}
-      >
-        Filter
-      </Button>
+      <Button type="submit">Filter</Button>
     </form>
   );
 }
 
 export { RoleIconFilters };
-

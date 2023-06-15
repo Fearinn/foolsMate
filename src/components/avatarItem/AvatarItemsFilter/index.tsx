@@ -1,3 +1,4 @@
+import { Button } from "@/components";
 import {
   AvatarItemGender,
   AvatarItemType
@@ -6,9 +7,8 @@ import { useAvatarItemStore } from "@/store/avatarItem";
 import { FilterSet } from "@/types/FilterSet";
 import { Rarity } from "@/types/Rarity";
 import { numberToList } from "@/utils/numberToList";
-import { Button, Input, Select } from "@chakra-ui/react";
+import { Input, Select } from "@chakra-ui/react";
 import { useState } from "react";
-import { colors } from "../../../assets/cssVariables";
 import styles from "./AvatarItemFilters.module.scss";
 
 function AvatarItemsFilters({ numberOfPages }: { numberOfPages: number }) {
@@ -137,15 +137,7 @@ function AvatarItemsFilters({ numberOfPages }: { numberOfPages: number }) {
             />
           );
         })}
-
-      <Button
-        type="submit"
-        backgroundColor={colors.mainBrand}
-        _hover={{ background: colors.mainBrand, opacity: 0.8 }}
-        color={colors.mainFont}
-      >
-        Filter
-      </Button>
+      <Button type="submit">Filter</Button>
     </form>
   );
 }
