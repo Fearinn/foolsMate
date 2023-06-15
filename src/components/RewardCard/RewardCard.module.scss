@@ -2,18 +2,50 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
   justify-content: space-around;
+  gap: 1rem;
   background-color: var(--backgroundMain);
   border: 3px solid var(--backgroundTertiary);
   border-radius: 8px;
   height: 100%;
-  padding: 0.5rem;
+  padding: 1rem 0.5rem;
   width: 100%;
 
   .image {
     background-color: var(--backgroundSecondary);
     max-width: 150px;
     padding: 0.5rem;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    span {
+      font-weight: bold;
+      text-transform: uppercase;
+      -webkit-text-stroke: 0.075ch var(--fontMain);
+    }
+
+    .AVATAR_ITEM {
+      color: var(--rarityRare);
+    }
+
+    .EMOJI {
+      color: var(--rarityLegendary);
+    }
+
+    .LOADING_SCREEN {
+      color: var(--rarityEpic);
+    }
+
+    .free {
+      color: green;
+    }
+
+    .not-free {
+      color: var(--costInRoses);
+    }
   }
 }
