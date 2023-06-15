@@ -7,7 +7,7 @@ function Stats({
   totalCount,
 }: Omit<ResponseData<unknown>, "items">) {
   return (
-    <div className={styles.stats}>
+    <div className={styles.stats} aria-live="polite">
       <p>
         Results in this page: <span>{count}</span>
       </p>
