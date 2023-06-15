@@ -2,6 +2,7 @@ import { useBackground } from "@/utils/hooks/background";
 import { useRewards } from "@/utils/hooks/battlePass";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { Button } from "..";
 import { ErrorMessage } from "../ErrorMessage";
 import { Loader } from "../Loader";
 import { RewardCard } from "../RewardCard";
@@ -24,6 +25,8 @@ function BattlePass({
     isLoading,
     error,
   } = useBackground(seasonBackgroundId);
+
+  const [rewardsOpen, setRewardsOpen] = useState(false);
 
   const [timeLeft, setTimeLeft] = useState(durationInDays);
 
@@ -110,17 +113,25 @@ function BattlePass({
       <div className={styles.rewards}>
         {rewardsData ? (
           <>
-            <h4 className={styles["rewards-title"]}>Some of the rewards: </h4>
-            <ul>
-              {rewardsData.map((reward, index) => {
-                return (
-                  reward.item && (
-                    <li key={index}>
-                      <RewardCard {...reward} />
-                    </li>
-                  )
-                );
-              })}
+            <Button
+              width="fit-content"
+              onClick={() => setRewardsOpen(!rewardsOpen)}
+              aria-expanded={rewardsOpen}
+              aria-controls="rewards-list"
+            >
+              Show/hide some of the rewards
+            </Button>
+            <ul id="rewards-list">
+              {rewardsOpen &&
+                rewardsData.map((reward, index) => {
+                  return (
+                    reward.item && (
+                      <li key={index}>
+                        <RewardCard {...reward} />
+                      </li>
+                    )
+                  );
+                })}
             </ul>
           </>
         ) : (
@@ -132,4 +143,3 @@ function BattlePass({
 }
 
 export { BattlePass };
-

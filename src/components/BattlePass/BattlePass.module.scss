@@ -56,11 +56,6 @@
     padding: 0.5rem;
     width: 100%;
 
-    &-title {
-      font-size: 1.125rem;
-      font-weight: bold;
-    }
-
     ul {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
