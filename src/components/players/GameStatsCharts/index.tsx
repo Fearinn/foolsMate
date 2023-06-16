@@ -83,12 +83,54 @@ function GameStatsChart(props: GameStats) {
     },
   ];
 
+  function handleDescriptions() {
+    const percentageKeys = Object.keys(percentageData[0]).filter(
+      (key) => key !== "name"
+    );
+
+    return (
+      <div className={styles.descriptions}>
+        <p id="team-wins-description" className={styles.description}>
+          Wins and losses by teams:{" "}
+          {teamData.map((item, index) => {
+            return (
+              <span key={index}>
+                {item.team}: {item.wins} wins and {item.losses} losses{" "}
+              </span>
+            );
+          })}
+        </p>
+
+        <p id="total-wins-description" className={styles.description}>
+          Total wins and losses: {totalData[0].wins} wins and{" "}
+          {totalData[0].losses} losses
+        </p>
+
+        <p id="team-win%-description" className={styles.description}>
+          Win percentage by team:{" "}
+          {percentageKeys.map((team, index) => {
+            return (
+              <span key={index}>
+                {team}:{" "}
+                {percentageData[0][team as keyof (typeof percentageData)[0]]}{" "}
+              </span>
+            );
+          })}
+        </p>
+
+        <p id="survived-description" className={styles.description}>
+          Survived games: {survivedData[0].yes} yes, {survivedData[0].no} no
+        </p>
+      </div>
+    );
+  }
+
   return (
     <section className={styles.container}>
       <Heading as="h3" size="md">
         Game stats
       </Heading>
-      <div className={styles.charts}>
+      <div className={styles.charts} aria-hidden>
         <ResponsiveContainer width="100%" height={250}>
           <BarChart data={teamData}>
             <CartesianGrid />
@@ -140,6 +182,7 @@ function GameStatsChart(props: GameStats) {
           </BarChart>
         </ResponsiveContainer>
       </div>
+      {handleDescriptions()}
     </section>
   );
 }
