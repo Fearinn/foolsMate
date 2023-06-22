@@ -11,4 +11,7 @@ export { PlayerDashboard } from "./players/PlayerDashboard";
 export { RewardCard } from "./RewardCard";
 export { RoleIconCard } from "./roleIcon/RoleIconCard";
 export { RoleIconFilters } from "./roleIcon/RoleIconFilters";
+export { RoleCard } from "./roles/RoleCard";
+export { RolesFilter } from "./roles/RolesFilter";
 export { Stats } from "./Stats";
+
