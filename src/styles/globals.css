@@ -24,6 +24,10 @@
   --rarityEpic: #a31acb;
   --rarityLegendary: #e27802;
   --itemType: #4a772f;
+  --good: #21aa93;
+  --evil: #dc3535;
+  --unknown: #ff884b;
+  --random: #a31acb;
 }
 
 :where(:root, body, #root) {
