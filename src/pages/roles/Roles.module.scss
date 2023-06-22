@@ -1,0 +1,38 @@
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+
+  .container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+
+    h1 {
+      white-space: nowrap;
+    }
+  }
+
+  .list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0.5rem;
+    align-items: flex-start;
+    background-color: var(--backgroundSecondary);
+    font-size: 1.125rem;
+    padding: 1rem;
+    width: 100%;
+
+    .item {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  }
+}
