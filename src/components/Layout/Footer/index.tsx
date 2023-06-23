@@ -22,7 +22,10 @@ function Footer() {
         </a>
         .
       </p>
-      <p>Developed by Matheus Gomes (Fearinn).</p>
+      <p>
+        Developed by{" "}
+        <a href="https://github.com/Fearinn">Matheus Gomes (Fearinn)</a>.
+      </p>
     </footer>
   );
 }
