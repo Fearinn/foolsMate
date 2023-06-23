@@ -4,14 +4,13 @@ import {
   MainTitle,
   RoleIconCard,
   RoleIconFilters,
-  Stats,
+  Stats
 } from "@/components";
 import { getRoleIcons } from "@/services";
 import { useRoleIconStore } from "@/store/roleIcon";
 import { useRoleIcons } from "@/utils/hooks/roleIcons";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Head from "next/head";
-import { useEffect, useState } from "react";
 import styles from "../CardList.module.scss";
 
 export async function getStaticProps() {
@@ -40,19 +39,14 @@ function RoleIcons() {
     state.filters,
     state.filters.limit,
   ]);
-  const [numberOfPages, setNumberOfPages] = useState(1);
 
   const { data, isLoading, error } = useRoleIcons(filters);
 
-  useEffect(() => {
-    const totalCount = Number(data?.totalCount);
-    const pageCount = Number(limit);
-    if (totalCount && pageCount) {
-      setNumberOfPages(Math.ceil(totalCount / pageCount));
-    } else {
-      setNumberOfPages(1);
-    }
-  }, [data, limit]);
+  const totalCount = Number(data?.totalCount);
+  const pageCount = Number(limit);
+
+  const numberOfPages =
+    totalCount && pageCount ? Math.ceil(totalCount / pageCount) : 1;
 
   function handleQuery() {
     if (isLoading) return <Loader />;

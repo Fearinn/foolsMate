@@ -4,14 +4,13 @@ import {
   ErrorMessage,
   Loader,
   MainTitle,
-  Stats,
+  Stats
 } from "@/components";
 import { getAvatarItems } from "@/services";
 import { useAvatarItemStore } from "@/store/avatarItem";
 import { useAvatarItems } from "@/utils/hooks/avatarItems";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Head from "next/head";
-import { useEffect, useState } from "react";
 import styles from "../CardList.module.scss";
 
 export async function getStaticProps() {
@@ -36,21 +35,18 @@ export async function getStaticProps() {
 }
 
 function AvatarItems() {
-  const filters = useAvatarItemStore((state) => state.filters);
-  const [numberOfPages, setNumberOfPages] = useState(1);
-  const itemsPerPage = useAvatarItemStore((state) => state.filters.limit);
+  const [filters, limit] = useAvatarItemStore((state) => [
+    state.filters,
+    state.filters.limit,
+  ]);
 
   const { data, isLoading, error } = useAvatarItems(filters);
 
-  useEffect(() => {
-    const totalCount = Number(data?.totalCount);
-    const pageCount = Number(itemsPerPage);
-    if (totalCount && pageCount) {
-      setNumberOfPages(Math.ceil(totalCount / pageCount));
-    } else {
-      setNumberOfPages(1);
-    }
-  }, [data, itemsPerPage]);
+  const totalCount = Number(data?.totalCount);
+  const pageCount = Number(limit);
+
+  const numberOfPages =
+    totalCount && pageCount ? Math.ceil(totalCount / pageCount) : 1;
 
   function handleQuery() {
     if (isLoading) return <Loader />;

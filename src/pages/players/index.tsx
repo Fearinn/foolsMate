@@ -4,7 +4,7 @@ import {
   ErrorMessage,
   Loader,
   MainTitle,
-  PlayerDashboard
+  PlayerDashboard,
 } from "@/components";
 import { useLocalStorage } from "@/utils/hooks/localStorage";
 import { useSinglePlayer } from "@/utils/hooks/players";
@@ -15,13 +15,8 @@ import { useEffect, useState } from "react";
 import styles from "./PlayersHome.module.scss";
 
 export default function PlayerHome() {
-  const [stored, setStored] = useLocalStorage("playerDashboard");
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useLocalStorage("playerDashboard");
   const [newUsername, setNewUsername] = useState("");
-
-  useEffect(() => {
-    if (!username) setUsername(stored);
-  }, [username, stored]);
 
   const { data, isLoading, error } = useSinglePlayer(username);
 
@@ -53,7 +48,6 @@ export default function PlayerHome() {
             onSubmit={(event) => {
               event.preventDefault();
               setUsername(newUsername);
-              setStored(newUsername);
             }}
           >
             <Heading size="sm" as="label" htmlFor="username-input">

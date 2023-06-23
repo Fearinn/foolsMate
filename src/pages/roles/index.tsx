@@ -4,14 +4,13 @@ import {
   MainTitle,
   RoleCard,
   RolesFilter,
-  Stats,
+  Stats
 } from "@/components";
 import { getRoles } from "@/services/roles";
 import { useRolesStore } from "@/store/roles";
 import { useRoles } from "@/utils/hooks/roles";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Head from "next/head";
-import { useEffect, useState } from "react";
 import styles from "./Roles.module.scss";
 
 export async function getStaticProps() {
@@ -39,19 +38,13 @@ export default function Roles() {
     state.filters.limit,
   ]);
 
-  const [numberOfPages, setNumberOfPages] = useState(1);
-
   const { data, isLoading, error } = useRoles(filters);
 
-  useEffect(() => {
-    const totalCount = Number(data?.totalCount);
-    const pageCount = Number(limit);
-    if (totalCount && pageCount) {
-      setNumberOfPages(Math.ceil(totalCount / pageCount));
-    } else {
-      setNumberOfPages(1);
-    }
-  }, [data, limit]);
+  const totalCount = Number(data?.totalCount);
+  const pageCount = Number(limit);
+
+  const numberOfPages =
+    totalCount && pageCount ? Math.ceil(totalCount / pageCount) : 1;
 
   function handleQuery() {
     if (isLoading) return <Loader />;
