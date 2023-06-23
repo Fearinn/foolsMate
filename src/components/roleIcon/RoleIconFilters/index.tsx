@@ -18,6 +18,7 @@ function RoleIconFilters({ numberOfPages }: { numberOfPages: number }) {
     handleSubmit: () => {
       setFilters({
         ...filters,
+        page: 1,
         event: event || undefined,
         roleId: roleId || undefined,
       });
@@ -33,7 +34,7 @@ function RoleIconFilters({ numberOfPages }: { numberOfPages: number }) {
       {
         name: "itemsPerPage",
         handler: (value: string) =>
-          setFilters({ ...filters, limit: Number(value) || 25 }),
+          setFilters({ ...filters, page: 1, limit: Number(value) || 25 }),
         placeholder: "items per page",
         options: ["25", "50", "100"],
         default: "25",

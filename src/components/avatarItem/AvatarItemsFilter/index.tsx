@@ -1,7 +1,7 @@
 import { Button } from "@/components";
 import {
   AvatarItemGender,
-  AvatarItemType
+  AvatarItemType,
 } from "@/components/avatarItem/avatarItems.types";
 import { useAvatarItemStore } from "@/store/avatarItem";
 import { FilterSet } from "@/types/FilterSet";
@@ -24,6 +24,7 @@ function AvatarItemsFilters({ numberOfPages }: { numberOfPages: number }) {
   function handleSubmit() {
     setFilters({
       ...filters,
+      page: 1,
       gender: gender as AvatarItemGender,
       rarity: (rarity as Rarity) || undefined,
       type: (type as AvatarItemType) || undefined,
@@ -44,7 +45,7 @@ function AvatarItemsFilters({ numberOfPages }: { numberOfPages: number }) {
       {
         name: "itemsPerPage",
         handler: (value: string) =>
-          setFilters({ ...filters, limit: Number(value) || 100 }),
+          setFilters({ ...filters, page: 1, limit: Number(value) || 100 }),
         placeholder: "items per page",
         options: ["100", "200", "500", "1000"],
         default: "100",
@@ -143,4 +144,3 @@ function AvatarItemsFilters({ numberOfPages }: { numberOfPages: number }) {
 }
 
 export { AvatarItemsFilters };
-

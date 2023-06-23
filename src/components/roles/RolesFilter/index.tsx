@@ -21,6 +21,7 @@ export function RolesFilter({ numberOfPages }: { numberOfPages: number }) {
     handleSubmit: () => {
       setFilters({
         ...filters,
+        page: 1,
         name: name || undefined,
         team: (team as Role["team"]) || undefined,
         aura: (aura as Role["aura"]) || undefined,
@@ -37,7 +38,7 @@ export function RolesFilter({ numberOfPages }: { numberOfPages: number }) {
       {
         name: "itemsPerPage",
         handler: (value: string) =>
-          setFilters({ ...filters, limit: Number(value) || 20 }),
+          setFilters({ ...filters, page: 1, limit: Number(value) || 20 }),
         placeholder: "items per page",
         options: ["20", "35", "50"],
         default: "20",
