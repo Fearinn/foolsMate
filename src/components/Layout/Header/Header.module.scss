@@ -1,37 +1,39 @@
 .header {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  justify-content: space-between;
+  gap: 1rem;
   background-color: var(--brandMain);
   color: var(--fontMain);
   font-weight: bold;
-  padding: 1rem;
-
-  h2 {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1.5rem;
-    padding: 0 0.5rem;
-    transition: 0.3s all linear;
-  }
-
-  .main-menu {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 0 0.5rem;
-    font-size: 1.25rem;
-  }
+  padding: 0.5rem;
 
   a {
     border-radius: 4px;
     padding: 0 0.5rem;
+    text-align: center;
     transition: 0.25s all linear;
 
     &:hover {
       background-color: var(--backgroundMain);
     }
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .main-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+    font-size: 1.25rem;
   }
 }
