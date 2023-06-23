@@ -59,20 +59,24 @@ export default function Roles() {
     if (!data || error) return <ErrorMessage />;
 
     return (
-      <section className={styles["card-list"]}>
-        <div className={styles.container}>
-          <MainTitle title="Roles" />
-          <RolesFilter numberOfPages={numberOfPages} />
-        </div>
+      <>
         <Stats {...data} />
         <ul className={styles.list}>
-          {data.items.map((role) => (
-            <li key={role.id} className={styles.item}>
-              <RoleCard {...role} />
+          {data.items.length ? (
+            data.items.map((role) => (
+              <li key={role.id} className={styles.item}>
+                <RoleCard {...role} />
+              </li>
+            ))
+          ) : (
+            <li>
+              <ErrorMessage>
+                No role was found with the selected filters
+              </ErrorMessage>
             </li>
-          ))}
+          )}
         </ul>
-      </section>
+      </>
     );
   }
 
@@ -81,7 +85,15 @@ export default function Roles() {
       <Head>
         <title>{"Fool's Mate - Roles"}</title>
       </Head>
-      <main>{handleQuery()}</main>
+      <main>
+        <section className={styles["card-list"]}>
+          <div className={styles.container}>
+            <MainTitle title="Roles" />
+            <RolesFilter numberOfPages={numberOfPages} />
+          </div>
+          {handleQuery()}
+        </section>
+      </main>
     </>
   );
 }

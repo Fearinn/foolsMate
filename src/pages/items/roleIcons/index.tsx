@@ -60,20 +60,22 @@ function RoleIcons() {
     if (!data || error) return <ErrorMessage />;
 
     return (
-      <section className={styles["card-list"]}>
-        <div className={styles.container}>
-          <MainTitle title="Role Icons" />
-          <RoleIconFilters numberOfPages={numberOfPages} />
-        </div>
+      <>
         <Stats {...data} />
         <ul className={styles.list}>
-          {data.items.map((icon) => (
-            <li key={icon.id} className={styles.item}>
-              <RoleIconCard {...icon} />
-            </li>
-          ))}
+          {data.items.length ? (
+            data.items.map((icon) => (
+              <li key={icon.id} className={styles.item}>
+                <RoleIconCard {...icon} />
+              </li>
+            ))
+          ) : (
+            <ErrorMessage>
+              No icon was found with the selected filters
+            </ErrorMessage>
+          )}
         </ul>
-      </section>
+      </>
     );
   }
 
@@ -82,7 +84,15 @@ function RoleIcons() {
       <Head>
         <title>{"Fool's Mate - Role Icons"}</title>
       </Head>
-      <main>{handleQuery()}</main>
+      <main>
+        <section className={styles["card-list"]}>
+          <div className={styles.container}>
+            <MainTitle title="Role Icons" />
+            <RoleIconFilters numberOfPages={numberOfPages} />
+          </div>
+          {handleQuery()}
+        </section>
+      </main>
     </>
   );
 }

@@ -60,11 +60,7 @@ function AvatarItems() {
     }
 
     return (
-      <section className={styles["card-list"]}>
-        <div className={styles.container}>
-          <MainTitle title="Avatar Items" />
-          <AvatarItemsFilters numberOfPages={numberOfPages} />
-        </div>
+      <>
         <Stats {...data} />
         <ul className={styles.list}>
           {data.items.length ? (
@@ -76,12 +72,14 @@ function AvatarItems() {
               );
             })
           ) : (
-            <ErrorMessage>
-              No item was found with the selected filters!
-            </ErrorMessage>
+            <li>
+              <ErrorMessage>
+                No item was found with the selected filters!
+              </ErrorMessage>
+            </li>
           )}
         </ul>
-      </section>
+      </>
     );
   }
 
@@ -90,7 +88,15 @@ function AvatarItems() {
       <Head>
         <title>{"Fool's Mate - Avatar Items"}</title>
       </Head>
-      <main>{handleQuery()}</main>
+      <main>
+        <section className={styles["card-list"]}>
+          <div className={styles.container}>
+            <MainTitle title="Avatar Items" />
+            <AvatarItemsFilters numberOfPages={numberOfPages} />
+          </div>
+          {handleQuery()}
+        </section>
+      </main>
     </>
   );
 }
