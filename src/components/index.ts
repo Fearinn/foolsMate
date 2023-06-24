@@ -3,6 +3,7 @@ export { AvatarItemsFilters } from "./avatarItem/AvatarItemsFilter";
 export { BattlePass } from "./BattlePass";
 export { Button } from "./Button";
 export { ErrorMessage } from "./ErrorMessage";
+export { Input } from "./Input";
 export { Layout } from "./Layout";
 export { Loader } from "./Loader";
 export { MainTitle } from "./MainTitle";
