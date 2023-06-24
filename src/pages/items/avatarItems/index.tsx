@@ -4,7 +4,7 @@ import {
   ErrorMessage,
   Loader,
   MainTitle,
-  Stats
+  Stats,
 } from "@/components";
 import { getAvatarItems } from "@/services";
 import { useAvatarItemStore } from "@/store/avatarItem";
@@ -18,13 +18,11 @@ export async function getStaticProps() {
 
   const initialFilter = { page: 1, limit: 100 };
 
-  await queryClient.prefetchQuery(
-    ["getAvatarItems", initialFilter],
-    () => getAvatarItems(initialFilter),
-    {
-      staleTime: 1000 * 60 * 30,
-    }
-  );
+  await queryClient.prefetchQuery({
+    queryKey: ["getAvatarItems", initialFilter],
+    queryFn: () => getAvatarItems(initialFilter),
+    staleTime: 1000 * 60 * 30,
+  });
 
   return {
     props: {

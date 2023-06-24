@@ -24,17 +24,19 @@ export async function getStaticProps() {
   let results: Partial<Season> = {};
 
   try {
-    results = await queryClient.fetchQuery(["getBattlePassSeason"], () =>
-      getBattlePassSeason(["AVATAR_ITEM"])
-    );
+    results = await queryClient.fetchQuery({
+      queryKey: ["getBattlePassSeason"],
+      queryFn: () => getBattlePassSeason(["AVATAR_ITEM"]),
+    });
   } catch (error) {
     console.log(error);
   }
 
   if (results.seasonBackgroundId) {
-    await queryClient.prefetchQuery(["getBackgrounds"], () =>
-      getBackgrounds(results.seasonBackgroundId || "")
-    );
+    await queryClient.prefetchQuery({
+      queryKey: ["getBackgrounds"],
+      queryFn: () => getBackgrounds(results.seasonBackgroundId || ""),
+    });
 
     await queryClient.prefetchQuery({
       queryKey: ["getRewards"],

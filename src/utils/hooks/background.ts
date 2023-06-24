@@ -4,14 +4,12 @@ import { AxiosError } from "axios";
 import { getBackgrounds } from "../../services";
 
 export function useBackground(id: string) {
-  const response = useQuery<Background, AxiosError>(
-    ["getBackgrounds"],
-    () => getBackgrounds(id),
-    {
-      staleTime: 1000 * 60 * 30,
-      keepPreviousData: true,
-    }
-  );
+  const response = useQuery<Background, AxiosError>({
+    queryKey: ["getBackgrounds"],
+    queryFn: () => getBackgrounds(id),
+    staleTime: 1000 * 60 * 30,
+    keepPreviousData: true,
+  });
 
   return response;
 }

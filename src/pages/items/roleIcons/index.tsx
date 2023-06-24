@@ -4,7 +4,7 @@ import {
   MainTitle,
   RoleIconCard,
   RoleIconFilters,
-  Stats
+  Stats,
 } from "@/components";
 import { getRoleIcons } from "@/services";
 import { useRoleIconStore } from "@/store/roleIcon";
@@ -18,13 +18,11 @@ export async function getStaticProps() {
 
   const initialFilter = { page: 1, limit: 25 };
 
-  await queryClient.prefetchQuery(
-    ["getRoleIcons", initialFilter],
-    () => getRoleIcons(initialFilter),
-    {
-      staleTime: 1000 * 60 * 30,
-    }
-  );
+  await queryClient.prefetchQuery({
+    queryKey: ["getRoleIcons", initialFilter],
+    queryFn: () => getRoleIcons(initialFilter),
+    staleTime: 1000 * 60 * 30,
+  });
 
   return {
     props: {

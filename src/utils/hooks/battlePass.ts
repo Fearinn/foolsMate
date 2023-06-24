@@ -8,14 +8,12 @@ import { AxiosError } from "axios";
 import { getBattlePassSeason, getRewards } from "../../services";
 
 export function useBattlePassSeason(rewardsTypes: RewardType[]) {
-  const response = useQuery<Season, AxiosError>(
-    ["getBattlePassSeason"],
-    () => getBattlePassSeason(rewardsTypes),
-    {
-      staleTime: 1000 * 60 * 30,
-      keepPreviousData: true,
-    }
-  );
+  const response = useQuery<Season, AxiosError>({
+    queryKey: ["getBattlePassSeason"],
+    queryFn: () => getBattlePassSeason(rewardsTypes),
+    staleTime: 1000 * 60 * 30,
+    keepPreviousData: true,
+  });
 
   return response;
 }
