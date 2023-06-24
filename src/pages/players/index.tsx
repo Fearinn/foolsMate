@@ -2,21 +2,22 @@ import { colors } from "@/assets/cssVariables";
 import {
   Button,
   ErrorMessage,
+  Input,
   Loader,
   MainTitle,
   PlayerDashboard,
 } from "@/components";
 import { useLocalStorage } from "@/utils/hooks/localStorage";
 import { useSinglePlayer } from "@/utils/hooks/players";
-import { Heading, Input } from "@chakra-ui/react";
+import { Heading } from "@chakra-ui/react";
 import { AxiosError } from "axios";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import styles from "./PlayersHome.module.scss";
 
 export default function PlayerHome() {
   const [username, setUsername] = useLocalStorage("playerDashboard");
-  const [newUsername, setNewUsername] = useState("");
+  const newUsername = useRef("");
 
   const { data, isLoading, error } = useSinglePlayer(username);
 
@@ -47,7 +48,7 @@ export default function PlayerHome() {
             className={styles.form}
             onSubmit={(event) => {
               event.preventDefault();
-              setUsername(newUsername);
+              setUsername(newUsername.current);
             }}
           >
             <Heading size="sm" as="label" htmlFor="username-input">
@@ -57,19 +58,14 @@ export default function PlayerHome() {
               <Input
                 id="username-input"
                 minLength={3}
-                onChange={(event) => {
-                  setNewUsername(event.target.value);
-                }}
-                value={newUsername}
-                width="auto"
-                size="md"
-                type="text"
-                variant="filled"
+                required
+                hasLabel
                 placeholder="JohnDoe"
-                _focusVisible={{ border: "none" }}
                 bgColor={colors.mainBackGround}
+                onChange={(event) => {
+                  newUsername.current = event.target.value;
+                }}
               />
-
               <Button type="submit">Search</Button>
             </div>
           </form>
