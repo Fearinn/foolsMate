@@ -11,7 +11,7 @@ import { useRoleIconStore } from "@/store/roleIcon";
 import { useRoleIcons } from "@/utils/hooks/roleIcons";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Head from "next/head";
-import styles from "../CardList.module.scss";
+import styles from "./RoleIcons.module.scss";
 
 export async function getStaticProps() {
   const queryClient = new QueryClient();

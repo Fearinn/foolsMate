@@ -11,7 +11,7 @@ import { useAvatarItemStore } from "@/store/avatarItem";
 import { useAvatarItems } from "@/utils/hooks/avatarItems";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Head from "next/head";
-import styles from "../CardList.module.scss";
+import styles from "./AvatarItems.module.scss";
 
 export async function getStaticProps() {
   const queryClient = new QueryClient();
