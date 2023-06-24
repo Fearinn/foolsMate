@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import {
   QueryClient,
   QueryClientProvider,
@@ -9,6 +9,20 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useState } from "react";
 import { Layout } from "../components/Layout";
+import { Roboto } from "next/font/google";
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+});
+
+const theme = extendTheme({
+  fonts: {
+    body: roboto.style.fontFamily,
+    heading: roboto.style.fontFamily,
+  },
+});
 
 export default function App({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(
@@ -19,7 +33,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
-          <ChakraProvider>
+          <ChakraProvider theme={theme}>
             <Layout>
               <Head>
                 <meta
@@ -38,7 +52,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 />
                 <meta property="og:image" content="/favicon.svg" />
               </Head>
-              <Component {...pageProps} />
+              <Component {...pageProps} className={roboto.className} />
             </Layout>
           </ChakraProvider>
         </Hydrate>
