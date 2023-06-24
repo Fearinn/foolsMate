@@ -8,8 +8,9 @@ import { Loader } from "../Loader";
 import { RewardCard } from "../RewardCard";
 import styles from "./BattlePass.module.scss";
 import { Season } from "./battlePass.types";
+import { Rewards } from "./Rewards";
 
-function BattlePass({
+export function BattlePass({
   startTime,
   durationInDays,
   number,
@@ -26,11 +27,7 @@ function BattlePass({
     error,
   } = useBackground(seasonBackgroundId);
 
-  const [rewardsOpen, setRewardsOpen] = useState(false);
-
   const [timeLeft, setTimeLeft] = useState(durationInDays);
-
-  const { data: rewardsData, isLoading: rewardsLoading } = useRewards();
 
   const formattedStart = new Date(startTime).toLocaleDateString();
 
@@ -110,36 +107,7 @@ function BattlePass({
           />
         </div>
       </div>
-      <div className={styles.rewards}>
-        {rewardsData ? (
-          <>
-            <Button
-              width="fit-content"
-              onClick={() => setRewardsOpen(!rewardsOpen)}
-              aria-expanded={rewardsOpen}
-              aria-controls="rewards-list"
-            >
-              Show/hide some of the rewards
-            </Button>
-            <ul id="rewards-list">
-              {rewardsOpen &&
-                rewardsData.map((reward, index) => {
-                  return (
-                    reward.item && (
-                      <li key={index}>
-                        <RewardCard {...reward} />
-                      </li>
-                    )
-                  );
-                })}
-            </ul>
-          </>
-        ) : (
-          rewardsLoading && <Loader />
-        )}
-      </div>
+      <Rewards />
     </section>
   );
 }
-
-export { BattlePass };

@@ -49,20 +49,6 @@
     }
   }
 
-  .rewards {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 0.5rem;
-    width: 100%;
-
-    ul {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-  }
-
   @media screen and (max-width: 1440px) {
     .bg-info-container {
       align-items: center;
