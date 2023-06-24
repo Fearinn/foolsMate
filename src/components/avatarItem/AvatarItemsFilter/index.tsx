@@ -1,4 +1,4 @@
-import { Button } from "@/components";
+import { Button, Input } from "@/components";
 import {
   AvatarItemGender,
   AvatarItemType,
@@ -7,7 +7,7 @@ import { useAvatarItemStore } from "@/store/avatarItem";
 import { FilterSet } from "@/types/FilterSet";
 import { Rarity } from "@/types/Rarity";
 import { numberToList } from "@/utils/numberToList";
-import { Input, Select } from "@chakra-ui/react";
+import { Select } from "@chakra-ui/react";
 import { useState } from "react";
 import styles from "./AvatarItemFilters.module.scss";
 
@@ -127,13 +127,8 @@ function AvatarItemsFilters({ numberOfPages }: { numberOfPages: number }) {
         filterSet.textInputs.map((input, index) => {
           return (
             <Input
-              width="auto"
-              size="md"
-              type="text"
-              variant="filled"
               key={index}
               placeholder={input.placeholder}
-              _focusVisible={{ border: "none" }}
               onChange={(event) => input.handler(event.target.value)}
             />
           );

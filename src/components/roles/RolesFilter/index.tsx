@@ -1,8 +1,8 @@
-import { Button } from "@/components";
+import { Button, Input } from "@/components";
 import { useRolesStore } from "@/store/roles";
 import { FilterSet } from "@/types/FilterSet";
 import { numberToList } from "@/utils/numberToList";
-import { Input, Select } from "@chakra-ui/react";
+import { Select } from "@chakra-ui/react";
 import { useState } from "react";
 import { Role } from "../roles.types";
 import styles from "./RolesFilters.module.scss";
@@ -101,13 +101,8 @@ export function RolesFilter({ numberOfPages }: { numberOfPages: number }) {
         filterSet.textInputs.map((input, index) => {
           return (
             <Input
-              width="auto"
-              size="md"
-              type="text"
-              variant="filled"
               key={index}
               placeholder={input.placeholder}
-              _focusVisible={{ border: "none" }}
               onChange={(event) => input.handler(event.target.value)}
             />
           );
