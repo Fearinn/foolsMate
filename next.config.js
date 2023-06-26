@@ -2,7 +2,7 @@
 
 const prod = process.env.NODE_ENV === "production";
 
-const CSP = `default-src 'self'; font-src 'self' https://fonts.google.com; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'; base-uri 'self'; connect-src 'self' ${
+const CSP = `default-src 'self'; font-src 'self' https://fonts.google.com; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; connect-src 'self' ${
   prod ? "https://foolsmate.cyclic.app/" : "http://localhost:3000"
 };${!prod ? " script-src 'self' 'unsafe-eval'" : ""}`;
 
