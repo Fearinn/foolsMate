@@ -1,8 +1,7 @@
-import { Button, Input } from "@/components";
+import { Button, Input, Select } from "@/components";
 import { useRoleIconStore } from "@/store/roleIcon";
 import { FilterSet } from "@/types/FilterSet";
 import { numberToList } from "@/utils/numberToList";
-import { Select } from "@chakra-ui/react";
 import { useState } from "react";
 import styles from "./RoleIconFilters.module.scss";
 
@@ -66,10 +65,6 @@ function RoleIconFilters({ numberOfPages }: { numberOfPages: number }) {
           return (
             <Select
               key={index}
-              placeholder={select.placeholder}
-              width="auto"
-              variant="filled"
-              _focusVisible={{ border: "none" }}
               onChange={(event) => {
                 select.handler(event.target.value);
               }}
