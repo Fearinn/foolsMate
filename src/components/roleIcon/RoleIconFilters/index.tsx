@@ -37,7 +37,6 @@ function RoleIconFilters({ numberOfPages }: { numberOfPages: number }) {
           setFilters({ ...filters, page: 1, limit: Number(value) || 25 }),
         placeholder: "items per page",
         options: ["25", "50", "100"],
-        default: "25",
       },
     ],
     textInputs: [
@@ -66,7 +65,6 @@ function RoleIconFilters({ numberOfPages }: { numberOfPages: number }) {
         filterSet.selects.map((select, index) => {
           return (
             <Select
-              defaultValue={select.default}
               key={index}
               placeholder={select.placeholder}
               width="auto"

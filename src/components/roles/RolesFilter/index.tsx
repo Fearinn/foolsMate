@@ -41,7 +41,6 @@ export function RolesFilter({ numberOfPages }: { numberOfPages: number }) {
           setFilters({ ...filters, page: 1, limit: Number(value) || 20 }),
         placeholder: "items per page",
         options: ["20", "35", "50"],
-        default: "20",
       },
       {
         name: "team",
@@ -77,7 +76,6 @@ export function RolesFilter({ numberOfPages }: { numberOfPages: number }) {
         filterSet.selects.map((select, index) => {
           return (
             <Select
-              defaultValue={select.default}
               key={index}
               placeholder={select.placeholder}
               width="auto"

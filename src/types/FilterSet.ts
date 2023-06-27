@@ -9,7 +9,6 @@ type FilterSelect = {
   placeholder: string;
   handler: (value: string) => void;
   options: string[];
-  default?: string;
 };
 
 type FilterTextInput = {
