@@ -1,3 +1,4 @@
+import { colors } from "@/assets/cssVariables";
 import { Heading } from "@chakra-ui/react";
 import {
   Bar,
@@ -138,8 +139,8 @@ function GameStatsChart(props: GameStats) {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="wins" fill="#116D6E" />
-            <Bar dataKey="losses" fill="#CD1818" />
+            <Bar dataKey="wins" fill={colors.positive} />
+            <Bar dataKey="losses" fill={colors.negative} />
           </BarChart>
         </ResponsiveContainer>
 
@@ -150,8 +151,8 @@ function GameStatsChart(props: GameStats) {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="wins" fill="#116D6E" />
-            <Bar dataKey="losses" fill="#CD1818" />
+            <Bar dataKey="wins" fill={colors.positive} />
+            <Bar dataKey="losses" fill={colors.negative} />
           </BarChart>
         </ResponsiveContainer>
 
@@ -162,10 +163,10 @@ function GameStatsChart(props: GameStats) {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="village" fill="#116D6E" />
-            <Bar dataKey="werewolf" fill="#CD1818" />
-            <Bar dataKey="solo" fill="orange" />
-            <Bar dataKey="voting" fill="purple" />
+            <Bar dataKey="village" fill={colors.positive} />
+            <Bar dataKey="werewolf" fill={colors.negative} />
+            <Bar dataKey="solo" fill={colors.unknownAura} />
+            <Bar dataKey="voting" fill={colors.goodAura} />
             <Bar dataKey="total" fill="black" />
           </BarChart>
         </ResponsiveContainer>
@@ -177,8 +178,8 @@ function GameStatsChart(props: GameStats) {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="yes" fill="#116D6E" />
-            <Bar dataKey="no" fill="#CD1818" />
+            <Bar dataKey="yes" fill={colors.positive} />
+            <Bar dataKey="no" fill={colors.negative} />
           </BarChart>
         </ResponsiveContainer>
       </div>
