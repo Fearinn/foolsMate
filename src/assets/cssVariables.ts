@@ -1,8 +1,8 @@
 export const colors = {
-  brandMain: "#FE55B9",
+  brandMain: "#fe6ab4",
   fontMain: "#000",
-  fontSecondary: "#FFF",
-  backgroundMain: "#FFF",
+  fontSecondary: "#ffffff",
+  backgroundMain: "#ffffff",
   backgroundSecondary: "#efefef",
   backgroundTertiary: "#979797",
   costInGold: "#FF884B",
