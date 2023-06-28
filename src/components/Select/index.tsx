@@ -6,7 +6,7 @@ type Props = ComponentPropsWithRef<"select"> & SelectProps;
 
 export function Select({
   children,
-  bgColor = colors.secondaryBackGround,
+  bgColor = colors.backgroundSecondary,
   variant = "filled",
   _focusVisible = { border: "none" },
   width = "auto",

@@ -9,8 +9,8 @@ type Props = {
 } & ComponentProps<"button">;
 
 export function Button({
-  bgColor = colors.mainBrand,
-  textColor = colors.mainFont,
+  bgColor = colors.brandMain,
+  textColor = colors.fontMain,
   width = "auto",
   ...rest
 }: Props) {

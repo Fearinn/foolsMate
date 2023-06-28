@@ -47,21 +47,21 @@
 
     .GOOD,
     .VILLAGER {
-      color: var(--good);
+      color: var(--goodAura);
     }
 
     .EVIL,
     .WEREWOLF {
-      color: var(--evil);
+      color: var(--evilAura);
     }
 
     .UNKNOWN,
     .SOLO {
-      color: var(--unknown);
+      color: var(--unknownAura);
     }
 
     .RANDOM {
-      color: var(--random);
+      color: var(--randomAura);
     }
   }
 }

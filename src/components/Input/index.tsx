@@ -6,8 +6,8 @@ type Props = { hasLabel?: boolean } & ComponentPropsWithRef<"input"> &
   InputProps;
 
 export function Input({
-  bgColor = colors.secondaryBackGround,
-  textColor = colors.mainFont,
+  bgColor = colors.backgroundSecondary,
+  textColor = colors.fontMain,
   width = "auto",
   type = "text",
   variant = "filled",

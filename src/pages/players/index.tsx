@@ -61,7 +61,7 @@ export default function PlayerHome() {
                 required
                 hasLabel
                 placeholder="JohnDoe"
-                bgColor={colors.mainBackGround}
+                bgColor={colors.backgroundMain}
                 onChange={(event) => {
                   newUsername.current = event.target.value;
                 }}
