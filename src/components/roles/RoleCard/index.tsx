@@ -1,12 +1,12 @@
-import Image from "next/image";
-import { Role } from "../roles.types";
 import { Button } from "@/components/Button";
 import { Heading } from "@chakra-ui/react";
+import Image from "next/image";
 import { useState } from "react";
+import { Role } from "../roles.types";
 import styles from "./RoleCard.module.scss";
-import { useRolesStore } from "@/store/roles";
 
 export function RoleCard({
+  id,
   image,
   name,
   description,
@@ -38,7 +38,7 @@ export function RoleCard({
         </p>
         <div className={styles.buttons}>
           <Button
-            aria-controls="role-description"
+            aria-controls={`${id}-description`}
             aria-expanded={descriptionOpen}
             type="button"
             onClick={() => setDescriptionOpen(!descriptionOpen)}
@@ -47,7 +47,7 @@ export function RoleCard({
           </Button>
           {advancedRoles && (
             <Button
-              aria-controls="advanced-roles"
+              aria-controls={`${id}-advanced-roles`}
               aria-expanded={advancedOpen}
               type="button"
               onClick={() => setAdvancedOpen(!advancedOpen)}
@@ -57,13 +57,17 @@ export function RoleCard({
           )}
         </div>
         <p
-          id="role-description"
+          id={`${id}-description`}
           aria-live="polite"
           className={styles.description}
         >
           {descriptionOpen ? description : <></>}
         </p>
-        <ul id="advanced-roles" aria-live="polite" className={styles.advanceds}>
+        <ul
+          id={`${id}-advanced-roles`}
+          aria-live="polite"
+          className={styles.advanceds}
+        >
           {advancedOpen && advancedRoles ? (
             advancedRoles.map((role, index) => {
               return <li key={index}>{role}</li>;
