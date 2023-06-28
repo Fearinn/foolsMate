@@ -8,7 +8,7 @@ function AvatarItemCard(props: AvatarItem) {
   function cost() {
     if (props.costInGold) return `${props.costInGold} gold`;
     if (props.costInRoses) return `${props.costInRoses} roses`;
-    return "?";
+    return "UNDEFINED";
   }
 
   return (
