@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import Image from "next/image";
-import { Reward } from "../BattlePass/battlePass.types";
+import { Reward } from "../battlePass.types";
 import styles from "./RewardCard.module.scss";
 
 function RewardCard({ item, type, free, amount }: Reward) {

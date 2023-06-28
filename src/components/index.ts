@@ -9,7 +9,7 @@ export { Loader } from "./Loader";
 export { MainTitle } from "./MainTitle";
 export { GameStatsChart } from "./players/GameStatsCharts";
 export { PlayerDashboard } from "./players/PlayerDashboard";
-export { RewardCard } from "./RewardCard";
+export { RewardCard } from "./BattlePass/RewardCard";
 export { RoleIconCard } from "./roleIcon/RoleIconCard";
 export { RoleIconFilters } from "./roleIcon/RoleIconFilters";
 export { RoleCard } from "./roles/RoleCard";

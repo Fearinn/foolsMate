@@ -1,11 +1,8 @@
 import { useBackground } from "@/utils/hooks/background";
-import { useRewards } from "@/utils/hooks/battlePass";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Button } from "..";
 import { ErrorMessage } from "../ErrorMessage";
 import { Loader } from "../Loader";
-import { RewardCard } from "../RewardCard";
 import styles from "./BattlePass.module.scss";
 import { Season } from "./battlePass.types";
 import { Rewards } from "./Rewards";
