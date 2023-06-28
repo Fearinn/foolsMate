@@ -1,11 +1,9 @@
-:where(*) {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  color: inherit;
-}
-
 :root {
+  display: flex;
+  flex-direction: column;
+  min-width: 360px;
+  min-height: 100vh;
+
   --brandMain: #fe6ab4;
   --fontMain: #000000;
   --fontSecondary: #ffffff;
@@ -28,20 +26,24 @@
   --randomAura: #a31acb;
 }
 
-:where(:root, body, #root) {
+:where(*) {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+}
+
+:where(:root, body, #root, #__next) {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-width: 360px;
-  min-height: 100dvh;
+  flex-grow: 1;
 }
 
 :where(#__next > main) {
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 0.5rem;
-  min-height: 100dvh;
+  flex-grow: 1;
 }
 
 *:focus-visible {
