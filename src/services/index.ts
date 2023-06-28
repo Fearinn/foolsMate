@@ -39,10 +39,8 @@ export async function getAvatarItemsByIds(ids: string[], limit = 25) {
   return response.data;
 }
 
-export async function getBattlePassSeason(rewardsTypes: RewardType[]) {
-  const response = await instance.get<Season>("battlePass/season", {
-    params: { rewardsTypes: rewardsTypes.join(":") },
-  });
+export async function getBattlePassSeason() {
+  const response = await instance.get<Season>("battlePass/season");
 
   return response.data;
 }

@@ -25,7 +25,7 @@ export async function getStaticProps() {
   try {
     results = await queryClient.fetchQuery({
       queryKey: ["getBattlePassSeason"],
-      queryFn: () => getBattlePassSeason(["AVATAR_ITEM"]),
+      queryFn: getBattlePassSeason,
     });
   } catch (error) {
     console.log(error);
