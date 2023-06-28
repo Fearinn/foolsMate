@@ -41,11 +41,11 @@
     }
 
     .free {
-      color: green;
+      color: var(--positive);
     }
 
     .not-free {
-      color: var(--costInRoses);
+      color: var(--negative);
     }
   }
 }

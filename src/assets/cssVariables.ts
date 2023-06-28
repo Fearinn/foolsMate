@@ -19,4 +19,6 @@ export const colors = {
   evilAura: "#dc3535",
   unknownAura: "#ff884b",
   randomAura: "#a31acb",
+  positive: "#4A772F",
+  negative: "#DC3535",
 };
