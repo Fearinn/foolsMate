@@ -1,15 +1,16 @@
+import "@/styles/normalize.css";
 import "@/styles/globals.css";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import {
-  QueryClient,
-  QueryClientProvider,
   Hydrate,
+  QueryClient,
+  QueryClientProvider
 } from "@tanstack/react-query";
 import type { AppProps } from "next/app";
+import { Roboto } from "next/font/google";
 import Head from "next/head";
 import { useState } from "react";
 import { Layout } from "../components/Layout";
-import { Roboto } from "next/font/google";
 
 const roboto = Roboto({
   subsets: ["latin"],
