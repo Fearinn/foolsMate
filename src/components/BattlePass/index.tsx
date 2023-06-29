@@ -46,7 +46,6 @@ export function BattlePass({
       Math.round((endTime.getTime() - new Date().getTime()) / millisecondsOnDay)
     );
 
-    console.log("rendered")
   }, [durationInDays, millisecondsOnDay, startTime]);
 
   if (isLoading) return <Loader />;
