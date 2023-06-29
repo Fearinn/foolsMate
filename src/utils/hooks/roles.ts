@@ -9,7 +9,7 @@ export function useRoles(filters: Paginated<Role>) {
   const response = useQuery<ResponseData<Role>, AxiosError>({
     queryKey: ["getRoles", filters],
     queryFn: () => getRoles(filters),
-    staleTime: 1000 * 30 * 5,
+    staleTime: 1000 * 60 * 30,
     keepPreviousData: true,
   });
 
