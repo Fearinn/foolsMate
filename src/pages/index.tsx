@@ -52,7 +52,7 @@ export async function getStaticProps() {
 }
 
 export default function Home() {
-  const { data, isLoading, error } = useBattlePassSeason(["AVATAR_ITEM"]);
+  const { data, isLoading, error } = useBattlePassSeason();
 
   function handleQuery() {
     if (isLoading) return <Loader />;
