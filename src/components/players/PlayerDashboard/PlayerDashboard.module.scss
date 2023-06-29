@@ -10,11 +10,21 @@
 
   .profile {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
     gap: 1rem;
     background-color: var(--backgroundMain);
     border-radius: 8px;
     padding: 0.5rem;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: max-content auto;
+    align-items: center;
+    gap: 0.5rem;
+    flex-grow: 1;
   }
 
   .summary {
@@ -24,9 +34,22 @@
     gap: 0.5rem;
   }
 
+  .avatars {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+
+    img {
+      flex-shrink: 0;
+    }
+  }
+
   .details {
     display: grid;
     justify-content: space-around;
+    align-items: stretch;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 0.5rem;
     width: 100%;
@@ -36,6 +59,7 @@
       border-radius: 4px;
       text-align: center;
       padding: 0.5rem;
+      vertical-align: center;
     }
   }
 }

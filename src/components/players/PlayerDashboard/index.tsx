@@ -8,30 +8,49 @@ import styles from "./PlayerDashboard.module.scss";
 
 function PlayerDashboard(props: Player) {
   const accountCreation = props.creationTime
-    ? Intl.DateTimeFormat("en", { dateStyle: "medium" }).format(
+    ? Intl.DateTimeFormat(undefined, { dateStyle: "short" }).format(
         new Date(props.creationTime)
       )
     : "UNAVAILABLE";
 
   return (
-    <div className={styles["player-dashboard"]}>
+    <div className={styles["player-dashboard"]} aria-live="polite">
       <section className={styles.profile}>
-        <div className={styles.summary}>
-          <Heading size="md">{props.username}</Heading>
-          <Image
-            role="presentation"
-            alt=""
-            src={props.equippedAvatar.url}
-            width={props.equippedAvatar.width}
-            height={props.equippedAvatar.height}
-            priority
-          />
-          <p>
-            Level: <span>{props.level}</span>
-          </p>
-          <p>
-            Status: <span>{props.status}</span>
-          </p>
+        <div className={styles.container}>
+          <div className={styles.summary}>
+            <Heading size="md">{props.username}</Heading>
+            <Image
+              role="presentation"
+              alt=""
+              src={props.equippedAvatar.url}
+              width={props.equippedAvatar.width}
+              height={props.equippedAvatar.height}
+              priority
+            />
+            <p>
+              Level: <span>{props.level}</span>
+            </p>
+            <p>
+              Status: <span>{props.status}</span>
+            </p>
+          </div>
+          <div className={styles.avatars}>
+            {props.avatars &&
+              props.avatars.map((avatar, index) => {
+                return (
+                  avatar.url !== props.equippedAvatar.url && (
+                    <Image
+                      key={index}
+                      role="presentation"
+                      alt=""
+                      src={avatar.url}
+                      height={avatar.height}
+                      width={avatar.width}
+                    />
+                  )
+                );
+              })}
+          </div>
         </div>
         <div className={styles.details}>
           <p>
