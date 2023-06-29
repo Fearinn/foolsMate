@@ -1,9 +1,9 @@
 .avatar-item-card {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
-  justify-content: space-around;
   background-color: var(--backgroundMain);
   border: 3px solid var(--backgroundTertiary);
   border-radius: 8px;
