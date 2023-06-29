@@ -25,19 +25,28 @@ export function BattlePass({
   } = useBackground(seasonBackgroundId);
 
   const [timeLeft, setTimeLeft] = useState(durationInDays);
-
-  const formattedStart = new Date(startTime).toLocaleDateString();
+  const [start, setStart] = useState("00/00/0000");
 
   const millisecondsOnDay = 24 * 60 * 60 * 1000;
 
   useEffect(() => {
+    const formattedStart = Intl.DateTimeFormat(undefined, {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    }).format(new Date(startTime));
+
     const endTime = new Date(
       new Date(startTime).getTime() + millisecondsOnDay * durationInDays
     );
 
+    setStart(formattedStart);
+
     setTimeLeft(
       Math.round((endTime.getTime() - new Date().getTime()) / millisecondsOnDay)
     );
+
+    console.log("rendered")
   }, [durationInDays, millisecondsOnDay, startTime]);
 
   if (isLoading) return <Loader />;
@@ -60,7 +69,7 @@ export function BattlePass({
             height={100}
           />
           <time>
-            Start: <span>{formattedStart}</span>
+            Start: <span>{start}</span>
           </time>
           <p>
             Duration: <span>{durationInDays} days</span>
