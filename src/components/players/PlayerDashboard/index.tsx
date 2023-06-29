@@ -8,9 +8,11 @@ import styles from "./PlayerDashboard.module.scss";
 
 function PlayerDashboard(props: Player) {
   const accountCreation = props.creationTime
-    ? Intl.DateTimeFormat(undefined, { dateStyle: "short" }).format(
-        new Date(props.creationTime)
-      )
+    ? Intl.DateTimeFormat(undefined, {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      }).format(new Date(props.creationTime))
     : "UNAVAILABLE";
 
   return (
