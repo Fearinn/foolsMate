@@ -4,6 +4,7 @@
   min-width: 360px;
   min-height: 100vh;
 
+
   --brandMain: #fe6ab4;
   --fontMain: #000000;
   --fontSecondary: #ffffff;
@@ -24,8 +25,8 @@
   --evilAura: #dc3535;
   --unknownAura: #ff884b;
   --randomAura: #a31acb;
-  --positive: "#4A772F";
-  --negative: "#DC3535";
+  --positive: #4a772f;
+  --negative: #dc3535;
 }
 
 :where(*) {
