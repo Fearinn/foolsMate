@@ -45,7 +45,6 @@ export function BattlePass({
     setTimeLeft(
       Math.round((endTime.getTime() - new Date().getTime()) / millisecondsOnDay)
     );
-
   }, [durationInDays, millisecondsOnDay, startTime]);
 
   if (isLoading) return <Loader />;
@@ -71,10 +70,16 @@ export function BattlePass({
             Start: <span>{start}</span>
           </time>
           <p>
-            Duration: <span>{durationInDays} days</span>
+            Duration:{" "}
+            <span>
+              {durationInDays} day{durationInDays > 1 && "s"}
+            </span>
           </p>
           <p>
-            Time left: <span>{timeLeft} days</span>
+            Time left:{" "}
+            <span>
+              {timeLeft} day{timeLeft > 1 && "s"}
+            </span>
           </p>
           <p>
             Gold price: <span>{goldPrice} </span>
