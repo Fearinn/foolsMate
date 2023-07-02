@@ -29,6 +29,18 @@ export function BattlePass({
 
   const millisecondsOnDay = 24 * 60 * 60 * 1000;
 
+  function handleTimeLeft() {
+    if (timeLeft > 0) {
+      return `${timeLeft} day${timeLeft > 1 ? "s" : ""}`;
+    }
+
+    if (timeLeft < 0) {
+      return "FINISHED";
+    }
+
+    return `Less than 1 day`;
+  }
+
   useEffect(() => {
     const formattedStart = Intl.DateTimeFormat(undefined, {
       day: "2-digit",
@@ -43,7 +55,7 @@ export function BattlePass({
     setStart(formattedStart);
 
     setTimeLeft(
-      Math.round((endTime.getTime() - new Date().getTime()) / millisecondsOnDay)
+      Math.floor((endTime.getTime() - new Date().getTime()) / millisecondsOnDay)
     );
   }, [durationInDays, millisecondsOnDay, startTime]);
 
@@ -76,10 +88,7 @@ export function BattlePass({
             </span>
           </p>
           <p>
-            Time left:{" "}
-            <span>
-              {timeLeft} day{timeLeft > 1 && "s"}
-            </span>
+            Time left: <span>{handleTimeLeft()}</span>
           </p>
           <p>
             Gold price: <span>{goldPrice} </span>
