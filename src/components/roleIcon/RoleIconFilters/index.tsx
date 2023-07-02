@@ -66,6 +66,7 @@ function RoleIconFilters({ numberOfPages }: { numberOfPages: number }) {
           return (
             <Select
               key={index}
+              placeholder={select.placeholder}
               onChange={(event) => {
                 select.handler(event.target.value);
               }}
@@ -96,4 +97,3 @@ function RoleIconFilters({ numberOfPages }: { numberOfPages: number }) {
 }
 
 export { RoleIconFilters };
-
