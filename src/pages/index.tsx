@@ -71,7 +71,7 @@ export default function Home() {
       </Head>
       <main className={styles.home}>
         {" "}
-        <MainTitle title="Welcome to Fool's Mate, the Wolvesville Online tracker!" />
+        <MainTitle title="Welcome to Fool's Mate, the Wolvesville online tracker!" />
         <Heading size="md">{"What's new in Wolvesville?"}</Heading>
         {handleQuery()}
       </main>
