@@ -12,6 +12,8 @@ export function handlePages(
     .slice(start, final)
     .filter((page) => page !== currentPage);
 
+  if (!slicedPages.includes(1)) slicedPages.unshift(1);
+
   if (!slicedPages.includes(lastPage))
     slicedPages.push(pages[pages.length - 1]);
 
