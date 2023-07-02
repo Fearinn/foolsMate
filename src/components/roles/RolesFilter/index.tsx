@@ -1,6 +1,7 @@
 import { Button, Input, Select } from "@/components";
 import { useRolesStore } from "@/store/roles";
 import { FilterSet } from "@/types/FilterSet";
+import { handlePages } from "@/utils/handlePages";
 import { numberToList } from "@/utils/numberToList";
 import { useState } from "react";
 import { Role } from "../roles.types";
@@ -32,7 +33,7 @@ export function RolesFilter({ numberOfPages }: { numberOfPages: number }) {
         handler: (value: string) =>
           setFilters({ ...filters, page: Number(value) || 1 }),
         placeholder: "page",
-        options: numberToList(numberOfPages).map((number) => number.toString()),
+        options: handlePages(numberToList(numberOfPages), filters.page),
       },
       {
         name: "itemsPerPage",

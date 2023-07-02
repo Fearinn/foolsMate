@@ -6,6 +6,7 @@ import {
 import { useAvatarItemStore } from "@/store/avatarItem";
 import { FilterSet } from "@/types/FilterSet";
 import { Rarity } from "@/types/Rarity";
+import { handlePages } from "@/utils/handlePages";
 import { numberToList } from "@/utils/numberToList";
 import { useState } from "react";
 import styles from "./AvatarItemFilters.module.scss";
@@ -39,7 +40,7 @@ function AvatarItemsFilters({ numberOfPages }: { numberOfPages: number }) {
         handler: (value: string) =>
           setFilters({ ...filters, page: Number(value) || 1 }),
         placeholder: "page",
-        options: numberToList(numberOfPages).map((number) => number.toString()),
+        options: handlePages(numberToList(numberOfPages), filters.page),
       },
       {
         name: "itemsPerPage",

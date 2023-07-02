@@ -1,6 +1,7 @@
 import { Button, Input, Select } from "@/components";
 import { useRoleIconStore } from "@/store/roleIcon";
 import { FilterSet } from "@/types/FilterSet";
+import { handlePages } from "@/utils/handlePages";
 import { numberToList } from "@/utils/numberToList";
 import { useState } from "react";
 import styles from "./RoleIconFilters.module.scss";
@@ -28,7 +29,7 @@ function RoleIconFilters({ numberOfPages }: { numberOfPages: number }) {
         handler: (value: string) =>
           setFilters({ ...filters, page: Number(value) || 1 }),
         placeholder: "page",
-        options: numberToList(numberOfPages).map((number) => number.toString()),
+        options: handlePages(numberToList(numberOfPages), filters.page),
       },
       {
         name: "itemsPerPage",
@@ -95,3 +96,4 @@ function RoleIconFilters({ numberOfPages }: { numberOfPages: number }) {
 }
 
 export { RoleIconFilters };
+
