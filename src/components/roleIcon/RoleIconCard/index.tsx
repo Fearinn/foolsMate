@@ -28,4 +28,7 @@ function RoleIconCard({ image, roleId, event, rarity }: RoleIcon) {
   );
 }
 
-export { RoleIconCard };
+const memoizedExport = RoleIconCard;
+
+export { memoizedExport as RoleIconCard };
+
