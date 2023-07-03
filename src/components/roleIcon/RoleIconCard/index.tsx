@@ -2,7 +2,7 @@ import Image from "next/image";
 import { RoleIcon } from "../roleIcons.types";
 import styles from "./RoleIconCard.module.scss";
 
-function RoleIconCard({ image, roleId, event, rarity }: RoleIcon) {
+function RoleIconCard({ id, image, roleId, event, rarity }: RoleIcon) {
   return (
     <div className={styles["role-icon-card"]}>
       <Image
@@ -14,6 +14,9 @@ function RoleIconCard({ image, roleId, event, rarity }: RoleIcon) {
         height={image.height}
       ></Image>
       <div className={styles.text}>
+        <p>
+          Id: <span className={styles.id}>{id}</span>
+        </p>
         <p className={styles.rarity}>
           Rarity: <span className={styles[rarity]}>{rarity}</span>
         </p>
@@ -31,4 +34,3 @@ function RoleIconCard({ image, roleId, event, rarity }: RoleIcon) {
 const memoizedExport = RoleIconCard;
 
 export { memoizedExport as RoleIconCard };
-
