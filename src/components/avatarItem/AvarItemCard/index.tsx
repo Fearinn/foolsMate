@@ -1,10 +1,23 @@
+import { colors } from "@/assets/cssVariables";
 import classNames from "classnames";
 import Image from "next/image";
-import { memo } from "react";
+import { memo, useEffect } from "react";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { AvatarItem } from "../avatarItems.types";
 import styles from "./AvatarItemCard.module.scss";
 
-function AvatarItemCard(props: AvatarItem) {
+type Props = {
+  addFavorite: (value: string) => void;
+  removeFavorite: (value: string) => void;
+  isFavorite: boolean;
+} & AvatarItem;
+
+const iconsStyles = {
+  color: colors.brandMain,
+  size: 28,
+};
+
+function AvatarItemCard(props: Props) {
   function cost() {
     if (props.costInGold) return `${props.costInGold} gold`;
     if (props.costInRoses) return `${props.costInRoses} roses`;
@@ -20,6 +33,26 @@ function AvatarItemCard(props: AvatarItem) {
         width={100}
         height={50}
       />
+      {props.isFavorite ? (
+        <AiFillStar
+          title="unfavorite"
+          aria-label={`unfavorite item ${props.id} `}
+          role="button"
+          className={styles.favorite}
+          {...iconsStyles}
+          onClick={() => props.removeFavorite(props.id)}
+        />
+      ) : (
+        <AiOutlineStar
+          title="favorite"
+          aria-label={`favorite item${props.id}`}
+          role="button"
+          className={styles.favorite}
+          {...iconsStyles}
+          onClick={() => props.addFavorite(props.id)}
+        />
+      )}
+
       <div className={styles.text}>
         <p className={styles.cost}>
           Cost:{" "}

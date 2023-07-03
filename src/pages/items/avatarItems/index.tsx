@@ -9,8 +9,11 @@ import {
 import { getAvatarItems } from "@/services";
 import { useAvatarItemStore } from "@/store/avatarItem";
 import { useAvatarItems } from "@/utils/hooks/avatarItems";
+import { useLocalStorage } from "@/utils/hooks/localStorage";
+import { Checkbox } from "@chakra-ui/react";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Head from "next/head";
+import { useState } from "react";
 import styles from "./AvatarItems.module.scss";
 
 export async function getStaticProps() {
@@ -38,6 +41,14 @@ function AvatarItems() {
     state.filters.limit,
   ]);
 
+  const [onlyFavorites, setOnlyFavorites] = useState(false);
+
+  const [favoriteIds, setFavoriteIds] = useLocalStorage("favoriteAvatarItems");
+
+  function filterFavorites<T extends { id: string }>(items: T[]) {
+    return items.filter((item) => favoriteIds.includes(item.id));
+  }
+
   const { data, isLoading, error } = useAvatarItems(filters);
 
   const totalCount = Number(data?.totalCount);
@@ -53,15 +64,31 @@ function AvatarItems() {
       return <ErrorMessage />;
     }
 
+    const filteredItems = onlyFavorites
+      ? filterFavorites(data.items)
+      : data.items;
+
     return (
       <>
-        <Stats {...data} />
+        <Stats {...data} count={filteredItems.length} />
         <ul className={styles.list}>
-          {data.items.length ? (
-            data.items.map((item) => {
+          {filteredItems.length ? (
+            filteredItems.map((item) => {
+              const isFavorite = favoriteIds.includes(item.id);
               return (
                 <li key={item.id} className={styles.item}>
-                  <AvatarItemCard {...item} />
+                  <AvatarItemCard
+                    {...item}
+                    addFavorite={(newFavorite) =>
+                      setFavoriteIds(favoriteIds + `:${newFavorite}`)
+                    }
+                    removeFavorite={(previousFavorite) =>
+                      setFavoriteIds(
+                        favoriteIds.replace(`:${previousFavorite}`, "")
+                      )
+                    }
+                    isFavorite={isFavorite}
+                  />
                 </li>
               );
             })
@@ -86,7 +113,11 @@ function AvatarItems() {
         <section className={styles["card-list"]}>
           <div className={styles.container}>
             <MainTitle title="Avatar Items" />
-            <AvatarItemsFilters numberOfPages={numberOfPages} />
+            <AvatarItemsFilters
+              numberOfPages={numberOfPages}
+              onlyFavorites={onlyFavorites}
+              changeOnlyFavorites={setOnlyFavorites}
+            />
           </div>
           {handleQuery()}
         </section>

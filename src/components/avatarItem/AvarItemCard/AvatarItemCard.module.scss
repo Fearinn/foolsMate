@@ -4,17 +4,25 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 0.5rem;
+  position: relative;
   background-color: var(--backgroundMain);
   border: 3px solid var(--backgroundTertiary);
   border-radius: 8px;
   height: 100%;
   padding: 0.5rem;
+
   text-transform: capitalize;
   width: 100%;
 
   img {
     background-color: var(--backgroundSecondary);
     padding: 1rem;
+  }
+
+  .favorite {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 
   .text {

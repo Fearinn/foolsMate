@@ -8,10 +8,21 @@ import { FilterSet } from "@/types/FilterSet";
 import { Rarity } from "@/types/Rarity";
 import { handlePages } from "@/utils/handlePages";
 import { numberToList } from "@/utils/numberToList";
+import { Checkbox } from "@chakra-ui/react";
 import { useState } from "react";
 import styles from "./AvatarItemFilters.module.scss";
 
-function AvatarItemsFilters({ numberOfPages }: { numberOfPages: number }) {
+type Props = {
+  numberOfPages: number;
+  onlyFavorites: boolean;
+  changeOnlyFavorites: (value: boolean) => void;
+};
+
+function AvatarItemsFilters({
+  numberOfPages,
+  onlyFavorites,
+  changeOnlyFavorites,
+}: Props) {
   const [gender, setGender] = useState("");
   const [rarity, setRarity] = useState("");
   const [type, setType] = useState("");
@@ -129,6 +140,14 @@ function AvatarItemsFilters({ numberOfPages }: { numberOfPages: number }) {
           );
         })}
       <Button type="submit">Filter</Button>
+      <Checkbox
+      size="lg"
+        type="checkbox"
+        aria-checked={onlyFavorites}
+        onChange={() => changeOnlyFavorites(!onlyFavorites)}
+      >
+        Only favorites
+      </Checkbox>
     </form>
   );
 }
