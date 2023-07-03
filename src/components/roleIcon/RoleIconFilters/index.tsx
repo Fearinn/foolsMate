@@ -7,6 +7,7 @@ import { useState } from "react";
 import styles from "./RoleIconFilters.module.scss";
 
 function RoleIconFilters({ numberOfPages }: { numberOfPages: number }) {
+  const [id, setId] = useState("");
   const [roleId, setRoleId] = useState("");
   const [event, setEvent] = useState("");
   const [filters, setFilters] = useRoleIconStore((state) => [
@@ -19,6 +20,7 @@ function RoleIconFilters({ numberOfPages }: { numberOfPages: number }) {
       setFilters({
         ...filters,
         page: 1,
+        id: id || undefined,
         event: event || undefined,
         roleId: roleId || undefined,
       });
@@ -41,14 +43,19 @@ function RoleIconFilters({ numberOfPages }: { numberOfPages: number }) {
     ],
     textInputs: [
       {
-        name: "event",
-        placeholder: "event",
-        handler: (value: string) => setEvent(value),
+        name: "id",
+        placeholder: "id",
+        handler: (value: string) => setId(value),
       },
       {
         name: "roleId",
         placeholder: "role",
         handler: (value: string) => setRoleId(value),
+      },
+      {
+        name: "event",
+        placeholder: "event",
+        handler: (value: string) => setEvent(value),
       },
     ],
   };
