@@ -27,6 +27,7 @@ function AvatarItemsFilters({
   const [rarity, setRarity] = useState("");
   const [type, setType] = useState("");
   const [event, setEvent] = useState("");
+  const [id, setId] = useState("");
   const [filters, setFilters] = useAvatarItemStore((state) => [
     state.filters,
     state.updateFilters,
@@ -36,7 +37,8 @@ function AvatarItemsFilters({
     setFilters({
       ...filters,
       page: 1,
-      gender: gender as AvatarItemGender,
+      id: id || undefined,
+      gender: (gender as AvatarItemGender) || undefined,
       rarity: (rarity as Rarity) || undefined,
       type: (type as AvatarItemType) || undefined,
       event: event || undefined,
@@ -93,6 +95,11 @@ function AvatarItemsFilters({
     ],
     textInputs: [
       {
+        name: "id",
+        handler: (value: string) => setId(value),
+        placeholder: "id",
+      },
+      {
         name: "event",
         handler: (value: string) => setEvent(value),
         placeholder: "event",
@@ -141,7 +148,7 @@ function AvatarItemsFilters({
         })}
       <Button type="submit">Filter</Button>
       <Checkbox
-      size="lg"
+        size="lg"
         type="checkbox"
         aria-checked={onlyFavorites}
         onChange={() => changeOnlyFavorites(!onlyFavorites)}
