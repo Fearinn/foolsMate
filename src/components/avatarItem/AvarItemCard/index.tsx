@@ -34,23 +34,23 @@ function AvatarItemCard(props: Props) {
         height={50}
       />
       {props.isFavorite ? (
-        <AiFillStar
-          title="unfavorite"
+        <button
           aria-label={`unfavorite item ${props.id} `}
-          role="button"
+          type="button"
           className={styles.favorite}
-          {...iconsStyles}
           onClick={() => props.removeFavorite(props.id)}
-        />
+        >
+          <AiFillStar title="unfavorite" {...iconsStyles} />
+        </button>
       ) : (
-        <AiOutlineStar
-          title="favorite"
-          aria-label={`favorite item${props.id}`}
-          role="button"
+        <button
+          aria-label={`favorite item ${props.id}`}
+          type="button"
           className={styles.favorite}
-          {...iconsStyles}
           onClick={() => props.addFavorite(props.id)}
-        />
+        >
+          <AiOutlineStar title="favorite" {...iconsStyles} />
+        </button>
       )}
 
       <div className={styles.text}>
