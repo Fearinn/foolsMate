@@ -54,6 +54,9 @@ function AvatarItemCard(props: Props) {
       )}
 
       <div className={styles.text}>
+        <p>
+          Id: <span className={styles.id}>{props.id}</span>
+        </p>
         <p className={styles.cost}>
           Cost:{" "}
           <span

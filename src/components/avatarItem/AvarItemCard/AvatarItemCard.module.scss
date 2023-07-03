@@ -41,6 +41,10 @@
     font-weight: bold;
   }
 
+  .id {
+    text-transform: none;
+  }
+
   .cost {
     .gold {
       color: var(--costInGold);
