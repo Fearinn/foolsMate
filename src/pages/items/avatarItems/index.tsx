@@ -45,6 +45,10 @@ function AvatarItems() {
 
   const [favoriteIds, setFavoriteIds] = useLocalStorage("favoriteAvatarItems");
 
+  const maxFavorites = 100;
+
+  const maxFavoritesLength = maxFavorites * 4;
+
   function filterFavorites<T extends { id: string }>(items: T[]) {
     return items.filter((item) => favoriteIds.includes(item.id));
   }
@@ -79,9 +83,14 @@ function AvatarItems() {
                 <li key={item.id} className={styles.item}>
                   <AvatarItemCard
                     {...item}
-                    addFavorite={(newFavorite) =>
-                      setFavoriteIds(favoriteIds + `:${newFavorite}`)
-                    }
+                    addFavorite={(newFavorite) => {
+                      if (maxFavoritesLength < favoriteIds.length)
+                        return alert(
+                          `The max of favorite items is ${maxFavorites}. Please remove at least one.`
+                        );
+
+                      setFavoriteIds(favoriteIds + `:${newFavorite}`);
+                    }}
                     removeFavorite={(previousFavorite) =>
                       setFavoriteIds(
                         favoriteIds.replace(`:${previousFavorite}`, "")
