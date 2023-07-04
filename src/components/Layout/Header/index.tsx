@@ -21,9 +21,17 @@ function Header() {
         <Link href="/roles">Roles</Link>
         <Link href="/items/avatarItems">Avatar Items</Link>
         <Link href="/items/roleIcons">Role Icons</Link>
+        <Link
+          href="https://www.wolvesville.com"
+          target="_blank"
+          className={styles.game}
+        >
+          Play
+        </Link>
       </nav>
     </header>
   );
 }
 
 export { Header };
+

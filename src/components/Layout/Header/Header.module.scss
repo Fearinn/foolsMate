@@ -14,6 +14,11 @@
     text-align: center;
     transition: 0.25s all linear;
 
+    &.game::after {
+      content: "\2197";
+      margin-left: 0.25rem;
+    }
+
     &:hover {
       background-color: var(--backgroundMain);
     }
