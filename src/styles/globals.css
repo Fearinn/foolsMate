@@ -42,6 +42,10 @@
   flex-grow: 1;
 }
 
+:where(body) {
+  overflow-y: scroll;
+}
+
 :where(#__next > main) {
   display: flex;
   flex-direction: column;
