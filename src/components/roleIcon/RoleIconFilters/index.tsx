@@ -3,10 +3,21 @@ import { useRoleIconStore } from "@/store/roleIcon";
 import { FilterSet } from "@/types/FilterSet";
 import { handlePages } from "@/utils/handlePages";
 import { numberToList } from "@/utils/numberToList";
+import { Checkbox } from "@chakra-ui/react";
 import { useState } from "react";
 import styles from "./RoleIconFilters.module.scss";
 
-function RoleIconFilters({ numberOfPages }: { numberOfPages: number }) {
+type Props = {
+  numberOfPages: number;
+  onlyFavorites: boolean;
+  changeOnlyFavorites: (value: boolean) => void;
+};
+
+function RoleIconFilters({
+  numberOfPages,
+  onlyFavorites,
+  changeOnlyFavorites,
+}: Props) {
   const [id, setId] = useState("");
   const [roleId, setRoleId] = useState("");
   const [event, setEvent] = useState("");
@@ -99,6 +110,14 @@ function RoleIconFilters({ numberOfPages }: { numberOfPages: number }) {
           );
         })}
       <Button type="submit">Filter</Button>
+      <Checkbox
+        size="lg"
+        type="checkbox"
+        aria-checked={onlyFavorites}
+        onChange={() => changeOnlyFavorites(!onlyFavorites)}
+      >
+        Only favorites
+      </Checkbox>
     </form>
   );
 }

@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  position: relative;
   justify-content: space-around;
   background-color: var(--backgroundMain);
   border: 3px solid var(--backgroundTertiary);
@@ -15,6 +16,12 @@
   .image {
     background-color: var(--backgroundSecondary);
     padding: 1rem;
+  }
+
+  .favorite {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 
   .text {
