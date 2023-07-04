@@ -10,15 +10,23 @@
 
 ## :dart: Motivation
 
-- Personal: Wolvesville means a lot for me as a game. As a player from beta, I saw it growing and evolving, even thought I was not always active. When they release a public API, I couldn't waste the opportunity to build something for a game and a community I love.
+- Personal: Wolvesville means a lot for me as a game. As a player from beta, I saw it growing and evolving, even thought I was not always active. When they released a public API, I couldn't waste the opportunity to build something for a game and a community I love.
 
-- Profissional: I always wanted to build a project in a "wiki" format, with which people could easily find useful info for something they like or need. I could apply recently acquired knowledge in both front and [back-end](https://github.com/Fearinn/foolsMateAPI).
+- Professional: I always wanted to build a project in "wiki" format, with which people could easily find useful info for something they like or need. I could apply recently acquired knowledge in both front and [back-end](https://github.com/Fearinn/foolsMateAPI).
 
-## :hammer: Pending improvements
+## :video_game: Currently available
 
-- Add pages for all collectibles;
-- Add pages for user and clan info.
+- Battle Pass season and its rewards;
+- Players' profiles and stats;
+- Avatar items, role icons and roles with filters and pagination;
+- Favorite avatar items.
+
+## :hammer: Planned improvements
+
+- Pages for clan info;
+- Players comparison;
+- Dark theme.
 
 ## :handshake: How to help?
 
-Feel free to open an issue in GitHub or to reach me directly with any suggestion or feedback. Sharing the deploy is also welcome (remember it's still far from finished though).
+Feel free to open an issue in GitHub or to reach me directly with any suggestion or feedback. Sharing the deploy is also welcome.
