@@ -11,31 +11,18 @@ import { ResponseData } from "@/types/ResponseData";
 import { Paginated } from "@/types/utils/Paginated";
 import { instance } from "./config";
 
-export async function getAvatarItems(params: Paginated<AvatarItem>) {
+type Args = Paginated<AvatarItem> & { idList?: string };
+
+export async function getAvatarItems(params: Args) {
   const response = await instance.get<ResponseData<AvatarItem>>(
     `items/avatarItems`,
     {
       params: {
-        page: params.page,
-        limit: params.limit,
         ...params,
       },
     }
   );
 
-  return response.data;
-}
-
-export async function getAvatarItemsByIds(ids: string[], limit = 25) {
-  const response = await instance.get<ResponseData<AvatarItem>>(
-    `items/avatarItems/ids`,
-    {
-      params: {
-        ids: ids.join(":"),
-        limit,
-      },
-    }
-  );
   return response.data;
 }
 
