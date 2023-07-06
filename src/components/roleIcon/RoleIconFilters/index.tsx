@@ -104,6 +104,7 @@ function RoleIconFilters({
           return (
             <Input
               key={index}
+              disabled={onlyFavorites && input.name === "id"}
               placeholder={input.placeholder}
               onChange={(event) => input.handler(event.target.value)}
             />
