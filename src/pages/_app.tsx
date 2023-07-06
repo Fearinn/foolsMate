@@ -52,7 +52,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 />
                 <meta property="og:title" content="Fool's Mate - Wolvesville Online Tracker"></meta>
                 <meta
-                  property="og:descrition"
+                  property="og:description"
                   content="Track Wolvesville battle pass season, items, players stats and more!"
                 />
                 <meta property="og:image" content="/cover.png" />
