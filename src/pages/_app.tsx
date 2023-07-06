@@ -48,14 +48,14 @@ export default function App({ Component, pageProps }: AppProps) {
                 <link rel="icon" href="/favicon.svg" />
                 <meta
                   name="description"
-                  content="Track Wolvesville battle pass season, items, players stats and more"
+                  content="Track Wolvesville battle pass season, items, players stats and more!"
                 />
                 <meta property="og:title" content="Fool's Mate"></meta>
                 <meta
                   property="og:descrition"
-                  content="Track Wolvesville battle pass season, items, players stats and more"
+                  content="Track Wolvesville battle pass season, items, players stats and more!"
                 />
-                <meta property="og:image" content="/favicon.svg" />
+                <meta property="og:image" content="/cover.png" />
               </Head>
               <Component {...pageProps} className={roboto.className} />
             </Layout>
