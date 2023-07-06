@@ -50,7 +50,7 @@ export default function App({ Component, pageProps }: AppProps) {
                   name="description"
                   content="Track Wolvesville battle pass season, items, players stats and more!"
                 />
-                <meta property="og:title" content="Fool's Mate"></meta>
+                <meta property="og:title" content="Fool's Mate - Wolvesville Online Tracker"></meta>
                 <meta
                   property="og:descrition"
                   content="Track Wolvesville battle pass season, items, players stats and more!"
