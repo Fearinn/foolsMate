@@ -6,7 +6,8 @@ import {
   RoleIconFilters,
   Stats,
 } from "@/components";
-import { getRoleIcons } from "@/services";
+import { getRoleIcons } from "@/services/items/roleIcons";
+
 import { useRoleIconStore } from "@/store/roleIcon";
 import { useLocalStorage } from "@/utils/hooks/localStorage";
 import { useRoleIcons } from "@/utils/hooks/roleIcons";
@@ -35,10 +36,7 @@ export async function getStaticProps() {
 }
 
 function RoleIcons() {
-  const [filters, limit] = useRoleIconStore((state) => [
-    state.filters,
-    state.filters.limit,
-  ]);
+  const filters = useRoleIconStore((state) => state.filters);
 
   const [onlyFavorites, setOnlyFavorites] = useState(false);
 
@@ -48,14 +46,18 @@ function RoleIcons() {
 
   const maxFavoritesLength = maxFavorites * 3;
 
-  function filterFavorites<T extends { id: string }>(items: T[]) {
-    return items.filter((item) => favoriteIds.includes(item.id));
-  }
-
-  const { data, isLoading, error } = useRoleIcons(filters);
+  const { data, isLoading, error } = useRoleIcons(
+    onlyFavorites
+      ? {
+          ...filters,
+          page: 1,
+          idList: favoriteIds,
+        }
+      : filters
+  );
 
   const totalCount = Number(data?.totalCount);
-  const pageCount = Number(limit);
+  const pageCount = Number(filters.limit);
 
   const numberOfPages =
     totalCount && pageCount ? Math.ceil(totalCount / pageCount) : 1;
@@ -65,16 +67,12 @@ function RoleIcons() {
 
     if (!data || error) return <ErrorMessage />;
 
-    const filteredItems = onlyFavorites
-      ? filterFavorites(data.items)
-      : data.items;
-
     return (
       <>
-        <Stats {...data} count={filteredItems.length} />
+        <Stats {...data} />
         <ul className={styles.list}>
-          {filteredItems.length ? (
-            filteredItems.map((item) => {
+          {data.items.length ? (
+            data.items.map((item) => {
               const isFavorite = favoriteIds.includes(item.id);
               return (
                 <li key={item.id} className={styles.item}>
