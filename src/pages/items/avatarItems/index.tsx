@@ -10,7 +10,6 @@ import { getAvatarItems } from "@/services";
 import { useAvatarItemStore } from "@/store/avatarItem";
 import { useAvatarItems } from "@/utils/hooks/avatarItems";
 import { useLocalStorage } from "@/utils/hooks/localStorage";
-import { Checkbox } from "@chakra-ui/react";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Head from "next/head";
 import { useState } from "react";
@@ -36,27 +35,22 @@ export async function getStaticProps() {
 }
 
 function AvatarItems() {
-  const [filters, limit] = useAvatarItemStore((state) => [
-    state.filters,
-    state.filters.limit,
-  ]);
+  const filters = useAvatarItemStore((state) => state.filters);
+
+  const [favoriteIds, setFavoriteIds] = useLocalStorage("favoriteAvatarItems");
 
   const [onlyFavorites, setOnlyFavorites] = useState(false);
 
-  const [favoriteIds, setFavoriteIds] = useLocalStorage("favoriteAvatarItems");
+  const { data, isLoading, error } = useAvatarItems(
+    onlyFavorites ? { ...filters, page: 1, idList: favoriteIds } : filters
+  );
 
   const maxFavorites = 100;
 
   const maxFavoritesLength = maxFavorites * 4;
 
-  function filterFavorites<T extends { id: string }>(items: T[]) {
-    return items.filter((item) => favoriteIds.includes(item.id));
-  }
-
-  const { data, isLoading, error } = useAvatarItems(filters);
-
   const totalCount = Number(data?.totalCount);
-  const pageCount = Number(limit);
+  const pageCount = Number(filters.limit);
 
   const numberOfPages =
     totalCount && pageCount ? Math.ceil(totalCount / pageCount) : 1;
@@ -68,16 +62,12 @@ function AvatarItems() {
       return <ErrorMessage />;
     }
 
-    const filteredItems = onlyFavorites
-      ? filterFavorites(data.items)
-      : data.items;
-
     return (
       <>
-        <Stats {...data} count={filteredItems.length} />
+        <Stats {...data} count={data.items.length} />
         <ul className={styles.list}>
-          {filteredItems.length ? (
-            filteredItems.map((item) => {
+          {data.items.length ? (
+            data.items.map((item) => {
               const isFavorite = favoriteIds.includes(item.id);
               return (
                 <li key={item.id} className={styles.item}>

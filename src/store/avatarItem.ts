@@ -3,8 +3,10 @@ import { Paginated } from "@/types/utils/Paginated";
 import { create } from "zustand";
 
 type AvatarItemsFilters = {
-  filters: Paginated<AvatarItem>;
-  updateFilters: (newFilters: Paginated<AvatarItem>) => void;
+  filters: Paginated<AvatarItem> & { idList?: string };
+  updateFilters: (
+    newFilters: Paginated<AvatarItem> & { idList?: string }
+  ) => void;
 };
 
 export const useAvatarItemStore = create<AvatarItemsFilters>()((set) => ({
