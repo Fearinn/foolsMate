@@ -46,7 +46,7 @@ function RoleIcons() {
 
   const maxFavorites = 20;
 
-  const maxFavoritesLength = maxFavorites * 4;
+  const maxFavoritesLength = maxFavorites * 3;
 
   function filterFavorites<T extends { id: string }>(items: T[]) {
     return items.filter((item) => favoriteIds.includes(item.id));
@@ -81,10 +81,14 @@ function RoleIcons() {
                   <RoleIconCard
                     {...item}
                     addFavorite={(newFavorite) => {
-                      if (maxFavoritesLength < favoriteIds.length)
+                      if (
+                        favoriteIds.replaceAll(":", "").length >=
+                        maxFavoritesLength
+                      ) {
                         return alert(
                           `The max of favorite icons is ${maxFavorites}. Please remove at least one.`
                         );
+                      }
 
                       setFavoriteIds(favoriteIds + `:${newFavorite}`);
                     }}

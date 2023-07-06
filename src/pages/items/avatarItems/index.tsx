@@ -47,7 +47,7 @@ function AvatarItems() {
 
   const maxFavorites = 100;
 
-  const maxFavoritesLength = maxFavorites * 4;
+  const maxFavoritesLength = maxFavorites * 3;
 
   const totalCount = Number(data?.totalCount);
   const pageCount = Number(filters.limit);
@@ -74,10 +74,14 @@ function AvatarItems() {
                   <AvatarItemCard
                     {...item}
                     addFavorite={(newFavorite) => {
-                      if (maxFavoritesLength < favoriteIds.length)
+                      if (
+                        favoriteIds.replaceAll(":", "").length >=
+                        maxFavoritesLength
+                      ) {
                         return alert(
                           `The max of favorite items is ${maxFavorites}. Please remove at least one.`
                         );
+                      }
 
                       setFavoriteIds(favoriteIds + `:${newFavorite}`);
                     }}
