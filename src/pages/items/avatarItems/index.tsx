@@ -6,7 +6,7 @@ import {
   MainTitle,
   Stats,
 } from "@/components";
-import { getAvatarItems } from "@/services";
+import { getAvatarItems } from "@/services/items/avatarItems";
 import { useAvatarItemStore } from "@/store/avatarItem";
 import { useAvatarItems } from "@/utils/hooks/avatarItems";
 import { useLocalStorage } from "@/utils/hooks/localStorage";
