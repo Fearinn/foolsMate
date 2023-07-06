@@ -1,7 +1,7 @@
+import { getAvatarItems } from "@/services/items/avatarItems";
 import { Paginated } from "@/types/utils/Paginated";
 import { useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
-import { getAvatarItems } from "../../services";
 import { AvatarItem } from "../../components/avatarItem/avatarItems.types";
 import { ResponseData } from "../../types/ResponseData";
 

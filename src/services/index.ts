@@ -11,21 +11,6 @@ import { ResponseData } from "@/types/ResponseData";
 import { Paginated } from "@/types/utils/Paginated";
 import { instance } from "./config";
 
-type Args = Paginated<AvatarItem> & { idList?: string };
-
-export async function getAvatarItems(params: Args) {
-  const response = await instance.get<ResponseData<AvatarItem>>(
-    `items/avatarItems`,
-    {
-      params: {
-        ...params,
-      },
-    }
-  );
-
-  return response.data;
-}
-
 export async function getBattlePassSeason() {
   const response = await instance.get<Season>("battlePass/season");
 
@@ -49,15 +34,6 @@ export async function getBackgrounds(id: string) {
   );
 
   return response.data.items[0];
-}
-
-export async function getRoleIcons(filters: Paginated<RoleIcon>) {
-  const response = await instance.get<ResponseData<RoleIcon>>(
-    "items/roleIcons",
-    { params: filters }
-  );
-
-  return response.data;
 }
 
 export async function getPlayers([username, username2]: string[]) {
