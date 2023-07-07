@@ -9,7 +9,7 @@ function Header() {
       <Link className={styles.logo} href="/">
         <Image
           alt=""
-          src="/joker.svg"
+          src="/favicon.svg"
           role="presentation"
           width="42"
           height="42"
@@ -34,4 +34,3 @@ function Header() {
 }
 
 export { Header };
-
