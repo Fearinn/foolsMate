@@ -1,15 +1,12 @@
 import { BattlePass, ErrorMessage, Loader, MainTitle } from "@/components";
 import { Season } from "@/components/BattlePass/battlePass.types";
-import {
-  getBackgrounds,
-  getBattlePassSeason,
-  getRewards
-} from "@/services";
+import { getBattlePassSeason, getRewards } from "@/services";
 import styles from "./Home.module.scss";
 import { useBattlePassSeason } from "@/utils/hooks/battlePass";
 import { Heading } from "@chakra-ui/react";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Head from "next/head";
+import { getBackgrounds } from "@/services/items/backgrounds";
 
 export async function getStaticProps() {
   const queryClient = new QueryClient({
