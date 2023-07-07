@@ -1,6 +1,6 @@
 import styles from "./Footer.module.scss";
 
-function Footer() {
+export function Footer() {
   return (
     <footer className={styles.footer}>
       <p>
@@ -22,12 +22,13 @@ function Footer() {
         </a>
         .
       </p>
-      <p>
-        Developed by{" "}
-        <a href="https://github.com/Fearinn">Matheus Gomes (Fearinn)</a>.
+      <p className={styles.copyright}>
+        2023{" "}
+        <a href="https://github.com/Fearinn" target="_blank">
+          Matheus Gomes
+        </a>
+        . All Rights Reserved.
       </p>
     </footer>
   );
 }
-
-export { Footer };
