@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./Footer.module.scss";
 
 export function Footer() {
@@ -12,13 +13,14 @@ export function Footer() {
         respective owners.
       </p>
       <p>
-        This website follows the{" "}
+        By using this website, you hereby consent to its{" "}
+        <Link href="/privacyPolicy">privacy policy</Link> and to the{" "}
         <a href="https://api-docs.wolvesville.com/#/tos" target="_blank">
           Wolvesville Terms of Service
         </a>
         . Players{"'"} data is fetched on demand from the{" "}
         <a href="https://api-docs.wolvesville.com/" target="_blank">
-          official Wolvesville API
+          official public Wolvesville API
         </a>
         .
       </p>
