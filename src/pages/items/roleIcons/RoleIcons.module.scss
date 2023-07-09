@@ -15,6 +15,14 @@
     }
   }
 
+  .stats-and-favorites {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
   .list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

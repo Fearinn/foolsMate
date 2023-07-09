@@ -1,7 +1,9 @@
 import {
   AvatarItemCard,
   AvatarItemsFilters,
+  Button,
   ErrorMessage,
+  FavoritesSharing,
   Loader,
   MainTitle,
   Stats,
@@ -64,7 +66,14 @@ function AvatarItems() {
 
     return (
       <>
-        <Stats {...data} count={data.items.length} />
+        <div className={styles["stats-and-favorites"]}>
+          <Stats {...data} count={data.items.length} />
+          <FavoritesSharing
+            favorites={favoriteIds}
+            changeFavorites={setFavoriteIds}
+            maxFavoritesLength={maxFavoritesLength}
+          />
+        </div>
         <ul className={styles.list}>
           {data.items.length ? (
             data.items.map((item) => {

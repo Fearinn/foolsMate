@@ -1,5 +1,6 @@
 import {
   ErrorMessage,
+  FavoritesSharing,
   Loader,
   MainTitle,
   RoleIconCard,
@@ -69,7 +70,14 @@ function RoleIcons() {
 
     return (
       <>
-        <Stats {...data} />
+        <div className={styles["stats-and-favorites"]}>
+          <Stats {...data} />
+          <FavoritesSharing
+            favorites={favoriteIds}
+            changeFavorites={setFavoriteIds}
+            maxFavoritesLength={maxFavoritesLength}
+          />
+        </div>
         <ul className={styles.list}>
           {data.items.length ? (
             data.items.map((item) => {
