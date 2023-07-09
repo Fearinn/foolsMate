@@ -23,11 +23,14 @@ function AvatarItemsFilters({
   onlyFavorites,
   changeOnlyFavorites,
 }: Props) {
+  const [isOpen, setIsOpen] = useState(false);
+
   const [gender, setGender] = useState("");
   const [rarity, setRarity] = useState("");
   const [type, setType] = useState("");
   const [event, setEvent] = useState("");
   const [id, setId] = useState("");
+
   const [filters, setFilters] = useAvatarItemStore((state) => [
     state.filters,
     state.updateFilters,
@@ -108,55 +111,68 @@ function AvatarItemsFilters({
   };
 
   return (
-    <form
-      className={styles["avatar-item-filters"]}
-      onSubmit={(event) => {
-        event.preventDefault();
-        handleSubmit();
-      }}
-    >
-      {filterSet.selects &&
-        filterSet.selects.map((select, index) => {
-          return (
-            <Select
-              key={index}
-              placeholder={select.placeholder}
-              onChange={(event) => {
-                select.handler(event.target.value);
-              }}
-            >
-              {select.options.map((option) => {
-                return (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
-                );
-              })}
-            </Select>
-          );
-        })}
-
-      {filterSet.textInputs &&
-        filterSet.textInputs.map((input, index) => {
-          return (
-            <Input
-              key={index}
-              disabled={onlyFavorites && input.name === "id"}
-              placeholder={input.placeholder}
-              onChange={(event) => input.handler(event.target.value)}
-            />
-          );
-        })}
-      <Button type="submit">Filter</Button>
-      <Checkbox
-        size="lg"
-        type="checkbox"
-        aria-checked={onlyFavorites}
-        onChange={() => changeOnlyFavorites(!onlyFavorites)}
+    <>
+      <Button
+        type="button"
+        aria-controls="filters-form"
+        aria-expanded={isOpen}
+        onClick={() => setIsOpen(!isOpen)}
       >
-        Only favorites
-      </Checkbox>
-    </form>
+        {isOpen ? "Close filters" : "Open filters"}
+      </Button>
+      <form
+        id="filters-form"
+        className={styles["avatar-item-filters"]}
+        onSubmit={(event) => {
+          event.preventDefault();
+          handleSubmit();
+        }}
+      >
+        <Checkbox
+          size="lg"
+          checked={onlyFavorites}
+          onChange={() => changeOnlyFavorites(!onlyFavorites)}
+        >
+          Only favorites
+        </Checkbox>
+        {isOpen &&
+          filterSet.selects &&
+          filterSet.selects.map((select, index) => {
+            return (
+              <Select
+                key={index}
+                placeholder={select.placeholder}
+                onChange={(event) => {
+                  select.handler(event.target.value);
+                }}
+              >
+                {select.options.map((option) => {
+                  return (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  );
+                })}
+              </Select>
+            );
+          })}
+
+        {isOpen &&
+          filterSet.textInputs &&
+          filterSet.textInputs.map((input, index) => {
+            return (
+              <Input
+                key={index}
+                disabled={onlyFavorites && input.name === "id"}
+                placeholder={input.placeholder}
+                onChange={(event) => input.handler(event.target.value)}
+              />
+            );
+          })}
+
+        {isOpen && <Button type="submit">Filter</Button>}
+      </form>
+    </>
   );
 }
 
