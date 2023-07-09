@@ -8,6 +8,7 @@ import { Role } from "../roles.types";
 import styles from "./RolesFilters.module.scss";
 
 export function RolesFilter({ numberOfPages }: { numberOfPages: number }) {
+  const [isOpen, setIsOpen] = useState(false);
   const [name, setName] = useState("");
   const [team, setTeam] = useState("");
   const [aura, setAura] = useState("");
@@ -65,44 +66,60 @@ export function RolesFilter({ numberOfPages }: { numberOfPages: number }) {
   };
 
   return (
-    <form
-      className={styles["roles-filters"]}
-      onSubmit={(event) => {
-        event.preventDefault();
-        filterSet.handleSubmit();
-      }}
-    >
-      {filterSet.selects &&
-        filterSet.selects.map((select, index) => {
-          return (
-            <Select
-              key={index}
-              placeholder={select.placeholder}
-              onChange={(event) => {
-                select.handler(event.target.value);
-              }}
-            >
-              {select.options.map((option) => {
+    <>
+      <Button
+        type="button"
+        aria-controls="filters-form"
+        aria-expanded={isOpen}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {isOpen ? "Close filters" : "Open filters"}
+      </Button>
+      <form
+        id="filters-form"
+        className={styles["roles-filters"]}
+        onSubmit={(event) => {
+          event.preventDefault();
+          filterSet.handleSubmit();
+        }}
+      >
+        {isOpen && (
+          <>
+            {filterSet.selects &&
+              filterSet.selects.map((select, index) => {
                 return (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
+                  <Select
+                    key={index}
+                    placeholder={select.placeholder}
+                    onChange={(event) => {
+                      select.handler(event.target.value);
+                    }}
+                  >
+                    {select.options.map((option) => {
+                      return (
+                        <option key={option} value={option}>
+                          {option}
+                        </option>
+                      );
+                    })}
+                  </Select>
                 );
               })}
-            </Select>
-          );
-        })}
-      {filterSet.textInputs &&
-        filterSet.textInputs.map((input, index) => {
-          return (
-            <Input
-              key={index}
-              placeholder={input.placeholder}
-              onChange={(event) => input.handler(event.target.value)}
-            />
-          );
-        })}
-      <Button type="submit">Filter</Button>
-    </form>
+
+            {filterSet.textInputs &&
+              filterSet.textInputs.map((input, index) => {
+                return (
+                  <Input
+                    key={index}
+                    placeholder={input.placeholder}
+                    onChange={(event) => input.handler(event.target.value)}
+                  />
+                );
+              })}
+            <Button type="submit">Filter</Button>
+          </>
+        )}
+      </form>
+    </>
   );
 }
