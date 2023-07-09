@@ -16,3 +16,4 @@ export { RoleCard } from "./roles/RoleCard";
 export { RolesFilter } from "./roles/RolesFilter";
 export { Stats } from "./Stats";
 export { Select } from "./Select";
+export { FavoritesSharing } from "./FavoritesSharing";
