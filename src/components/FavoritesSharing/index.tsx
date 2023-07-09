@@ -74,7 +74,7 @@ export function FavoritesSharing({
       >
         {copied ? (
           <>
-            Text copied to clipboard <BiCheck {...iconStyles} />
+            Copied to clipboard <BiCheck {...iconStyles} />
           </>
         ) : (
           <>
