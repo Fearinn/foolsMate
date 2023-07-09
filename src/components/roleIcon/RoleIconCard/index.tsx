@@ -35,25 +35,27 @@ function RoleIconCard({
         width={image.width}
         height={image.height}
       ></Image>
-      {isFavorite ? (
-        <button
-          aria-label={`unfavorite item ${id} `}
-          type="button"
-          className={styles.favorite}
-          onClick={() => removeFavorite(id)}
-        >
+
+      <button
+        aria-label={`favorite icon ${id}`}
+        aria-pressed={isFavorite}
+        type="button"
+        className={styles.favorite}
+        onClick={() => {
+          if (isFavorite) {
+            removeFavorite(id);
+            return;
+          }
+
+          addFavorite(id);
+        }}
+      >
+        {isFavorite ? (
           <AiFillStar title="unfavorite" {...iconsStyles} />
-        </button>
-      ) : (
-        <button
-          aria-label={`favorite item ${id}`}
-          type="button"
-          className={styles.favorite}
-          onClick={() => addFavorite(id)}
-        >
+        ) : (
           <AiOutlineStar title="favorite" {...iconsStyles} />
-        </button>
-      )}
+        )}
+      </button>
       <div className={styles.text}>
         <p>
           Id: <span className={styles.id}>{id}</span>
@@ -75,4 +77,3 @@ function RoleIconCard({
 const memoizedExport = RoleIconCard;
 
 export { memoizedExport as RoleIconCard };
-
