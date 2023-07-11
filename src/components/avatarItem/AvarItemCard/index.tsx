@@ -1,7 +1,6 @@
 import { colors } from "@/assets/cssVariables";
 import classNames from "classnames";
-import Image from "next/image";
-import { memo, useEffect } from "react";
+import { memo } from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { AvatarItem } from "../avatarItems.types";
 import styles from "./AvatarItemCard.module.scss";
@@ -10,6 +9,7 @@ type Props = {
   addFavorite: (value: string) => void;
   removeFavorite: (value: string) => void;
   isFavorite: boolean;
+  index: number;
 } & AvatarItem;
 
 const iconsStyles = {
@@ -26,7 +26,9 @@ function AvatarItemCard(props: Props) {
 
   return (
     <div className={styles["avatar-item-card"]}>
-      <Image
+      <img
+        decoding={props.index > 10 ? "async" : undefined}
+        loading={props.index > 10 ? "lazy" : "eager"}
         src={props.imageUrl}
         alt=""
         role="presentation"
