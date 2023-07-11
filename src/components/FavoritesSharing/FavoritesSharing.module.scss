@@ -1,17 +1,12 @@
-.container {
-  display: flex;
+.form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   justify-content: center;
   gap: 0.5rem;
-  flex-wrap: wrap;
+  max-width: 780px;
+  width: 100%;
+}
 
-  .form {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-  }
-
-  .icon {
-    margin-left: 0.25rem;
-  }
+.icon {
+  margin-left: 0.25rem;
 }

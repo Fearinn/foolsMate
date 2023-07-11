@@ -39,30 +39,29 @@ export function FavoritesSharing({
   }, [copied]);
 
   return (
-    <div className={styles.container}>
-      <form
-        className={styles.form}
-        onSubmit={(event) => {
-          event.preventDefault();
-          confirm(
-            "Importing favorites will override your current favorites. Are you sure?"
-          );
-          const safeNewFavorites = newFavorites.replaceAll("script", "");
-          changeFavorites(safeNewFavorites);
-        }}
-      >
-        <Input
-          required
-          minLength={3}
-          maxLength={maxFavoritesLength}
-          placeholder="Paste exported favorites"
-          onChange={(event) => setNewFavorites(event.target.value)}
-          value={newFavorites}
-        ></Input>
-        <Button type="submit">
-          Import favorites <BiImport {...iconStyles} />
-        </Button>
-      </form>
+    <form
+      className={styles.form}
+      onSubmit={(event) => {
+        event.preventDefault();
+        confirm(
+          "Importing favorites will override your current favorites. Are you sure?"
+        );
+        const safeNewFavorites = newFavorites.replaceAll("script", "");
+        changeFavorites(safeNewFavorites);
+      }}
+    >
+      <Input
+        required
+        minLength={3}
+        maxLength={maxFavoritesLength}
+        placeholder="Paste favorites"
+        onChange={(event) => setNewFavorites(event.target.value)}
+        value={newFavorites}
+      ></Input>
+      <Button type="submit">
+        Import favorites <BiImport {...iconStyles} />
+      </Button>
+
       <Button
         type="button"
         aria-live="polite"
@@ -82,6 +81,6 @@ export function FavoritesSharing({
           </>
         )}
       </Button>
-    </div>
+    </form>
   );
 }
