@@ -6,7 +6,7 @@
 | :label: Tecnologias | next, react, typescript, recharts, react-query, axios
 | :rocket: URL         | https://foolsmate.vercel.app/
 
-![preview](https://user-images.githubusercontent.com/105985983/233744090-f519e3dc-0745-41d6-bfc2-23e94b5e5eea.png#vitrinedev)
+![preview](./public/cover.png)
 
 ## :dart: Motivation
 
@@ -19,13 +19,15 @@
 - Battle Pass season and its rewards;
 - Players' profiles and stats;
 - Avatar items, role icons and roles with filters and pagination;
-- Favorite avatar items.
+- Sharable favorite avatar items and role icons.
 
 ## :hammer: Planned improvements
 
-- Pages for clan info;
+- Clans page;
 - Players comparison;
-- Dark theme.
+- Dark theme;
+- Live info, such as quests and offers.
+
 
 ## :handshake: How to help?
 
