@@ -1,6 +1,5 @@
 import { ErrorMessage } from "@/components/ErrorMessage";
 import { Heading } from "@chakra-ui/react";
-import Image from "next/image";
 import { memo } from "react";
 import { GameStatsChart } from "../GameStatsCharts";
 import { Player } from "../players.types";
@@ -21,13 +20,12 @@ function PlayerDashboard(props: Player) {
         <div className={styles.container}>
           <div className={styles.summary}>
             <Heading size="md">{props.username}</Heading>
-            <Image
+            <img
               role="presentation"
               alt=""
               src={props.equippedAvatar.url}
               width={props.equippedAvatar.width}
               height={props.equippedAvatar.height}
-              priority
             />
             <p>
               Level: <span>{props.level}</span>
@@ -41,7 +39,7 @@ function PlayerDashboard(props: Player) {
               props.avatars.map((avatar, index) => {
                 return (
                   avatar.url !== props.equippedAvatar.url && (
-                    <Image
+                    <img
                       key={index}
                       role="presentation"
                       alt=""
@@ -93,3 +91,4 @@ function PlayerDashboard(props: Player) {
 const memoizedExport = memo(PlayerDashboard);
 
 export { memoizedExport as PlayerDashboard };
+
