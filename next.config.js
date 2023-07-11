@@ -2,8 +2,10 @@
 
 const prod = process.env.NODE_ENV === "production";
 
-const CSP = `default-src 'self'; font-src 'self' https://fonts.google.com; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; connect-src 'self' ${
-  prod ? "https://foolsmate.cyclic.app/ https://vitals.vercel-insights.com" : "http://localhost:3000"
+const CSP = `default-src 'self'; font-src 'self' https://fonts.google.com; style-src 'self' 'unsafe-inline'; img-src 'self' cdn.wolvesville.com cdn-avatars.wolvesville.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; connect-src 'self' ${
+  prod
+    ? "https://foolsmate.cyclic.app/ https://vitals.vercel-insights.com"
+    : "http://localhost:3000"
 };${!prod ? " script-src 'self' 'unsafe-eval'" : ""}`;
 
 const nextConfig = {
