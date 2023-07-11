@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { ErrorMessage } from "@/components/ErrorMessage";
 import { Heading } from "@chakra-ui/react";
 import { memo } from "react";
@@ -69,9 +70,11 @@ function PlayerDashboard(props: Player) {
             <span>{props.rankedSeasonPlayedCount || "UNAVAILABLE"}</span>
           </p>
           <p>
-            Total minutes played:{" "}
+            Total hours played:{" "}
             <span>
-              {props.gameStats?.totalPlayTimeInMinutes || "UNAVAILABLE"}
+              {props.gameStats
+                ? (props.gameStats.totalPlayTimeInMinutes / 60).toFixed(2)
+                : "UNAVAILABLE"}
             </span>
           </p>
         </div>
@@ -91,4 +94,3 @@ function PlayerDashboard(props: Player) {
 const memoizedExport = memo(PlayerDashboard);
 
 export { memoizedExport as PlayerDashboard };
-
