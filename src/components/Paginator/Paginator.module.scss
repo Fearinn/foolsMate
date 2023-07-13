@@ -1,0 +1,26 @@
+.nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 44px);
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--backgroundSecondary);
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+:is(.page, .break, .previous, .next) {
+  line-height: 44px;
+  text-align: center;
+  width: 100%;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.active {
+  background-color: var(--brandMain);
+}

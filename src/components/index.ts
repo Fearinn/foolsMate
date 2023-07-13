@@ -17,3 +17,4 @@ export { RolesFilter } from "./roles/RolesFilter";
 export { Stats } from "./Stats";
 export { Select } from "./Select";
 export { FavoritesSharing } from "./FavoritesSharing";
+export { Paginator } from "./Paginator";
