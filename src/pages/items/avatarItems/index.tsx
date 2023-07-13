@@ -1,12 +1,12 @@
 import {
   AvatarItemCard,
   AvatarItemsFilters,
-  Button,
   ErrorMessage,
   FavoritesSharing,
   Loader,
   MainTitle,
   Stats,
+  Paginator,
 } from "@/components";
 import { getAvatarItems } from "@/services/items/avatarItems";
 import { useAvatarItemStore } from "@/store/avatarItem";
@@ -37,7 +37,10 @@ export async function getStaticProps() {
 }
 
 function AvatarItems() {
-  const filters = useAvatarItemStore((state) => state.filters);
+  const [filters, setFilters] = useAvatarItemStore((state) => [
+    state.filters,
+    state.updateFilters,
+  ]);
 
   const [favoriteIds, setFavoriteIds] = useLocalStorage("favoriteAvatarItems");
 
@@ -66,7 +69,7 @@ function AvatarItems() {
 
     return (
       <>
-        <div className={styles["stats-and-favorites"]}>
+        <div className={styles["pseudo-header"]}>
           <Stats {...data} count={data.items.length} />
           <FavoritesSharing
             favorites={favoriteIds}
@@ -74,6 +77,7 @@ function AvatarItems() {
             maxFavoritesLength={maxFavoritesLength}
           />
         </div>
+
         <ul className={styles.list}>
           {data.items.length ? (
             data.items.map((item, index) => {
@@ -123,7 +127,7 @@ function AvatarItems() {
         <title>{"Fool's Mate - Avatar Items"}</title>
       </Head>
       <main>
-        <section className={styles["card-list"]}>
+        <section className={styles["avatar-items"]}>
           <div className={styles.container}>
             <MainTitle title="Avatar Items" />
             <AvatarItemsFilters
