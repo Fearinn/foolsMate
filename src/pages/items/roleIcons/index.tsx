@@ -70,7 +70,7 @@ function RoleIcons() {
 
     return (
       <>
-        <div className={styles["stats-and-favorites"]}>
+        <div className={styles["pseudo-header"]}>
           <Stats {...data} />
           <FavoritesSharing
             favorites={favoriteIds}
@@ -124,7 +124,7 @@ function RoleIcons() {
         <title>{"Fool's Mate - Role Icons"}</title>
       </Head>
       <main>
-        <section className={styles["card-list"]}>
+        <section className={styles["role-icons"]}>
           <div className={styles.container}>
             <MainTitle title="Role Icons" />
             <RoleIconFilters

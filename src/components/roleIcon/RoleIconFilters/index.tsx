@@ -1,4 +1,4 @@
-import { Button, Input, Select } from "@/components";
+import { Button, Input, Paginator, Select } from "@/components";
 import { useRoleIconStore } from "@/store/roleIcon";
 import { FilterSet } from "@/types/FilterSet";
 import { handlePages } from "@/utils/handlePages";
@@ -41,13 +41,6 @@ function RoleIconFilters({
     },
     selects: [
       {
-        name: "page",
-        handler: (value: string) =>
-          setFilters({ ...filters, page: Number(value) || 1 }),
-        placeholder: "page",
-        options: handlePages(numberToList(numberOfPages), filters.page),
-      },
-      {
         name: "itemsPerPage",
         handler: (value: string) =>
           setFilters({ ...filters, page: 1, limit: Number(value) || 25 }),
@@ -84,58 +77,70 @@ function RoleIconFilters({
       >
         {isOpen ? "Close filters" : "Open filters"}
       </Button>
-      <form
-        id="filters-form"
-        className={styles["role-icon-filters"]}
-        onSubmit={(event) => {
-          event.preventDefault();
-          filterSet.handleSubmit();
-        }}
-      >
-        <Checkbox
-          size="lg"
-          checked={onlyFavorites}
-          onChange={() => changeOnlyFavorites(!onlyFavorites)}
+      <div className={styles["controlled-region"]}>
+        <form
+          id="filters-form"
+          className={styles["filters"]}
+          onSubmit={(event) => {
+            event.preventDefault();
+            filterSet.handleSubmit();
+          }}
         >
-          Only favorites
-        </Checkbox>
-        {isOpen &&
-          filterSet.selects &&
-          filterSet.selects.map((select, index) => {
-            return (
-              <Select
-                key={index}
-                placeholder={select.placeholder}
-                onChange={(event) => {
-                  select.handler(event.target.value);
-                }}
-              >
-                {select.options.map((option) => {
-                  return (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  );
-                })}
-              </Select>
-            );
-          })}
+          <Checkbox
+            justifyContent={isOpen ? "center" : "flex-start"}
+            size="lg"
+            checked={onlyFavorites}
+            onChange={() => changeOnlyFavorites(!onlyFavorites)}
+          >
+            Only favorites
+          </Checkbox>
+          {isOpen &&
+            filterSet.selects &&
+            filterSet.selects.map((select, index) => {
+              return (
+                <Select
+                  key={index}
+                  placeholder={select.placeholder}
+                  onChange={(event) => {
+                    select.handler(event.target.value);
+                  }}
+                >
+                  {select.options.map((option) => {
+                    return (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    );
+                  })}
+                </Select>
+              );
+            })}
 
-        {isOpen &&
-          filterSet.textInputs &&
-          filterSet.textInputs.map((input, index) => {
-            return (
-              <Input
-                key={index}
-                disabled={onlyFavorites && input.name === "id"}
-                placeholder={input.placeholder}
-                onChange={(event) => input.handler(event.target.value)}
-              />
-            );
-          })}
+          {isOpen &&
+            filterSet.textInputs &&
+            filterSet.textInputs.map((input, index) => {
+              return (
+                <Input
+                  key={index}
+                  disabled={onlyFavorites && input.name === "id"}
+                  placeholder={input.placeholder}
+                  onChange={(event) => input.handler(event.target.value)}
+                />
+              );
+            })}
 
-        {isOpen && <Button type="submit">Filter</Button>}
-      </form>
+          {isOpen && <Button type="submit">Filter</Button>}
+        </form>
+        {isOpen && numberOfPages > 1 && (
+          <Paginator
+            initialPage={(filters.page || 1) - 1}
+            pageCount={numberOfPages}
+            onPageChange={(event) =>
+              setFilters({ ...filters, page: event.selected + 1 })
+            }
+          />
+        )}
+      </div>
     </>
   );
 }
