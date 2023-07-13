@@ -4,7 +4,6 @@
   min-width: 360px;
   min-height: 100vh;
 
-
   --brandMain: #fe6ab4;
   --fontMain: #000000;
   --fontSecondary: #ffffff;
@@ -59,6 +58,12 @@
 
 :where(a) {
   text-decoration: none;
+}
+
+:where(select, input, button, a) {
+  line-height: 44px;
+  min-height: 44px;
+  min-width: 44px;
 }
 
 :where(ul) {
