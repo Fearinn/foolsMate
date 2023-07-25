@@ -7,13 +7,57 @@ import {
   MainTitle,
   PlayerDashboard,
 } from "@/components";
+import { Season } from "@/components/BattlePass/battlePass.types";
+import { getBattlePassSeason, getRewards } from "@/services";
+import { getBackgrounds } from "@/services/items/backgrounds";
 import { useLocalStorage } from "@/utils/hooks/localStorage";
 import { useSinglePlayer } from "@/utils/hooks/players";
 import { Heading } from "@chakra-ui/react";
+import { dehydrate, QueryClient } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import Head from "next/head";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import styles from "./PlayersHome.module.scss";
+
+export async function getStaticProps() {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: 1000 * 60 * 30,
+      },
+    },
+  });
+
+  let results: Partial<Season> = {};
+
+  try {
+    results = await queryClient.fetchQuery({
+      queryKey: ["getBattlePassSeason"],
+      queryFn: getBattlePassSeason,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+
+  if (results.seasonBackgroundId) {
+    await queryClient.prefetchQuery({
+      queryKey: ["getBackgrounds"],
+      queryFn: () => getBackgrounds(results.seasonBackgroundId || ""),
+    });
+
+    await queryClient.prefetchQuery({
+      queryKey: ["getRewards"],
+      queryFn: getRewards,
+    });
+  }
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+    revalidate: 60 * 60 * 24,
+  };
+}
 
 export default function PlayerHome() {
   const [username, setUsername] = useLocalStorage("playerDashboard");
