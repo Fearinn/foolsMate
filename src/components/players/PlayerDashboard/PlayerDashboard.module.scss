@@ -34,14 +34,36 @@
     gap: 0.5rem;
   }
 
+  .img-container {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    overflow: hidden;
+
+    .img-bg {
+      position: absolute;
+      object-fit: fill;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .avatar {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
   .avatars {
     display: flex;
-    align-items: baseline;
+    align-items: stretch;
     gap: 0.5rem;
     overflow-x: auto;
     padding-bottom: 0.5rem;
 
-    img {
+    & > * {
       flex-shrink: 0;
     }
   }

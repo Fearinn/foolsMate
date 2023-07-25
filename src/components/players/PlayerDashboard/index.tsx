@@ -1,9 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import { ErrorMessage } from "@/components/ErrorMessage";
+import { Loader } from "@/components/Loader";
+import { useBackground } from "@/utils/hooks/background";
+import { useBattlePassSeason } from "@/utils/hooks/battlePass";
 import { Heading } from "@chakra-ui/react";
+import Image from "next/image";
 import { memo } from "react";
 import { GameStatsChart } from "../GameStatsCharts";
-import { Player } from "../players.types";
+import { Avatar, Player } from "../players.types";
 import styles from "./PlayerDashboard.module.scss";
 
 function PlayerDashboard(props: Player) {
@@ -15,19 +19,84 @@ function PlayerDashboard(props: Player) {
       }).format(new Date(props.creationTime))
     : "UNAVAILABLE";
 
+  const {
+    data: bp,
+    isLoading: bpIsLoading,
+    error: bpError,
+  } = useBattlePassSeason();
+
+  const { data, isLoading, error } = useBackground(
+    bp?.seasonBackgroundId || "RnB"
+  );
+
+  function handleEquippedAvatar() {
+    if (bpIsLoading || isLoading) return <Loader />;
+
+    if (bpError || error) return <ErrorMessage />;
+
+    return (
+      <div
+        className={styles["img-container"]}
+        style={{ backgroundColor: data.backgroundColorDay }}
+      >
+        <Image
+          className={styles["img-bg"]}
+          alt=""
+          role="presentation"
+          height={data.imageDaySmall.height}
+          width={data.imageDaySmall.width}
+          src={data.imageDaySmall.url}
+        />
+        <img
+          className={styles.avatar}
+          role="presentation"
+          alt=""
+          src={props.equippedAvatar.url}
+          width={props.equippedAvatar.width}
+          height={props.equippedAvatar.height}
+        />
+      </div>
+    );
+  }
+
+  function handleOtherAvatar(avatar: Avatar, key: number | string) {
+    if (bpIsLoading || isLoading) return <Loader key={key}/>;
+
+    if (bpError || error) return <></>;
+
+    return (
+      <div
+        key={key}
+        className={styles["img-container"]}
+        style={{ backgroundColor: data.backgroundColorDay }}
+      >
+        <Image
+          className={styles["img-bg"]}
+          alt=""
+          role="presentation"
+          height={data.imageDaySmall.height}
+          width={data.imageDaySmall.width}
+          src={data.imageDaySmall.url}
+        />
+        <img
+          className={styles.avatar}
+          role="presentation"
+          alt=""
+          src={avatar.url}
+          width={avatar.width}
+          height={avatar.height}
+        />
+      </div>
+    );
+  }
+
   return (
     <div className={styles["player-dashboard"]} aria-live="polite">
       <section className={styles.profile}>
         <div className={styles.container}>
           <div className={styles.summary}>
             <Heading size="md">{props.username}</Heading>
-            <img
-              role="presentation"
-              alt=""
-              src={props.equippedAvatar.url}
-              width={props.equippedAvatar.width}
-              height={props.equippedAvatar.height}
-            />
+            {handleEquippedAvatar()}
             <p>
               Level: <span>{props.level}</span>
             </p>
@@ -35,23 +104,15 @@ function PlayerDashboard(props: Player) {
               Status: <span>{props.status}</span>
             </p>
           </div>
-          <div className={styles.avatars}>
+          <ul className={styles.avatars}>
             {props.avatars &&
               props.avatars.map((avatar, index) => {
                 return (
-                  avatar.url !== props.equippedAvatar.url && (
-                    <img
-                      key={index}
-                      role="presentation"
-                      alt=""
-                      src={avatar.url}
-                      height={avatar.height}
-                      width={avatar.width}
-                    />
-                  )
+                  avatar.url !== props.equippedAvatar.url &&
+                  handleOtherAvatar(avatar, index)
                 );
               })}
-          </div>
+          </ul>
         </div>
         <div className={styles.details}>
           <p>
