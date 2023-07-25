@@ -60,7 +60,8 @@
   text-decoration: none;
 }
 
-:where(select, input, button, a) {
+
+:not(p) > :where(select, input, button, a) {
   line-height: 44px;
   min-height: 44px;
   min-width: 44px;
