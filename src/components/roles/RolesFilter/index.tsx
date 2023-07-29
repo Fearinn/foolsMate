@@ -1,4 +1,4 @@
-import { Button, Input, Select } from "@/components";
+import { Button, Input, Paginator, Select } from "@/components";
 import { useRolesStore } from "@/store/roles";
 import { FilterSet } from "@/types/FilterSet";
 import { handlePages } from "@/utils/handlePages";
@@ -7,7 +7,11 @@ import { useState } from "react";
 import { Role } from "../roles.types";
 import styles from "./RolesFilters.module.scss";
 
-export function RolesFilter({ numberOfPages }: { numberOfPages: number }) {
+type Props = {
+  numberOfPages: 1;
+};
+
+export function RolesFilter({ numberOfPages }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const [name, setName] = useState("");
   const [team, setTeam] = useState("");
@@ -29,13 +33,6 @@ export function RolesFilter({ numberOfPages }: { numberOfPages: number }) {
       });
     },
     selects: [
-      {
-        name: "page",
-        handler: (value: string) =>
-          setFilters({ ...filters, page: Number(value) || 1 }),
-        placeholder: "page",
-        options: handlePages(numberToList(numberOfPages), filters.page),
-      },
       {
         name: "itemsPerPage",
         handler: (value: string) =>
@@ -69,57 +66,69 @@ export function RolesFilter({ numberOfPages }: { numberOfPages: number }) {
     <>
       <Button
         type="button"
-        aria-controls="filters-form"
+        aria-controls="filters-controlled-region"
         aria-expanded={isOpen}
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? "Close filters" : "Open filters"}
       </Button>
-      <form
-        id="filters-form"
-        className={styles["roles-filters"]}
-        onSubmit={(event) => {
-          event.preventDefault();
-          filterSet.handleSubmit();
-        }}
+      <div
+        id="filters-controlled-region"
+        className={styles["controlled-region"]}
       >
-        {isOpen && (
-          <>
-            {filterSet.selects &&
-              filterSet.selects.map((select, index) => {
-                return (
-                  <Select
-                    key={index}
-                    placeholder={select.placeholder}
-                    onChange={(event) => {
-                      select.handler(event.target.value);
-                    }}
-                  >
-                    {select.options.map((option) => {
-                      return (
-                        <option key={option} value={option}>
-                          {option}
-                        </option>
-                      );
-                    })}
-                  </Select>
-                );
-              })}
+        <form
+          className={styles["filters"]}
+          onSubmit={(event) => {
+            event.preventDefault();
+            filterSet.handleSubmit();
+          }}
+        >
+          {isOpen &&
+            filterSet.selects &&
+            filterSet.selects.map((select, index) => {
+              return (
+                <Select
+                  key={index}
+                  placeholder={select.placeholder}
+                  onChange={(event) => {
+                    select.handler(event.target.value);
+                  }}
+                >
+                  {select.options.map((option) => {
+                    return (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    );
+                  })}
+                </Select>
+              );
+            })}
 
-            {filterSet.textInputs &&
-              filterSet.textInputs.map((input, index) => {
-                return (
-                  <Input
-                    key={index}
-                    placeholder={input.placeholder}
-                    onChange={(event) => input.handler(event.target.value)}
-                  />
-                );
-              })}
-            <Button type="submit">Filter</Button>
-          </>
+          {isOpen &&
+            filterSet.textInputs &&
+            filterSet.textInputs.map((input, index) => {
+              return (
+                <Input
+                  key={index}
+                  placeholder={input.placeholder}
+                  onChange={(event) => input.handler(event.target.value)}
+                />
+              );
+            })}
+          {isOpen && <Button type="submit">Filter</Button>}
+        </form>
+
+        {isOpen && numberOfPages > 1 && (
+          <Paginator
+            initialPage={(filters.page || 1) - 1}
+            pageCount={numberOfPages}
+            onPageChange={(event) =>
+              setFilters({ ...filters, page: event.selected + 1 })
+            }
+          />
         )}
-      </form>
+      </div>
     </>
   );
 }
