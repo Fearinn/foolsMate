@@ -1,14 +1,12 @@
 import { Button, Input, Paginator, Select } from "@/components";
 import { useRolesStore } from "@/store/roles";
 import { FilterSet } from "@/types/FilterSet";
-import { handlePages } from "@/utils/handlePages";
-import { numberToList } from "@/utils/numberToList";
 import { useState } from "react";
 import { Role } from "../roles.types";
 import styles from "./RolesFilters.module.scss";
 
 type Props = {
-  numberOfPages: 1;
+  numberOfPages: number;
 };
 
 export function RolesFilter({ numberOfPages }: Props) {
