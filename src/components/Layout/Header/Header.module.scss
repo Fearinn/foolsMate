@@ -7,22 +7,7 @@
   color: var(--fontMain);
   font-weight: bold;
   padding: 0.5rem;
-
-  a {
-    border-radius: 4px;
-    padding: 0 0.5rem;
-    text-align: center;
-    transition: 0.25s all linear;
-
-    &.game::after {
-      content: "\2197";
-      margin-left: 0.25rem;
-    }
-
-    &:hover {
-      background-color: var(--backgroundMain);
-    }
-  }
+  z-index: 99;
 
   .logo {
     display: flex;
@@ -40,5 +25,55 @@
     gap: 0.5rem;
     padding: 0 0.5rem;
     font-size: 1.25rem;
+  }
+
+  a {
+    border-radius: 4px;
+    padding: 0 0.5rem;
+    text-align: center;
+    transition: 0.25s all linear;
+
+    &.game::after {
+      content: "\2197";
+      margin-left: 0.25rem;
+    }
+
+    &:hover {
+      background-color: var(--backgroundMain);
+    }
+  }
+
+  .popup-menu-container {
+    display: none;
+  }
+
+  @media (max-width: 1024px) {
+    .static-menu {
+      display: none;
+    }
+
+    .popup-menu-container {
+      display: initial;
+      position: relative;
+    }
+
+    .popup-menu {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      position: absolute;
+      right: 0;
+      top: 40px;
+      background-color: var(--brandMain);
+      border-radius: 4px;
+      box-shadow: 0 0 16px black;
+      width: max-content;
+
+      a:not(:last-of-type) {
+        border-bottom: 1px solid var(--backgroundMain);
+        border-radius: 0;
+      }
+    }
   }
 }
