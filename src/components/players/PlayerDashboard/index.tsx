@@ -65,7 +65,7 @@ function PlayerDashboard(props: Player) {
           className={styles.avatar}
           role="presentation"
           alt=""
-          src={props.equippedAvatar.url}
+          src={props.equippedAvatar.url.replace(".png", "@2x.png")}
           width={props.equippedAvatar.width}
           height={props.equippedAvatar.height}
         />
@@ -108,7 +108,7 @@ function PlayerDashboard(props: Player) {
           className={styles.avatar}
           role="presentation"
           alt=""
-          src={avatar.url}
+          src={avatar.url.replace(".png", "@2x.png")}
           width={avatar.width}
           height={avatar.height}
         />
