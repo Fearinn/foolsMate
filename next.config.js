@@ -6,7 +6,7 @@ const CSP = `default-src 'self'; font-src 'self' https://fonts.google.com; style
   prod
     ? "https://foolsmate.cyclic.app/ https://vitals.vercel-insights.com"
     : "http://localhost:3000"
-};script-src 'self' 'sha256-oaFx7Djcy5UNEYTupAtgdozax9PrPk0i1RK0PwllMbY=' ${!prod ? "'unsafe-eval'" : ""}`;
+};script-src 'self' 'sha256-e7MRMmTzLsLQvIy1iizO1lXf7VWYoQ6ysj5fuUzvRwE=' ${!prod ? "'unsafe-eval'" : ""}`;
 
 const nextConfig = {
   async headers() {
