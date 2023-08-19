@@ -3,7 +3,7 @@ import { ErrorMessage } from "@/components/ErrorMessage";
 import { Loader } from "@/components/Loader";
 import { useBackground } from "@/utils/hooks/background";
 import { useBattlePassSeason } from "@/utils/hooks/battlePass";
-import { Heading } from "@chakra-ui/react";
+import { Heading, useColorMode } from "@chakra-ui/react";
 import Image from "next/image";
 import { memo } from "react";
 import { GameStatsChart } from "../GameStatsCharts";
@@ -29,6 +29,8 @@ function PlayerDashboard(props: Player) {
     bp?.seasonBackgroundId || "RnB"
   );
 
+  const { colorMode } = useColorMode();
+
   function handleEquippedAvatar() {
     if (bpIsLoading || isLoading) return <Loader />;
 
@@ -43,9 +45,21 @@ function PlayerDashboard(props: Player) {
           className={styles["img-bg"]}
           alt=""
           role="presentation"
-          height={data.imageDaySmall.height}
-          width={data.imageDaySmall.width}
-          src={data.imageDaySmall.url}
+          height={
+            colorMode === "light"
+              ? data.imageDaySmall.height
+              : data.imageNightSmall.height
+          }
+          width={
+            colorMode === "light"
+              ? data.imageDaySmall.width
+              : data.imageNightSmall.width
+          }
+          src={
+            colorMode === "light"
+              ? data.imageDaySmall.url
+              : data.imageNightSmall.url
+          }
         />
         <img
           className={styles.avatar}
@@ -60,7 +74,7 @@ function PlayerDashboard(props: Player) {
   }
 
   function handleOtherAvatar(avatar: Avatar, key: number | string) {
-    if (bpIsLoading || isLoading) return <Loader key={key}/>;
+    if (bpIsLoading || isLoading) return <Loader key={key} />;
 
     if (bpError || error) return <></>;
 
@@ -74,9 +88,21 @@ function PlayerDashboard(props: Player) {
           className={styles["img-bg"]}
           alt=""
           role="presentation"
-          height={data.imageDaySmall.height}
-          width={data.imageDaySmall.width}
-          src={data.imageDaySmall.url}
+          height={
+            colorMode === "light"
+              ? data.imageDaySmall.height
+              : data.imageNightSmall.height
+          }
+          width={
+            colorMode === "light"
+              ? data.imageDaySmall.width
+              : data.imageNightSmall.width
+          }
+          src={
+            colorMode === "light"
+              ? data.imageDaySmall.url
+              : data.imageNightSmall.url
+          }
         />
         <img
           className={styles.avatar}

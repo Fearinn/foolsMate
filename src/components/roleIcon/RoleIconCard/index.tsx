@@ -1,4 +1,5 @@
 import { colors } from "@/assets/cssVariables";
+import { useColorMode } from "@chakra-ui/react";
 import Image from "next/image";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { RoleIcon } from "../roleIcons.types";
@@ -10,11 +11,6 @@ type Props = {
   isFavorite: boolean;
 } & RoleIcon;
 
-const iconsStyles = {
-  color: colors.brandMain,
-  size: 28,
-};
-
 function RoleIconCard({
   id,
   image,
@@ -25,6 +21,13 @@ function RoleIconCard({
   removeFavorite,
   addFavorite,
 }: Props) {
+  const { colorMode } = useColorMode();
+
+  const iconsStyles = {
+    color: colorMode === "light" ? colors.brandMain : colors.dark.fontMain,
+    size: 28,
+  };
+
   return (
     <div className={styles["role-icon-card"]}>
       <Image

@@ -1,17 +1,21 @@
 import { colors } from "@/assets/cssVariables";
-import { Select as CSelect, SelectProps } from "@chakra-ui/react";
+import { Select as CSelect, SelectProps, useColorMode } from "@chakra-ui/react";
 import { ComponentPropsWithRef } from "react";
 
 type Props = ComponentPropsWithRef<"select"> & SelectProps;
 
 export function Select({
   children,
-  bgColor = colors.backgroundSecondary,
   variant = "filled",
   _focusVisible = { border: "none" },
   width = "auto",
   ...rest
 }: Props) {
+  const { colorMode } = useColorMode();
+
+  const bgColor =
+    colorMode === "light" ? colors.backgroundSecondary : colors.dark.backgroundSecondary;
+
   return (
     <CSelect
       bgColor={bgColor}

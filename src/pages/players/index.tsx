@@ -12,7 +12,7 @@ import { getBattlePassSeason, getRewards } from "@/services";
 import { getBackgrounds } from "@/services/items/backgrounds";
 import { useLocalStorage } from "@/utils/hooks/localStorage";
 import { useSinglePlayer } from "@/utils/hooks/players";
-import { Heading } from "@chakra-ui/react";
+import { Heading, useColorMode } from "@chakra-ui/react";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import Head from "next/head";
@@ -80,6 +80,8 @@ export default function PlayerHome() {
     return <PlayerDashboard {...data[0]} />;
   }
 
+  const { colorMode } = useColorMode();
+
   return (
     <>
       <Head>
@@ -105,7 +107,11 @@ export default function PlayerHome() {
                 required
                 hasLabel
                 placeholder="JohnDoe"
-                bgColor={colors.backgroundMain}
+                bgColor={
+                  colorMode === "light"
+                    ? colors.backgroundMain
+                    : colors.dark.backgroundMain
+                }
                 onChange={(event) => {
                   newUsername.current = event.target.value;
                 }}

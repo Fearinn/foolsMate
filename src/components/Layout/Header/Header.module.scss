@@ -17,6 +17,10 @@
     gap: 0.5rem;
   }
 
+  .color-mode {
+    margin-left: auto;
+  }
+
   .main-menu {
     display: flex;
     align-items: center;
@@ -31,7 +35,7 @@
     border-radius: 4px;
     padding: 0 0.5rem;
     text-align: center;
-    transition: 0.25s all linear;
+    transition: background-color 0.25s linear;
 
     &.game::after {
       content: "\2197";

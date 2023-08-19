@@ -4,6 +4,7 @@ import { Input } from "../Input";
 import styles from "./FavoritesSharing.module.scss";
 import { BiImport, BiExport, BiCheck } from "react-icons/bi";
 import { colors } from "@/assets/cssVariables";
+import { useColorMode } from "@chakra-ui/react";
 
 const iconStyles = {
   className: styles.icon,
@@ -25,6 +26,8 @@ export function FavoritesSharing({
   const [copied, setCopied] = useState(false);
 
   const [newFavorites, setNewFavorites] = useState("");
+
+  const { colorMode } = useColorMode();
 
   function clearCopied() {
     setCopied(false);
@@ -59,7 +62,14 @@ export function FavoritesSharing({
         value={newFavorites}
       ></Input>
       <Button type="submit">
-        Import favorites <BiImport {...iconStyles} />
+        Import favorites{" "}
+        <BiImport
+          {...{
+            ...iconStyles,
+            color:
+              colorMode === "light" ? iconStyles.color : colors.dark.fontMain,
+          }}
+        />
       </Button>
 
       <Button
@@ -73,11 +83,29 @@ export function FavoritesSharing({
       >
         {copied ? (
           <>
-            Copied to clipboard <BiCheck {...iconStyles} />
+            Copied to clipboard{" "}
+            <BiCheck
+              {...{
+                ...iconStyles,
+                color:
+                  colorMode === "light"
+                    ? iconStyles.color
+                    : colors.dark.fontMain,
+              }}
+            />
           </>
         ) : (
           <>
-            Export favorites <BiExport {...iconStyles} />
+            Export favorites{" "}
+            <BiExport
+              {...{
+                ...iconStyles,
+                color:
+                  colorMode === "light"
+                    ? iconStyles.color
+                    : colors.dark.fontMain,
+              }}
+            />
           </>
         )}
       </Button>

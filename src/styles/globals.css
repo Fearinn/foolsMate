@@ -11,21 +11,29 @@
   --backgroundSecondary: #efefef;
   --backgroundTertiary: #979797;
   --costInGold: #ff884b;
-  --costInRoses: #dc3535;
-  --genderMale: #2d46b9;
-  --genderFemale: #f037a5;
-  --genderNeutral: #21aa93;
-  --rarityCommon: #6a492b;
-  --rarityRare: #a13333;
+  --costInRoses: #FF1E00;
+  --genderMale: #1C6DD0;
+  --genderFemale: #FF78F0;
+  --genderNeutral: #59CE8F;
+  --rarityCommon: #BA704F;
+  --rarityRare: #CE5959;
   --rarityEpic: #a31acb;
   --rarityLegendary: #e27802;
-  --itemType: #4a772f;
-  --goodAura: #21aa93;
-  --evilAura: #dc3535;
+  --itemType: #59CE8F;
+  --goodAura: #59CE8F;
+  --evilAura: #FF1E00;
   --unknownAura: #ff884b;
   --randomAura: #a31acb;
-  --positive: #4a772f;
-  --negative: #dc3535;
+  --positive: #59CE8F;
+  --negative: #FF1E00;
+
+  &[data-theme="dark"] {
+    --brandMain: #333;
+    --backgroundMain: #1a202c;
+    --backgroundSecondary: #000;
+    --fontMain: #fff;
+    --fontSecondary: #1a202c;
+  }
 }
 
 :where(*) {
@@ -53,13 +61,12 @@
 }
 
 *:focus-visible {
-  outline: 2px solid black !important;
+  outline: 2px solid var(--fontMain) !important;
 }
 
 :where(a) {
   text-decoration: none;
 }
-
 
 :not(p) > :where(select, input, button, a) {
   line-height: 44px;

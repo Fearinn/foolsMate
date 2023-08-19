@@ -1,4 +1,5 @@
 import { colors } from "@/assets/cssVariables";
+import { useColorMode } from "@chakra-ui/react";
 import classNames from "classnames";
 import { memo } from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
@@ -12,17 +13,19 @@ type Props = {
   index: number;
 } & AvatarItem;
 
-const iconsStyles = {
-  color: colors.brandMain,
-  size: 28,
-};
-
 function AvatarItemCard(props: Props) {
   function cost() {
     if (props.costInGold) return `${props.costInGold} gold`;
     if (props.costInRoses) return `${props.costInRoses} roses`;
     return "UNDEFINED";
   }
+
+  const { colorMode } = useColorMode();
+
+  const iconsStyles = {
+    color: colorMode === "light" ? colors.brandMain : colors.dark.fontMain,
+    size: 28,
+  };
 
   return (
     <div className={styles["avatar-item-card"]}>
@@ -92,3 +95,4 @@ function AvatarItemCard(props: Props) {
 const memoizedExport = memo(AvatarItemCard);
 
 export { memoizedExport as AvatarItemCard };
+
