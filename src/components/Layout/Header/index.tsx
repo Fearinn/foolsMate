@@ -46,6 +46,7 @@ export function Header() {
       </Button>
       <div className={styles["popup-menu-container"]}>
         <Button
+          aria-label={isOpen ? "close menu" : "open menu"}
           aria-haspopup="menu"
           aria-controls="main-menu"
           aria-expanded={isOpen}
