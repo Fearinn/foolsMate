@@ -11,6 +11,7 @@ import { Roboto } from "next/font/google";
 import Head from "next/head";
 import { useState } from "react";
 import { Layout } from "../components/Layout";
+import { Analytics } from "@vercel/analytics/react";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -62,6 +63,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 <meta property="og:image" content="/cover.png" />
               </Head>
               <Component {...pageProps} className={roboto.className} />
+              <Analytics />
             </Layout>
           </ChakraProvider>
         </Hydrate>
