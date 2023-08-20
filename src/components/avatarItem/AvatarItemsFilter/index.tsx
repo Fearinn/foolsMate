@@ -3,7 +3,7 @@ import { AvatarItem } from "@/components/avatarItem/avatarItems.types";
 import { useAvatarItemStore } from "@/store/avatarItem";
 import { FilterSet } from "@/types/FilterSet";
 import { Rarity } from "@/types/Rarity";
-import { Checkbox } from "@chakra-ui/react";
+import { Checkbox, useColorMode } from "@chakra-ui/react";
 import { useState } from "react";
 import styles from "./AvatarItemFilters.module.scss";
 
@@ -18,6 +18,8 @@ function AvatarItemsFilters({
   onlyFavorites,
   changeOnlyFavorites,
 }: Props) {
+  const { colorMode } = useColorMode();
+
   const [isOpen, setIsOpen] = useState(false);
 
   const [gender, setGender] = useState("");
@@ -120,6 +122,7 @@ function AvatarItemsFilters({
           }}
         >
           <Checkbox
+            colorScheme={colorMode === "light" ? "pink" : "purple"}
             size="lg"
             justifyContent={isOpen ? "center" : "flex-start"}
             checked={onlyFavorites}

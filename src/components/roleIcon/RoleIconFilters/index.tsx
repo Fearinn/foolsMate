@@ -1,9 +1,7 @@
 import { Button, Input, Paginator, Select } from "@/components";
 import { useRoleIconStore } from "@/store/roleIcon";
 import { FilterSet } from "@/types/FilterSet";
-import { handlePages } from "@/utils/handlePages";
-import { numberToList } from "@/utils/numberToList";
-import { Checkbox } from "@chakra-ui/react";
+import { Checkbox, useColorMode } from "@chakra-ui/react";
 import { useState } from "react";
 import styles from "./RoleIconFilters.module.scss";
 
@@ -18,6 +16,8 @@ function RoleIconFilters({
   onlyFavorites,
   changeOnlyFavorites,
 }: Props) {
+  const { colorMode } = useColorMode();
+
   const [isOpen, setIsOpen] = useState(false);
 
   const [id, setId] = useState("");
@@ -87,6 +87,7 @@ function RoleIconFilters({
           }}
         >
           <Checkbox
+            colorScheme={colorMode === "light" ? "pink" : "purple"}
             justifyContent={isOpen ? "center" : "flex-start"}
             size="lg"
             checked={onlyFavorites}
@@ -146,3 +147,4 @@ function RoleIconFilters({
 }
 
 export { RoleIconFilters };
+
