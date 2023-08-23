@@ -26,14 +26,14 @@
   --randomAura: #a31acb;
   --positive: #59CE8F;
   --negative: #FF1E00;
+}
 
-  &[data-theme="dark"] {
-    --brandMain: #333;
-    --backgroundMain: #1a202c;
-    --backgroundSecondary: #000;
-    --fontMain: #fff;
-    --fontSecondary: #1a202c;
-  }
+:root[data-theme="dark"] {
+  --brandMain: #333;
+  --backgroundMain: #1a202c;
+  --backgroundSecondary: #000;
+  --fontMain: #fff;
+  --fontSecondary: #1a202c;
 }
 
 :where(*) {
