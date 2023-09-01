@@ -61,6 +61,10 @@ export default function App({ Component, pageProps }: AppProps) {
                   content="Track Wolvesville battle pass season, items, players stats and more!"
                 />
                 <meta property="og:image" content="/cover.png" />
+                <meta
+                  property="og:url"
+                  content="https://foolsmate.vercel.app"
+                />
               </Head>
               <Component {...pageProps} className={roboto.className} />
               <Analytics />
