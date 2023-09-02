@@ -80,11 +80,12 @@ function RoleIcons() {
         </div>
         <ul className={styles.list}>
           {data.items.length ? (
-            data.items.map((item) => {
+            data.items.map((item, index) => {
               const isFavorite = favoriteIds.includes(item.id);
               return (
                 <li key={item.id} className={styles.item}>
                   <RoleIconCard
+                    index={index}
                     {...item}
                     addFavorite={(newFavorite) => {
                       if (

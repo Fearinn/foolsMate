@@ -1,9 +1,12 @@
 import { Button } from "@/components/Button";
 import { Heading } from "@chakra-ui/react";
-import Image from "next/image";
 import { useState } from "react";
 import { Role } from "../roles.types";
 import styles from "./RoleCard.module.scss";
+
+type Props = {
+  index: number;
+} & Role;
 
 export function RoleCard({
   id,
@@ -13,13 +16,16 @@ export function RoleCard({
   aura,
   team,
   advancedRoles,
-}: Role) {
+  index,
+}: Props) {
   const [descriptionOpen, setDescriptionOpen] = useState(false);
   const [advancedOpen, setAdvancedOpen] = useState(false);
 
   return (
     <div className={styles["role-card"]}>
-      <Image
+      <img
+        decoding={index > 9 ? "async" : undefined}
+        loading={index > 9 ? "lazy" : "eager"}
         role="presentation"
         alt=""
         src={image.url}

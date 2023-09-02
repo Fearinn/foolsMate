@@ -4,7 +4,7 @@ import {
   MainTitle,
   RoleCard,
   RolesFilter,
-  Stats
+  Stats,
 } from "@/components";
 import { getRoles } from "@/services/roles";
 import { useRolesStore } from "@/store/roles";
@@ -56,9 +56,9 @@ export default function Roles() {
         <Stats {...data} />
         <ul className={styles.list}>
           {data.items.length ? (
-            data.items.map((role) => (
+            data.items.map((role, index) => (
               <li key={role.id} className={styles.item}>
-                <RoleCard {...role} />
+                <RoleCard index={index} {...role} />
               </li>
             ))
           ) : (

@@ -6,6 +6,7 @@ import { RoleIcon } from "../roleIcons.types";
 import styles from "./RoleIconCard.module.scss";
 
 type Props = {
+  index: number;
   addFavorite: (value: string) => void;
   removeFavorite: (value: string) => void;
   isFavorite: boolean;
@@ -20,6 +21,7 @@ function RoleIconCard({
   isFavorite,
   removeFavorite,
   addFavorite,
+  index,
 }: Props) {
   const { colorMode } = useColorMode();
 
@@ -30,14 +32,16 @@ function RoleIconCard({
 
   return (
     <div className={styles["role-icon-card"]}>
-      <Image
+      <img
+        decoding={index > 14 ? "async" : undefined}
+        loading={index > 14 ? "lazy" : "eager"}
         className={styles.image}
         alt=""
         role="presentation"
         src={image.url}
         width={image.width}
         height={image.height}
-      ></Image>
+      ></img>
 
       <button
         aria-label={`favorite icon ${id}`}
