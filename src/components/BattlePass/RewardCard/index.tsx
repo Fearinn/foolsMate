@@ -16,6 +16,7 @@ function RewardCard({ item, type, free, amount }: Reward) {
           height={item.image.height}
         />
         <div className={styles.info}>
+          <p>Id: <span>{item.id}</span></p>
           <p>
             Type:{" "}
             <span className={styles[type]}>{type.replaceAll("_", " ")}</span>
