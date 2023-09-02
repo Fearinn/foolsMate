@@ -32,7 +32,7 @@ function AvatarItemCard(props: Props) {
       <img
         decoding={props.index > 10 ? "async" : undefined}
         loading={props.index > 10 ? "lazy" : "eager"}
-        src={props.imageUrl}
+        src={props.imageUrl.replace(".png", "@2x.png")}
         alt=""
         role="presentation"
         width={100}
@@ -95,4 +95,3 @@ function AvatarItemCard(props: Props) {
 const memoizedExport = memo(AvatarItemCard);
 
 export { memoizedExport as AvatarItemCard };
-

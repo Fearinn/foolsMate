@@ -10,7 +10,7 @@ function RewardCard({ item, type, free, amount }: Reward) {
           decoding="async"
           loading="lazy"
           className={styles.image}
-          src={item.image.url}
+          src={item.image.url.replace(".png", "@2x.png")}
           alt=""
           role="presentation"
           width={item.image.width}
