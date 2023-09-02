@@ -57,6 +57,7 @@ export function Header() {
         <nav
           className={styles["main-menu"] + " " + styles["popup-menu"]}
           id="main-menu"
+          onClick={() => setIsOpen(false)}
         >
           {isOpen && (
             <>
