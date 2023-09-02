@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import Image from "next/image";
 import { Reward } from "../battlePass.types";
 import styles from "./RewardCard.module.scss";
 
@@ -7,7 +6,9 @@ function RewardCard({ item, type, free, amount }: Reward) {
   return (
     item && (
       <div className={styles["reward-card"]}>
-        <Image
+        <img
+          decoding="async"
+          loading="lazy"
           className={styles.image}
           src={item.image.url}
           alt=""
@@ -16,7 +17,9 @@ function RewardCard({ item, type, free, amount }: Reward) {
           height={item.image.height}
         />
         <div className={styles.info}>
-          <p>Id: <span>{item.id}</span></p>
+          <p>
+            Id: <span>{item.id}</span>
+          </p>
           <p>
             Type:{" "}
             <span className={styles[type]}>{type.replaceAll("_", " ")}</span>
@@ -42,3 +45,4 @@ function RewardCard({ item, type, free, amount }: Reward) {
 }
 
 export { RewardCard };
+
