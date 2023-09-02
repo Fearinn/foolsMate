@@ -30,8 +30,8 @@ function AvatarItemCard(props: Props) {
   return (
     <div className={styles["avatar-item-card"]}>
       <img
-        decoding={props.index > 10 ? "async" : undefined}
-        loading={props.index > 10 ? "lazy" : "eager"}
+        decoding={props.index > 14 ? "async" : undefined}
+        loading={props.index > 14 ? "lazy" : "eager"}
         src={props.imageUrl.replace(".png", "@2x.png")}
         alt=""
         role="presentation"
