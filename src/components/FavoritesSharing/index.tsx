@@ -57,6 +57,7 @@ export function FavoritesSharing({
         required
         minLength={3}
         maxLength={maxFavoritesLength}
+        pattern={"((:.{3})+(?!.))"}
         placeholder="Paste favorites"
         onChange={(event) => setNewFavorites(event.target.value)}
         value={newFavorites}
