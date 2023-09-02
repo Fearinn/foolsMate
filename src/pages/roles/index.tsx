@@ -79,7 +79,7 @@ export default function Roles() {
         <title>{"Fool's Mate - Roles"}</title>
       </Head>
       <main>
-        <section className={styles["card-list"]}>
+        <section className={styles.roles}>
           <div className={styles.container}>
             <MainTitle title="Roles" />
             <RolesFilter numberOfPages={numberOfPages} />
