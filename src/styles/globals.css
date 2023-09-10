@@ -11,21 +11,21 @@
   --backgroundSecondary: #efefef;
   --backgroundTertiary: #979797;
   --costInGold: #ff884b;
-  --costInRoses: #FF1E00;
-  --genderMale: #1C6DD0;
-  --genderFemale: #FF78F0;
-  --genderNeutral: #59CE8F;
-  --rarityCommon: #BA704F;
-  --rarityRare: #CE5959;
+  --costInRoses: #ff1e00;
+  --genderMale: #1c6dd0;
+  --genderFemale: #ff78f0;
+  --genderNeutral: #59ce8f;
+  --rarityCommon: #ba704f;
+  --rarityRare: #ce5959;
   --rarityEpic: #a31acb;
   --rarityLegendary: #e27802;
-  --itemType: #59CE8F;
-  --goodAura: #59CE8F;
-  --evilAura: #FF1E00;
+  --itemType: #59ce8f;
+  --goodAura: #59ce8f;
+  --evilAura: #ff1e00;
   --unknownAura: #ff884b;
   --randomAura: #a31acb;
-  --positive: #59CE8F;
-  --negative: #FF1E00;
+  --positive: #59ce8f;
+  --negative: #ff1e00;
 }
 
 :root[data-theme="dark"] {
@@ -35,6 +35,7 @@
   --fontMain: #fff;
   --fontSecondary: #1a202c;
 }
+
 
 :where(*) {
   box-sizing: border-box;
@@ -51,6 +52,9 @@
 
 :where(body) {
   overflow-y: scroll;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 :where(#__next > main) {
