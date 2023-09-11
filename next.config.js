@@ -2,6 +2,11 @@
 
 const prod = process.env.NODE_ENV === "production";
 
+const withPWA = require("next-pwa")({
+  dest: "public",
+  mode: "production"
+});
+
 const cspDefault = "default-src 'self'; ";
 const cspFont = "font-src 'self' https://fonts.google.com; ";
 const cspStyle =
@@ -50,4 +55,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withPWA(nextConfig);

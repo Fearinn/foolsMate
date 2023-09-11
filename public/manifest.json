@@ -1,0 +1,27 @@
+{
+    "name": "Fool's Mate",
+    "short_name": "Fool's",
+    "icons": [
+      {
+        "src": "/favicon.svg",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "/favicon.svg",
+        "sizes": "384x384",
+        "type": "image/png"
+      },
+      {
+        "src": "/favicon.svg",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "theme_color": "#fe6ab4",
+    "background_color": "#FFFFFF",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait"
+  }
