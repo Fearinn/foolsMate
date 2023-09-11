@@ -2,11 +2,22 @@
 
 const prod = process.env.NODE_ENV === "production";
 
-const CSP = `default-src 'self'; font-src 'self' https://fonts.google.com; style-src 'self' 'unsafe-inline'; img-src 'self' cdn.wolvesville.com cdn-avatars.wolvesville.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; connect-src 'self' ${
-  prod
-    ? "https://foolsmate.cyclic.app/ https://vitals.vercel-insights.com"
-    : "http://localhost:3000"
-};script-src 'self' 'sha256-e7MRMmTzLsLQvIy1iizO1lXf7VWYoQ6ysj5fuUzvRwE=' ${!prod ? "'unsafe-eval'" : ""}`;
+const cspDefault = "default-src 'self'; ";
+const cspFont = "font-src 'self' https://fonts.google.com; ";
+const cspStyle =
+  "style-src 'self' 'unsafe-inline'; img-src 'self' cdn.wolvesville.com cdn-avatars.wolvesville.com; ";
+const cspConnnect = `connect-src 'self' https://foolsmate.cyclic.app/ https://vitals.vercel-insights.com cdn.wolvesville.com cdn-avatars.wolvesville.com ${
+  !prod ? "http://localhost:3000" : ""
+};`;
+const cspOthers =
+  "frame-ancestors 'none'; base-uri 'self'; form-action 'self'; ";
+
+const cspScript = `script-src 'self' 'sha256-e7MRMmTzLsLQvIy1iizO1lXf7VWYoQ6ysj5fuUzvRwE=' https://va.vercel-scripts.com/v1/script.debug.js ${
+  !prod ? "'unsafe-eval'" : ""
+}; `;
+
+const CSP =
+  cspDefault + cspFont + cspStyle + cspConnnect + cspOthers + cspScript;
 
 const nextConfig = {
   async headers() {
