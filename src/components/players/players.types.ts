@@ -28,6 +28,7 @@ export type Player = {
   username: string;
   level: number;
   status: "DEFAULT" | "DND" | "OFFLINE" | "PLAY";
+  lastOnline: string;
   creationTime?: string;
   clanId?: string;
   rankedSeasonSkill?: number;
