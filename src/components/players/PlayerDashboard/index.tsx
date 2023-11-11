@@ -3,6 +3,7 @@ import { ErrorMessage } from "@/components/ErrorMessage";
 import { Loader } from "@/components/Loader";
 import { useBackground } from "@/utils/hooks/background";
 import { useBattlePassSeason } from "@/utils/hooks/battlePass";
+import { timeDifference } from "@/utils/formatDate";
 import { Heading, useColorMode } from "@chakra-ui/react";
 import Image from "next/image";
 import { memo } from "react";
@@ -19,37 +20,7 @@ function PlayerDashboard(props: Player) {
       }).format(new Date(props.creationTime))
     : "UNAVAILABLE";
 
-  const today = new Date();
-  const lastOnline = new Date(props.lastOnline);
-  const hoursDifference =
-    (today.getTime() - lastOnline.getTime()) / (1000 * 60 * 60);
-  const minutesDifference = Math.ceil(
-    ((today.getTime() - lastOnline.getTime()) / (1000 * 60 * 60) -
-      Math.floor(hoursDifference)) *
-      60
-  );
-
-  let formattedLastOnline = "0";
-
-  if (Math.ceil(hoursDifference) <= 24) {
-    if (Math.floor(hoursDifference) >= 1) {
-      formattedLastOnline = `${Math.floor(hoursDifference)} hour${
-        Math.floor(hoursDifference) > 1 ? "s" : ""
-      } and ${minutesDifference} minute${minutesDifference > 1 ? "s" : ""} ago`;
-    } else {
-      formattedLastOnline = `${minutesDifference} minute${
-        minutesDifference > 1 ? "s" : ""
-      } ago`;
-    }
-  } else {
-    formattedLastOnline = Intl.DateTimeFormat(undefined, {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
-    }).format(lastOnline);
-  }
+  const formattedLastOnline = timeDifference(new Date(props.lastOnline));
 
   const {
     data: bp,
