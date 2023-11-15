@@ -145,7 +145,7 @@ function PlayerDashboard(props: Player) {
         </div>
         <div className={styles.details}>
           <p>
-            Last online: <span>{formattedLastOnline}</span>
+            Last online: <time dateTime=""><span>{formattedLastOnline}</span></time>
           </p>
           <p>
             Account creation: <span>{accountCreation}</span>
@@ -176,8 +176,7 @@ function PlayerDashboard(props: Player) {
         <GameStatsChart {...props.gameStats} />
       ) : (
         <ErrorMessage>
-          {props.username}
-          {"'"}s game stats are private or unavailable
+          {props.username}&apos;s game stats are private or unavailable
         </ErrorMessage>
       )}
     </div>
