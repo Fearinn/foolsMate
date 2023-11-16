@@ -1,0 +1,26 @@
+.comparison {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.descriptions {
+  position: absolute;
+  opacity: 0;
+  top: -9999px;
+  left: -9999px;
+}
+
+.charts {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+  flex-wrap: wrap;
+
+  & > * {
+    flex-grow: 1;
+    background-color: var(--backgroundMain);
+    border-radius: 4px;
+  }
+}
