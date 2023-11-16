@@ -145,10 +145,16 @@ function PlayerDashboard(props: Player) {
         </div>
         <div className={styles.details}>
           <p>
-            Last online: <time dateTime=""><span>{formattedLastOnline}</span></time>
+            Last online:{" "}
+            <time dateTime="">
+              <span>{formattedLastOnline}</span>
+            </time>
           </p>
           <p>
-            Account creation: <span>{accountCreation}</span>
+            Account creation:{" "}
+            <time>
+              <span>{accountCreation}</span>
+            </time>
           </p>
           <p>
             Best rank in ranked:{" "}
