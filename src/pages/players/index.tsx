@@ -5,7 +5,7 @@ import {
   Input,
   Loader,
   MainTitle,
-  PlayerDashboard
+  PlayerDashboard,
 } from "@/components";
 import { Season } from "@/components/BattlePass/battlePass.types";
 import { PlayersComparison } from "@/components/players/PlayersComparison";
@@ -158,6 +158,7 @@ export default function PlayerHome() {
               className={styles.form}
               onSubmit={(event) => {
                 event.preventDefault();
+                if (newUsername.current) setUsername(newUsername.current);
                 setUsername2(newUsername2.current);
               }}
             >
