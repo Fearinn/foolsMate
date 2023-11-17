@@ -309,7 +309,7 @@ export function PlayersComparison(players: Player[]) {
           </BarChart>
         </ResponsiveContainer>
 
-        <ResponsiveContainer width="20%" minHeight={250}>
+        <ResponsiveContainer width="20%" minWidth={200} minHeight={250}>
           <BarChart data={survidedData}>
             <CartesianGrid />
             <XAxis
