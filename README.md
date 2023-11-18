@@ -18,16 +18,10 @@
 
 - Battle Pass season and its rewards;
 - Players' profiles and stats;
+- Players comparison;
 - Avatar items, role icons and roles with filters and pagination;
 - Sharable favorite avatar items and role icons.
-
-## :hammer: Planned improvements
-
-- Clans page;
-- Players comparison;
-- Dark theme;
-- Live info, such as quests and offers.
-
+- Dark theme.
 
 ## :handshake: How to help?
 
