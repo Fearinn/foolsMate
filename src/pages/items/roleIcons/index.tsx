@@ -43,7 +43,7 @@ function RoleIcons() {
 
   const [favoriteIds, setFavoriteIds] = useLocalStorage("favoriteRoleIcons");
 
-  const maxFavorites = 25;
+  const maxFavorites = 100;
 
   const maxFavoritesLength = maxFavorites * 3;
 

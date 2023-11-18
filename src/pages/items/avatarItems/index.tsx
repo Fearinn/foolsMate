@@ -50,7 +50,7 @@ function AvatarItems() {
     onlyFavorites ? { ...filters, page: 1, idList: favoriteIds } : filters
   );
 
-  const maxFavorites = 100;
+  const maxFavorites = 400;
 
   const maxFavoritesLength = maxFavorites * 3;
 
