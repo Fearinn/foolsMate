@@ -18,7 +18,7 @@ function RewardCard({ item, type, free, amount }: Reward) {
         />
         <div className={styles.info}>
           <p>
-            Id: <span>{item.id}</span>
+            Id: <span className={styles.id}>{item.id}</span>
           </p>
           <p>
             Type:{" "}
@@ -45,4 +45,3 @@ function RewardCard({ item, type, free, amount }: Reward) {
 }
 
 export { RewardCard };
-
