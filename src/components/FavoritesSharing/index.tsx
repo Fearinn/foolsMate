@@ -46,11 +46,14 @@ export function FavoritesSharing({
       className={styles.form}
       onSubmit={(event) => {
         event.preventDefault();
-        confirm(
-          "Importing favorites will override your current favorites. Are you sure?"
-        );
-        const safeNewFavorites = newFavorites.replaceAll("script", "");
-        changeFavorites(safeNewFavorites);
+        if (
+          confirm(
+            "Importing favorites will override your current favorites. Are you sure?"
+          )
+        ) {
+          const safeNewFavorites = newFavorites.replaceAll("script", "");
+          changeFavorites(safeNewFavorites);
+        }
       }}
     >
       <Input
