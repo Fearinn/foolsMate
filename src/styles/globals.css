@@ -71,19 +71,22 @@
   text-decoration: none;
 }
 
-:not(p) > :where(select, input, button, a) {
-  line-height: 44px;
-  min-height: 44px;
-  min-width: 44px;
+:where(ul) {
+  list-style: none;
+}
+
+ol {
+  padding-left: 1rem !important;
 }
 
 button:disabled {
   opacity: 0.7;
   cursor: not-allowed;
 }
-
-:where(ul) {
-  list-style: none;
+:not(p) > :where(select, input, button, a) {
+  line-height: 44px;
+  min-height: 44px;
+  min-width: 44px;
 }
 
 .sm-gap-flex-column {
