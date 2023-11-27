@@ -278,7 +278,7 @@ export default function MatchHelper() {
                   real or fake. Press again to unconfirm.
                 </li>
                 <li>
-                  A info text is generated according to your selections. You can
+                  An info text is generated according to your selections. You can
                   copy and paste it into the match chat;
                 </li>
                 <li>
