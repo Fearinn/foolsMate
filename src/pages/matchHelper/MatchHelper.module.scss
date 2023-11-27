@@ -1,0 +1,27 @@
+.helper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.pseudo-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    align-self: flex-end;
+    gap: 0.5rem;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  width: 100%;
+}

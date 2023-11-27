@@ -1,20 +1,22 @@
 export { AvatarItemCard } from "./avatarItem/AvarItemCard";
 export { AvatarItemsFilters } from "./avatarItem/AvatarItemsFilter";
 export { BattlePass } from "./BattlePass";
+export { RewardCard } from "./BattlePass/RewardCard";
 export { Button } from "./Button";
 export { ErrorMessage } from "./ErrorMessage";
+export { FavoritesSharing } from "./FavoritesSharing";
 export { Input } from "./Input";
 export { Layout } from "./Layout";
 export { Loader } from "./Loader";
 export { MainTitle } from "./MainTitle";
+export { Paginator } from "./Paginator";
 export { GameStatsChart } from "./players/GameStatsCharts";
 export { PlayerDashboard } from "./players/PlayerDashboard";
-export { RewardCard } from "./BattlePass/RewardCard";
 export { RoleIconCard } from "./roleIcon/RoleIconCard";
 export { RoleIconFilters } from "./roleIcon/RoleIconFilters";
 export { RoleCard } from "./roles/RoleCard";
 export { RolesFilter } from "./roles/RolesFilter";
-export { Stats } from "./Stats";
 export { Select } from "./Select";
-export { FavoritesSharing } from "./FavoritesSharing";
-export { Paginator } from "./Paginator";
+export { SpotCard } from "./MatchHelper/SpotCard";
+export { Stats } from "./Stats";
+

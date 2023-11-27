@@ -65,6 +65,7 @@ export function Header() {
               <Link href="/roles">Roles</Link>
               <Link href="/items/avatarItems">Avatar Items</Link>
               <Link href="/items/roleIcons">Role Icons</Link>
+              <Link href="/matchHelper">Match Helper</Link>
               <Link
                 href="https://www.wolvesville.com"
                 target="_blank"
@@ -85,6 +86,7 @@ export function Header() {
           <Link href="/roles">Roles</Link>
           <Link href="/items/avatarItems">Avatar Items</Link>
           <Link href="/items/roleIcons">Role Icons</Link>
+          <Link href="/matchHelper">Match Helper</Link>
           <Link
             href="https://www.wolvesville.com"
             target="_blank"
