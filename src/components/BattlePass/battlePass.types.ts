@@ -31,7 +31,8 @@ export type RewardType =
   | "GEM"
   | "EMOJI"
   | "ROLE_CARD_ABILITY_EXCHANGE_VOUCHER"
-  | "LOADING_SCREEN";
+  | "LOADING_SCREEN"
+  | "BATTLE_PASS_COIN";
 
 export type Background = {
   id: string;
