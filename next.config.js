@@ -11,7 +11,7 @@ const cspDefault = "default-src 'self'; ";
 const cspFont = "font-src 'self' https://fonts.google.com; ";
 const cspStyle =
   "style-src 'self' 'unsafe-inline'; img-src 'self' cdn.wolvesville.com cdn-avatars.wolvesville.com; ";
-const cspConnnect = `connect-src 'self' https://foolsmate.cyclic.app/ https://vitals.vercel-insights.com cdn.wolvesville.com cdn-avatars.wolvesville.com ${
+const cspConnnect = `connect-src 'self' https://foolsmateapi.onrender.com/ https://vitals.vercel-insights.com cdn.wolvesville.com cdn-avatars.wolvesville.com ${
   !prod ? "http://localhost:3000" : ""
 };`;
 const cspOthers =
